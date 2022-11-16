@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hustler</title>
+    <link rel="stylesheet" href="./intro.css" />
+    <script type="module" src="./js/script.js"></script>
+  </head>
+  <body>
+    <div class="welcome-container hidden">
+      <h1 class="hustler-heading">Hustler</h1>
+      <div class="choose-options">
+        <div class="play-option--container option-container">
+          <h2 class="play-option--text">PLAY</h2>
+        </div>
+        <div class="options-option--container option-container">
+          <h2 class="options-option--text">OPTIONS</h2>
+        </div>
+      </div>
+      <div class="sound-container">
+        <div class="sound">
+          <img src="./img/welcome/soundOn.svg" class="sound-img sound-on" />
+        </div>
+      </div>
+    </div>
+
+    <img src="./img/output-onlinegiftools.gif" class="loader hidden" />
+
+    <section class="game-section">
+      <h1 class="total-money">$<span class="total-money--amount">0</span></h1>
+
+      <div class="jobs">
+        <div class="left-side--jobs">
+          <div class="surveys-container job-container">
+            <div class="job-image--upgrade">
+              <img src="./img/game/surveys.svg" class="surveysBtn" />
+
+              <div class="upgrade-progress-count">
+                <span class="upgrade-number surveys-upgrade-count">0</span>
+                <div
+                  class="survey-upgrade-progress-bar upgrade-progress-bar"
+                ></div>
+              </div>
+            </div>
+            <div class="bar-cost-time--container">
+              <div class="surveys-bar job-bar">
+                <div class="survey-progress--bar progress-bar"></div>
+                <p class="job-profit">
+                  <span class="survey-profit">0.1</span>
+                </p>
+              </div>
+              <div class="cost-time--container">
+                <div class="surveys-cost-container job-cost-container">
+                  <p class="job-cost">
+                    $<span class="job-upgrade-price survey-upgrade--price"
+                      >1</span
+                    >
+                  </p>
+                </div>
+                <div class="time-container">
+                  <span class="surveys-time">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tutoring-container job-container">
+            <div class="job-image--upgrade">
+              <img src="./img/game/tutoring.svg" class="tutoringBtn" />
+
+              <div class="upgrade-progress-count">
+                <span class="upgrade-number tutoring-upgrade-count">0</span>
+                <div
+                  class="tutoring-upgrade-progress-bar upgrade-progress-bar"
+                ></div>
+              </div>
+            </div>
+            <div class="bar-cost-time--container">
+              <div class="tutoring-bar job-bar">
+                <div class="tutoring-progress--bar progress-bar"></div>
+                <p class="job-profit">
+                  <span class="tutoring-profit">5</span>
+                </p>
+              </div>
+              <div class="cost-time--container">
+                <div class="tutoring-cost-container job-cost-container">
+                  <p class="job-cost">
+                    $<span class="job-upgrade-price tutoring-upgrade--price"
+                      >50</span
+                    >
+                  </p>
+                </div>
+                <div class="time-container">
+                  <span class="tutoring-time">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dogWalking-container job-container">
+            <div class="job-image--upgrade">
+              <img src="./img/game/dogwalking.svg" class="dogWalkingBtn" />
+              <div class="upgrade-progress-count">
+                <div
+                  class="dogWalking-upgrade-progress-bar upgrade-progress-bar"
+                ></div>
+                <span class="upgrade-number dogWalking-upgrade-count">0</span>
+                <div
+                  class="dogWalking-upgrade-progress-bar upgrade-progress-bar"
+                ></div>
+              </div>
+            </div>
+            <div class="bar-cost-time--container">
+              <div class="dogWalking-bar job-bar">
+                <div class="dogWalking-progress--bar progress-bar"></div>
+                <p class="job-profit">
+                  <span class="dogWalking-profit">250</span>
+                </p>
+              </div>
+              <div class="cost-time--container">
+                <div class="dogWalking-cost-container job-cost-container">
+                  <p class="job-cost">
+                    $<span class="job-upgrade-price dogWalking-upgrade--price"
+                      >500</span
+                    >
+                  </p>
+                </div>
+                <div class="time-container">
+                  <span class="dogWalking-time">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lawnMower-container job-container">
+            <div class="job-image--upgrade">
+              <img src="./img/game/lawmower.svg" class="lawnMowerBtn" />
+              <div class="upgrade-progress-count">
+                <div
+                  class="lawnMower-upgrade-progress-bar upgrade-progress-bar"
+                ></div>
+                <span class="upgrade-number lawnMower-upgrade-count">0</span>
+              </div>
+            </div>
+            <div class="bar-cost-time--container">
+              <div class="lawnMower-bar job-bar">
+                <div class="lawnMower-progress--bar progress-bar"></div>
+                <p class="job-profit">
+                  <span class="lawnMower-profit">1000</span>
+                </p>
+              </div>
+              <div class="cost-time--container">
+                <div class="lawnMower-cost-container job-cost-container">
+                  <p class="job-cost">
+                    $<span class="job-upgrade-price">1500</span>
+                  </p>
+                </div>
+                <div class="time-container">
+                  <span class="lawnMower-time">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-side--jobs">
+          <div class="babysitting-container job-container">
+            <div class="job-image--upgrade">
+              <img src="./img/game/babysitting.svg" class="babysittingBtn" />
+              <div class="upgrade-progress-count">
+                <div
+                  class="babysitting-upgrade-progress-bar upgrade-progress-bar"
+                ></div>
+                <span class="upgrade-number babysitting-upgrade-count">0</span>
+              </div>
+            </div>
+            <div class="bar-cost-time--container">
+              <div class="babysitting-bar job-bar">
+                <div class="babysitting-progress--bar progress-bar"></div>
+                <p class="job-profit">
+                  <span class="babysitting-profit">5000</span>
+                </p>
+              </div>
+              <div class="cost-time--container">
+                <div class="babysitting-cost-container job-cost-container">
+                  <p class="job-cost">
+                    $<span class="job-upgrade-price">8000</span>
+                  </p>
+                </div>
+                <div class="time-container">
+                  <span class="babysitting-time">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="photography-container job-container">
+            <div class="job-image--upgrade">
+              <img src="./img/game/photography.svg" class="photographyBtn" />
+              <div class="upgrade-progress-count">
+                <div
+                  class="photography-upgrade-progress-bar upgrade-progress-bar"
+                ></div>
+                <span class="upgrade-number photography-upgrade-count">0</span>
+              </div>
+            </div>
+            <div class="bar-cost-time--container">
+              <div class="photography-bar job-bar">
+                <div class="photography-progress--bar progress-bar"></div>
+                <p class="job-profit">
+                  <span class="photography-profit">10000</span>
+                </p>
+              </div>
+              <div class="cost-time--container">
+                <div class="photography-cost-container job-cost-container">
+                  <p class="job-cost">
+                    $<span class="job-upgrade-price">15000</span>
+                  </p>
+                </div>
+                <div class="time-container">
+                  <span class="photography-time">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="personalTrainer-container job-container">
+            <div class="job-image--upgrade">
+              <img src="./img/game/personaltrainer.svg" />
+              <div class="upgrade-progress-count">
+                <div
+                  class="personalTrainer-upgrade-progress-bar upgrade-progress-bar"
+                ></div>
+                <span class="upgrade-number personalTrainer-upgrade-count"
+                  >0</span
+                >
+              </div>
+            </div>
+            <div class="bar-cost-time--container">
+              <div class="personalTrainer-bar job-bar">
+                <p class="job-profit">
+                  <span class="personalTrainer-profit">25000</span>
+                </p>
+              </div>
+              <div class="cost-time--container">
+                <div class="personalTrainer-cost-container job-cost-container">
+                  <p class="job-cost">
+                    $<span class="job-upgrade-price">35000</span>
+                  </p>
+                </div>
+                <div class="time-container">
+                  <span class="personalTrainer-time">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cryptoTrader-container job-container">
+            <div class="job-image--upgrade">
+              <img src="./img/game/crypto.svg" />
+              <div class="upgrade-progress-count">
+                <div
+                  class="cryptoTrader-upgrade-progress-bar upgrade-progress-bar"
+                ></div>
+                <span class="upgrade-number cryptoTrader-upgrade-count">0</span>
+              </div>
+            </div>
+            <div class="bar-cost-time--container">
+              <div class="cryptoTrader-bar job-bar">
+                <p class="job-profit">
+                  <span class="cryptoTrader-profit">50000</span>
+                </p>
+              </div>
+              <div class="cost-time--container">
+                <div class="cryptoTrader-cost-container job-cost-container">
+                  <p class="job-cost">
+                    $<span class="job-upgrade-price">75000</span>
+                  </p>
+                </div>
+                <div class="time-container">
+                  <span class="cryptoTrader-time">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -33,29 +33,70 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaulttrainerMoney = 5000;
-let trainerMoney = 5000;
+let defaulttrainerMoney = 1000;
+let trainerMoney = 1000;
 
 //time
-let trainerTime = 360;
+let trainerTime = 3600;
 let trainerTimeValue = trainerTime;
 
 //playable
 let btnClicked = false;
 
+let hours = Math.floor(trainerTime / 3600);
+let minutes = Math.floor(trainerTime / 60) - hours * 60;
+let seconds = trainerTime % 60;
+
+const intervalTimeFunction = () => {
+  hours = Math.floor(trainerTime / 3600);
+  minutes = Math.floor(trainerTime / 60) - hours * 60;
+  seconds = trainerTime % 60;
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+
+  trainerTime--;
+
+  trainerTimeDisplay.innerHTML = `${hours}:${minutes}:${seconds}`;
+};
+
+const timeFunction = () => {
+  hours = Math.floor(trainerTime / 3600);
+  minutes = Math.floor(trainerTime / 60) - hours * 60;
+  seconds = trainerTime % 60;
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+
+  return [hours, minutes, seconds];
+};
+
 const trainerFunction = () => {
+  intervalTimeFunction();
+
   totalMoney = +totalMoneyDisplay.innerHTML;
-  trainerTimeDisplay.innerHTML = `0${trainerTimeValue / 60}:00`;
-  const intervalTimer = () => {
-    trainerTimeValue--;
-    trainerTimeDisplay.innerHTML = `0${trainerTimeValue / 60}:00`;
-  };
+  trainerTimeDisplay.innerHTML = `${hours}:${minutes}:${seconds}`;
+
   trainerBtn.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       trainerProgressBar.style.cssText = `width: 100%; transition: width ${trainerTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimer, 1000);
+      let timeInterval = setInterval(intervalTimeFunction, 1000);
 
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
@@ -64,8 +105,10 @@ const trainerFunction = () => {
         trainerProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), trainerTime * 1000);
         clearInterval(timeInterval);
-        trainerTimeValue = trainerTime;
-        trainerTimeDisplay.innerHTML = `0${trainerTimeValue / 60}:00`;
+        trainerTime = 3600;
+        trainerTimeDisplay.innerHTML = `${timeFunction()[0]}:${
+          timeFunction()[1]
+        }:${timeFunction()[2]}`;
       }, trainerTime * 1000);
     }
   });

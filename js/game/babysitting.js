@@ -37,8 +37,8 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultbabysittingMoney = 5000;
-let babysittingMoney = 5000;
+let defaultbabysittingMoney = 1000;
+let babysittingMoney = 1000;
 
 //time
 let babysittingTime = 360;
@@ -47,19 +47,40 @@ let babysittingTimeValue = babysittingTime;
 //playable
 let btnClicked = false;
 
+let minutes = Math.floor(babysittingTime / 60);
+let seconds = babysittingTime % 60;
+
+const intervalTimeFunction = () => {
+  minutes = Math.floor(babysittingTime / 60);
+  seconds = babysittingTime % 60;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  babysittingTime--;
+
+  babysittingTimeDisplay.innerHTML = `${minutes}:${seconds}`;
+};
+
+const timeFunction = () => {
+  minutes = Math.floor(babysittingTime / 60);
+  seconds = babysittingTime % 60;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  return [minutes, seconds];
+};
+
 const babysittingFunction = () => {
+  intervalTimeFunction();
+
   totalMoney = +totalMoneyDisplay.innerHTML;
-  babysittingTimeDisplay.innerHTML = `0${babysittingTimeValue / 60}:00`;
-  const intervalTimer = () => {
-    babysittingTimeValue--;
-    babysittingTimeDisplay.innerHTML = `0${babysittingTimeValue / 60}:00`;
-  };
+  babysittingTimeDisplay.innerHTML = `${minutes}:${seconds}`;
+
   babysittingBtn.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       babysittingProgressBar.style.cssText = `width: 100%; transition: width ${babysittingTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimer, 1000);
+      let timeInterval = setInterval(intervalTimeFunction, 1000);
 
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
@@ -68,8 +89,10 @@ const babysittingFunction = () => {
         babysittingProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), babysittingTime * 1000);
         clearInterval(timeInterval);
-        babysittingTimeValue = babysittingTime;
-        babysittingTimeDisplay.innerHTML = `0${babysittingTimeValue / 60}:00`;
+        babysittingTime = 360;
+        babysittingTimeDisplay.innerHTML = `${timeFunction()[0]}:${
+          timeFunction()[1]
+        }`;
       }, babysittingTime * 1000);
     }
   });
@@ -92,7 +115,7 @@ const babysittingFunction = () => {
     }
 
     if (babysittingUpgradeCount === firstTimeStampUpgrade) {
-      babysittingsUpgradeCount++;
+      babysittingUpgradeCount++;
       babysittingMoney *= 2;
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
@@ -101,7 +124,7 @@ const babysittingFunction = () => {
     }
 
     if (babysittingUpgradeCount === secondTimeStampUpgrade) {
-      babysittingsUpgradeCount++;
+      babysittingUpgradeCount++;
       babysittingMoney *= 2;
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
@@ -109,14 +132,14 @@ const babysittingFunction = () => {
     }
 
     if (babysittingUpgradeCount === thirdTimeStampUpgrade) {
-      babysittingsUpgradeCount++;
+      babysittingUpgradeCount++;
       babysittingMoney *= 2;
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
       defaultbabysittingMoney *= 2;
     }
     if (babysittingUpgradeCount === forthTimeStampUpgrade) {
-      babysittingsUpgradeCount++;
+      babysittingUpgradeCount++;
       babysittingMoney *= 2;
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";

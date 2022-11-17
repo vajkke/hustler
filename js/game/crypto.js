@@ -33,29 +33,70 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultcryptoMoney = 5000;
-let cryptoMoney = 5000;
+let defaultcryptoMoney = 1000;
+let cryptoMoney = 1000;
 
 //time
-let cryptoTime = 1200;
+let cryptoTime = 10800;
 let cryptoTimeValue = cryptoTime;
 
 //playable
 let btnClicked = false;
 
+let hours = Math.floor(cryptoTime / 3600);
+let minutes = Math.floor(cryptoTime / 60) - hours * 60;
+let seconds = cryptoTime % 60;
+
+const intervalTimeFunction = () => {
+  hours = Math.floor(cryptoTime / 3600);
+  minutes = Math.floor(cryptoTime / 60) - hours * 60;
+  seconds = cryptoTime % 60;
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+
+  cryptoTime--;
+
+  cryptoTimeDisplay.innerHTML = `${hours}:${minutes}:${seconds}`;
+};
+
+const timeFunction = () => {
+  hours = Math.floor(cryptoTime / 3600);
+  minutes = Math.floor(cryptoTime / 60) - hours * 60;
+  seconds = cryptoTime % 60;
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+
+  return [hours, minutes, seconds];
+};
+
 const cryptoFunction = () => {
+  intervalTimeFunction();
+
   totalMoney = +totalMoneyDisplay.innerHTML;
-  cryptoTimeDisplay.innerHTML = `${cryptoTimeValue / 60}:00`;
-  const intervalTimer = () => {
-    cryptoTimeValue--;
-    cryptoTimeDisplay.innerHTML = `${cryptoTimeValue / 60}:00`;
-  };
+  cryptoTimeDisplay.innerHTML = `${hours}:${minutes}:${seconds}`;
+
   cryptoBtn.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       cryptoProgressBar.style.cssText = `width: 100%; transition: width ${cryptoTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimer, 1000);
+      let timeInterval = setInterval(intervalTimeFunction, 1000);
 
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
@@ -64,8 +105,10 @@ const cryptoFunction = () => {
         cryptoProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), cryptoTime * 1000);
         clearInterval(timeInterval);
-        cryptoTimeValue = cryptoTime;
-        cryptoTimeDisplay.innerHTML = `${cryptoTimeValue / 60}:00`;
+        cryptoTime = 10800;
+        cryptoTimeDisplay.innerHTML = `${timeFunction()[0]}:${
+          timeFunction()[1]
+        }:${timeFunction()[2]}`;
       }, cryptoTime * 1000);
     }
   });

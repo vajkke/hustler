@@ -37,8 +37,8 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultphotographyMoney = 5000;
-let photographyMoney = 5000;
+let defaultphotographyMoney = 1000;
+let photographyMoney = 1000;
 
 //time
 let photographyTime = 1200;
@@ -47,19 +47,40 @@ let photographyTimeValue = photographyTime;
 //playable
 let btnClicked = false;
 
+let minutes = Math.floor(photographyTime / 60);
+let seconds = photographyTime % 60;
+
+const intervalTimeFunction = () => {
+  minutes = Math.floor(photographyTime / 60);
+  seconds = photographyTime % 60;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  photographyTime--;
+
+  photographyTimeDisplay.innerHTML = `${minutes}:${seconds}`;
+};
+
+const timeFunction = () => {
+  minutes = Math.floor(photographyTime / 60);
+  seconds = photographyTime % 60;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  return [minutes, seconds];
+};
+
 const photographyFunction = () => {
+  intervalTimeFunction();
+
   totalMoney = +totalMoneyDisplay.innerHTML;
-  photographyTimeDisplay.innerHTML = `${photographyTimeValue / 60}:00`;
-  const intervalTimer = () => {
-    photographyTimeValue--;
-    photographyTimeDisplay.innerHTML = `${photographyTimeValue / 60}:00`;
-  };
+  photographyTimeDisplay.innerHTML = `${minutes}:${seconds}`;
+
   photographyBtn.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       photographyProgressBar.style.cssText = `width: 100%; transition: width ${photographyTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimer, 1000);
+      let timeInterval = setInterval(intervalTimeFunction, 1000);
 
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
@@ -68,8 +89,10 @@ const photographyFunction = () => {
         photographyProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), photographyTime * 1000);
         clearInterval(timeInterval);
-        photographyTimeValue = photographyTime;
-        photographyTimeDisplay.innerHTML = `${photographyTimeValue / 60}:00`;
+        photographyTime = 1200;
+        photographyTimeDisplay.innerHTML = `${timeFunction()[0]}:${
+          timeFunction()[1]
+        }`;
       }, photographyTime * 1000);
     }
   });

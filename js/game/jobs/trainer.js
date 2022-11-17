@@ -33,8 +33,8 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaulttrainerMoney = 1000;
-let trainerMoney = 1000;
+let defaulttrainerMoney = 25000;
+let trainerMoney = 10000;
 
 //time
 let trainerTime = 3600;

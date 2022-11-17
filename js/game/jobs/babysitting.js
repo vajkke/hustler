@@ -37,8 +37,8 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultbabysittingMoney = 1000;
-let babysittingMoney = 1000;
+let defaultbabysittingMoney = 2000;
+let babysittingMoney = 5000;
 
 //time
 let babysittingTime = 360;

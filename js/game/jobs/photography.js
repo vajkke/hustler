@@ -37,8 +37,8 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultphotographyMoney = 1000;
-let photographyMoney = 1000;
+let defaultphotographyMoney = 3000;
+let photographyMoney = 10000;
 
 //time
 let photographyTime = 1200;

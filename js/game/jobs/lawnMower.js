@@ -33,7 +33,7 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultlawnMowerMoney = 1000;
+let defaultlawnMowerMoney = 500;
 let lawnMowerMoney = 1000;
 
 //time

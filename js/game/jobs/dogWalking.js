@@ -37,7 +37,7 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultdogWalkingMoney = 250;
+let defaultdogWalkingMoney = 125;
 let dogWalkingMoney = 250;
 
 //time

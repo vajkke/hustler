@@ -34,7 +34,7 @@ let upgradeWitdh = 10;
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
 let defaultSurveyMoney = 0.1;
-let surveyMoney = 100000;
+let surveyMoney = 0.1;
 
 //time
 let surveyTime = 4;

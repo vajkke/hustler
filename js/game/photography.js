@@ -47,8 +47,6 @@ let photographyTimeValue = photographyTime;
 //playable
 let btnClicked = false;
 
-const timeFunction = () => {};
-
 const photographyFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
   photographyTimeDisplay.innerHTML = `${photographyTimeValue / 60}:00`;
@@ -94,7 +92,7 @@ const photographyFunction = () => {
     }
 
     if (photographyUpgradeCount === firstTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      photographyUpgradeCount++;
       photographyMoney *= 2;
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
@@ -103,7 +101,7 @@ const photographyFunction = () => {
     }
 
     if (photographyUpgradeCount === secondTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      photographyUpgradeCount++;
       photographyMoney *= 2;
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
@@ -111,14 +109,14 @@ const photographyFunction = () => {
     }
 
     if (photographyUpgradeCount === thirdTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      photographyUpgradeCount++;
       photographyMoney *= 2;
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
       defaultphotographyMoney *= 2;
     }
     if (photographyUpgradeCount === forthTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      photographyUpgradeCount++;
       photographyMoney *= 2;
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";

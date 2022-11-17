@@ -34,7 +34,7 @@ let upgradeWitdh = 10;
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
 let defaultSurveyMoney = 0.1;
-let surveyMoney = 0.1;
+let surveyMoney = 100000;
 
 //time
 let surveyTime = 4;
@@ -60,7 +60,7 @@ const surveyFunction = () => {
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += surveyMoney;
-        totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+        totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         surveyProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), surveyTime * 1000);
         clearInterval(timeInterval);
@@ -72,14 +72,13 @@ const surveyFunction = () => {
 
   surveyUpgradeBtn.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
-    console.log(totalMoney);
     if (totalMoney > surveyUpgradePrice) {
       surveyMoney += defaultSurveyMoney;
       totalMoney -= surveyUpgradePrice;
       surveyUpgradeCount++;
       surveyUpgradePrice += surveyUpgradePrice / 5;
 
-      totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+      totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
       surveyUpgradePriceDisplay.innerHTML = surveyUpgradePrice.toFixed(2);
       surveyUpgradeCountDisplay.innerHTML = surveyUpgradeCount;

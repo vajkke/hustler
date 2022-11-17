@@ -37,27 +37,46 @@ let defaultlawnMowerMoney = 1000;
 let lawnMowerMoney = 1000;
 
 //time
-let lawnMowerTime = 1;
+let lawnMowerTime = 120;
 let lawnMowerTimeValue = lawnMowerTime;
 
 //playable
 let btnClicked = false;
 
-const timeFunction = () => {};
+let minutes = Math.floor(lawnMowerTime / 60);
+let seconds = lawnMowerTime % 60;
+
+const intervalTimeFunction = () => {
+  minutes = Math.floor(lawnMowerTime / 60);
+  seconds = lawnMowerTime % 60;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  lawnMowerTime--;
+
+  lawnMowerTimeDisplay.innerHTML = `${minutes}:${seconds}`;
+};
+
+const timeFunction = () => {
+  minutes = Math.floor(lawnMowerTime / 60);
+  seconds = lawnMowerTime % 60;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  return [minutes, seconds];
+};
 
 const lawnMowerFunction = () => {
+  intervalTimeFunction();
+
   totalMoney = +totalMoneyDisplay.innerHTML;
-  lawnMowerTimeDisplay.innerHTML = `0${lawnMowerTimeValue / 60}:00`;
-  const intervalTimer = () => {
-    lawnMowerTimeValue--;
-    lawnMowerTimeDisplay.innerHTML = `0${lawnMowerTimeValue / 60}:00`;
-  };
+  lawnMowerTimeDisplay.innerHTML = `${minutes}:${seconds}`;
+
   lawnMowerBtn.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       lawnMowerProgressBar.style.cssText = `width: 100%; transition: width ${lawnMowerTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimer, 1000);
+      let timeInterval = setInterval(intervalTimeFunction, 1000);
 
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
@@ -66,8 +85,10 @@ const lawnMowerFunction = () => {
         lawnMowerProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), lawnMowerTime * 1000);
         clearInterval(timeInterval);
-        lawnMowerTimeValue = lawnMowerTime;
-        lawnMowerTimeDisplay.innerHTML = `0${lawnMowerTimeValue / 60}:00`;
+        lawnMowerTime = 120;
+        lawnMowerTimeDisplay.innerHTML = `${timeFunction()[0]}:${
+          timeFunction()[1]
+        }`;
       }, lawnMowerTime * 1000);
     }
   });
@@ -89,7 +110,7 @@ const lawnMowerFunction = () => {
     }
 
     if (lawnMowerUpgradeCount === firstTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      lawnMowerUpgradeCount++;
       lawnMowerMoney *= 2;
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";
@@ -98,7 +119,7 @@ const lawnMowerFunction = () => {
     }
 
     if (lawnMowerUpgradeCount === secondTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      lawnMowerUpgradeCount++;
       lawnMowerMoney *= 2;
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";
@@ -106,14 +127,14 @@ const lawnMowerFunction = () => {
     }
 
     if (lawnMowerUpgradeCount === thirdTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      lawnMowerUpgradeCount++;
       lawnMowerMoney *= 2;
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";
       defaultlawnMowerMoney *= 2;
     }
     if (lawnMowerUpgradeCount === forthTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      lawnMowerUpgradeCount++;
       lawnMowerMoney *= 2;
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";

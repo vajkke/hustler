@@ -47,8 +47,6 @@ let babysittingTimeValue = babysittingTime;
 //playable
 let btnClicked = false;
 
-const timeFunction = () => {};
-
 const babysittingFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
   babysittingTimeDisplay.innerHTML = `0${babysittingTimeValue / 60}:00`;
@@ -94,7 +92,7 @@ const babysittingFunction = () => {
     }
 
     if (babysittingUpgradeCount === firstTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      babysittingsUpgradeCount++;
       babysittingMoney *= 2;
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
@@ -103,7 +101,7 @@ const babysittingFunction = () => {
     }
 
     if (babysittingUpgradeCount === secondTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      babysittingsUpgradeCount++;
       babysittingMoney *= 2;
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
@@ -111,14 +109,14 @@ const babysittingFunction = () => {
     }
 
     if (babysittingUpgradeCount === thirdTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      babysittingsUpgradeCount++;
       babysittingMoney *= 2;
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
       defaultbabysittingMoney *= 2;
     }
     if (babysittingUpgradeCount === forthTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      babysittingsUpgradeCount++;
       babysittingMoney *= 2;
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";

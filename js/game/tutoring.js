@@ -60,7 +60,7 @@ const tutoringFunction = () => {
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += tutoringMoney;
-        totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+        totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         tutoringProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), tutoringTime * 1000);
         clearInterval(timeInterval);
@@ -78,7 +78,7 @@ const tutoringFunction = () => {
       tutoringUpgradeCount++;
       tutoringUpgradePrice += tutoringUpgradePrice / 4;
 
-      totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+      totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
       tutoringMoneyDisplay.innerHTML = tutoringMoney.toFixed(2);
       tutoringUpgradePriceDisplay.innerHTML = tutoringUpgradePrice.toFixed(2);
       tutoringUpgradeCountDisplay.innerHTML = tutoringUpgradeCount;
@@ -87,7 +87,7 @@ const tutoringFunction = () => {
     }
 
     if (tutoringUpgradeCount === firstTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      tutoringUpgradeCount++;
       tutoringMoney *= 2;
       tutoringUpgradeBarWidth = 0;
       tutoringCountUpgradeBar.style.width = tutoringUpgradeBarWidth + "%";
@@ -96,7 +96,7 @@ const tutoringFunction = () => {
     }
 
     if (tutoringUpgradeCount === secondTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      tutoringUpgradeCount++;
       tutoringMoney *= 2;
       tutoringUpgradeBarWidth = 0;
       tutoringCountUpgradeBar.style.width = tutoringUpgradeBarWidth + "%";
@@ -104,14 +104,14 @@ const tutoringFunction = () => {
     }
 
     if (tutoringUpgradeCount === thirdTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      tutoringUpgradeCount++;
       tutoringMoney *= 2;
       tutoringUpgradeBarWidth = 0;
       tutoringCountUpgradeBar.style.width = tutoringUpgradeBarWidth + "%";
       defaultTutoringMoney *= 2;
     }
     if (tutoringUpgradeCount === forthTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      tutoringUpgradeCount++;
       tutoringMoney *= 2;
       tutoringUpgradeBarWidth = 0;
       tutoringCountUpgradeBar.style.width = tutoringUpgradeBarWidth + "%";

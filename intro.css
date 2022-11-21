@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap");
 
 * {
   margin: 0;
@@ -99,10 +100,12 @@ body {
 /* JOBS */
 
 .game-section {
-  margin-top: 3rem;
-  margin-left: 6rem;
   cursor: pointer;
   position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .total-money {
@@ -111,26 +114,21 @@ body {
   text-align: center;
 }
 
+.money-jobs {
+  width: 80%;
+  margin-left: 2rem;
+}
+
 .jobs {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-top: 6rem;
 }
 
-.left-side--jobs {
-  margin-right: 5rem;
-}
-
-.right-side--jobs {
-  margin-left: 5rem;
-}
-
 .job-bar {
   width: 400px;
   height: 60px;
-  /* background-color: #2a7221; */
   background-color: #5a5a66;
   margin-bottom: 1rem;
   border-radius: 25px;
@@ -184,7 +182,6 @@ body {
   width: 60%;
   padding: 10px 0;
   background-color: #c98686;
-  /* border-top-left-radius: 25px; */
   border-bottom-left-radius: 25px;
 }
 
@@ -200,7 +197,6 @@ body {
   width: 35%;
   background-color: #4f646f;
   padding: 10px 0;
-  /* border-top-right-radius: 25px; */
   border-bottom-right-radius: 25px;
   text-align: center;
 }
@@ -254,4 +250,63 @@ body {
   position: absolute;
   right: -10%;
   top: -2%;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  height: 100%;
+  width: 15%;
+  background: rgba(183, 173, 207, 0.49);
+  border-top-right-radius: 10rem;
+  border-bottom-right-radius: 5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.4px);
+  -webkit-backdrop-filter: blur(2.4px);
+  border: 1px solid rgba(183, 173, 207, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  height: 30%;
+  width: 100%;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(222, 231, 231, 0.69);
+  border-top-right-radius: 10rem;
+}
+
+.avatar-container {
+  margin-top: 2rem;
+  width: 70%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.4px);
+  -webkit-backdrop-filter: blur(2.4px);
+  border-radius: 11px;
+}
+
+.sidebar-thing {
+  height: 70px;
+  margin-top: 2.5rem;
+  width: 85%;
+  background: rgba(222, 231, 231, 0.69);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.4px);
+  -webkit-backdrop-filter: blur(2.4px);
+  border: 1px solid rgba(222, 231, 231, 0.3);
+  color: #5a5a66;
+  font-family: "Nova Mono", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
 }

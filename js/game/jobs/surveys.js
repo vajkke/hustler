@@ -46,10 +46,14 @@ let surveyUpgradeAttribute = surveyUpgradeBtn.getAttribute("upgradeCount");
 
 const surveyFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
-  surveyTimeDisplay.innerHTML = `00:0${surveyTimeValue}`;
+  surveyTimeDisplay.innerHTML = `00:${
+    surveyTimeValue > 10 ? surveyTime : "0" + surveyTime
+  }`;
   const intervalTimer = () => {
     surveyTimeValue--;
-    surveyTimeDisplay.innerHTML = `00:0${surveyTimeValue}`;
+    surveyTimeDisplay.innerHTML = `00:${
+      surveyTimeValue > 10 ? surveyTimeValue : "0" + surveyTimeValue
+    }`;
   };
   surveysBtn.addEventListener("click", () => {
     console.log(surveyUpgradePrice);
@@ -67,7 +71,9 @@ const surveyFunction = () => {
         setTimeout((btnClicked = false), surveyTime * 1000);
         clearInterval(timeInterval);
         surveyTimeValue = surveyTime;
-        surveyTimeDisplay.innerHTML = `00:0${surveyTimeValue}`;
+        surveyTimeDisplay.innerHTML = `00:${
+          surveyTimeValue > 10 ? surveyTime : "0" + surveyTime
+        }`;
       }, surveyTime * 1000);
     }
   });

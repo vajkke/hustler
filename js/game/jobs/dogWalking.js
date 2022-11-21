@@ -51,10 +51,16 @@ let dogWalkingUpgradeAttribute =
 
 const dogWalkingFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
-  dogWalkingTimeDisplay.innerHTML = `00:${dogWalkingTimeValue}`;
+  dogWalkingTimeDisplay.innerHTML = `00:${
+    dogWalkingTimeValue >= 10 ? dogWalkingTimeValue : "0" + dogWalkingTimeValue
+  }`;
   const intervalTimer = () => {
     dogWalkingTimeValue--;
-    dogWalkingTimeDisplay.innerHTML = `00:${dogWalkingTimeValue}`;
+    dogWalkingTimeDisplay.innerHTML = `00:${
+      dogWalkingTimeValue >= 10
+        ? dogWalkingTimeValue
+        : "0" + dogWalkingTimeValue
+    }`;
   };
   dogWalkingBtn.addEventListener("click", () => {
     console.log(dogWalkingUpgradePrice);
@@ -72,7 +78,11 @@ const dogWalkingFunction = () => {
         setTimeout((btnClicked = false), dogWalkingTime * 1000);
         clearInterval(timeInterval);
         dogWalkingTimeValue = dogWalkingTime;
-        dogWalkingTimeDisplay.innerHTML = `00:${dogWalkingTimeValue}`;
+        dogWalkingTimeDisplay.innerHTML = `00:${
+          dogWalkingTimeValue >= 10
+            ? dogWalkingTimeValue
+            : "0" + dogWalkingTimeValue
+        }`;
       }, dogWalkingTime * 1000);
     }
   });

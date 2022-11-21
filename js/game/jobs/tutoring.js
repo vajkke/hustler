@@ -46,10 +46,14 @@ let tutoringUpgradeAttribute = tutoringUpgradeBtn.getAttribute("upgradeCount");
 
 const tutoringFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
-  tutoringTimeDisplay.innerHTML = `00:${tutoringTimeValue}`;
+  tutoringTimeDisplay.innerHTML = `00:${
+    tutoringTimeValue >= 10 ? tutoringTimeValue : "0" + tutoringTimeValue
+  }`;
   const intervalTimer = () => {
     tutoringTimeValue--;
-    tutoringTimeDisplay.innerHTML = `00:${tutoringTimeValue}`;
+    tutoringTimeDisplay.innerHTML = `00:${
+      tutoringTimeValue >= 10 ? tutoringTimeValue : "0" + tutoringTimeValue
+    }`;
   };
   tutoringBtn.addEventListener("click", () => {
     console.log(tutoringUpgradePrice);
@@ -67,7 +71,9 @@ const tutoringFunction = () => {
         setTimeout((btnClicked = false), tutoringTime * 1000);
         clearInterval(timeInterval);
         tutoringTimeValue = tutoringTime;
-        tutoringTimeDisplay.innerHTML = `00:${tutoringTimeValue}`;
+        tutoringTimeDisplay.innerHTML = `00:${
+          tutoringTimeValue >= 10 ? tutoringTimeValue : "0" + tutoringTimeValue
+        }`;
       }, tutoringTime * 1000);
     }
   });

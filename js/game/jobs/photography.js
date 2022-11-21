@@ -25,13 +25,13 @@ const photographyCountUpgradeBar = document.querySelector(
 
 //upgrades
 let photographyUpgradeBarWidth = 0;
-let photographyUpgradePrice = 1500;
+let photographyUpgradePrice = +photographyUpgradePriceDisplay.innerHTML;
 let photographyUpgradeCount = 0;
 
 let firstTimeStampUpgrade = 10;
-let secondTimeStampUpgrade = 100;
-let thirdTimeStampUpgrade = 200;
-let forthTimeStampUpgrade = 300;
+let secondTimeStampUpgrade = 50;
+let thirdTimeStampUpgrade = 100;
+let forthTimeStampUpgrade = 200;
 
 let upgradeWitdh = 10;
 
@@ -98,52 +98,65 @@ const photographyFunction = () => {
   });
 
   photographyUpgradeBtn.addEventListener("click", () => {
+    photographyUpgradeAttribute =
+      photographyUpgradeBtn.getAttribute("upgradeCount");
+    photographyUpgradePrice = +photographyUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney > photographyUpgradePrice) {
-      photographyMoney += defaultphotographyMoney;
+      photographyMoney += photographyMoney;
       totalMoney -= photographyUpgradePrice;
       photographyUpgradeCount++;
-      photographyUpgradePrice += photographyUpgradePrice / 4;
+      photographyUpgradePrice += photographyUpgradePrice / 7;
 
-      totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+      totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
       photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
       photographyUpgradePriceDisplay.innerHTML =
         photographyUpgradePrice.toFixed(2);
-      photographyUpgradeCountDisplay.innerHTML = photographyUpgradeCount;
+      photographyUpgradeCountDisplay.innerHTML = Math.round(
+        photographyUpgradeCount
+      );
       photographyUpgradeBarWidth += upgradeWitdh;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
     }
 
     if (photographyUpgradeCount === firstTimeStampUpgrade) {
-      photographyUpgradeCount++;
-      photographyMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      photographyMoney *= 3;
+      photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
+
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
-      upgradeWitdh = 1;
-      defaultphotographyMoney *= 2;
+      upgradeWitdh = 2.5;
+      photographyMoney *= 2;
     }
 
     if (photographyUpgradeCount === secondTimeStampUpgrade) {
-      photographyUpgradeCount++;
-      photographyMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      photographyMoney *= 4;
+      photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
+
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
-      defaultphotographyMoney *= 2;
+      upgradeWitdh = 2;
+      photographyMoney *= 2;
     }
 
     if (photographyUpgradeCount === thirdTimeStampUpgrade) {
-      photographyUpgradeCount++;
-      photographyMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      photographyMoney *= 5;
+      photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
+
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
-      defaultphotographyMoney *= 2;
+      upgradeWitdh = 1;
+      photographyMoney *= 2;
     }
     if (photographyUpgradeCount === forthTimeStampUpgrade) {
-      photographyUpgradeCount++;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      photographyMoney *= 10;
+      photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
+      photographyCountUpgradeBar.style.width = 100 + "%";
       photographyMoney *= 2;
-      photographyUpgradeBarWidth = 0;
-      photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
-      defaultphotographyMoney *= 2;
     }
   });
 };

@@ -21,13 +21,13 @@ const trainerCountUpgradeBar = document.querySelector(
 
 //upgrades
 let trainerUpgradeBarWidth = 0;
-let trainerUpgradePrice = 1500;
+let trainerUpgradePrice = +trainerUpgradePriceDisplay.innerHTML;
 let trainerUpgradeCount = 0;
 
 let firstTimeStampUpgrade = 10;
-let secondTimeStampUpgrade = 100;
-let thirdTimeStampUpgrade = 200;
-let forthTimeStampUpgrade = 300;
+let secondTimeStampUpgrade = 50;
+let thirdTimeStampUpgrade = 100;
+let forthTimeStampUpgrade = 200;
 
 let upgradeWitdh = 10;
 
@@ -114,51 +114,61 @@ const trainerFunction = () => {
   });
 
   trainerUpgradeBtn.addEventListener("click", () => {
+    trainerUpgradeAttribute = trainerUpgradeBtn.getAttribute("upgradeCount");
+    trainerUpgradePrice = +trainerUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney > trainerUpgradePrice) {
-      trainerMoney += defaulttrainerMoney;
+      trainerMoney += trainerMoney;
       totalMoney -= trainerUpgradePrice;
       trainerUpgradeCount++;
-      trainerUpgradePrice += trainerUpgradePrice / 4;
+      trainerUpgradePrice += trainerUpgradePrice / 7;
 
-      totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+      totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
       trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
       trainerUpgradePriceDisplay.innerHTML = trainerUpgradePrice.toFixed(2);
-      trainerUpgradeCountDisplay.innerHTML = trainerUpgradeCount;
+      trainerUpgradeCountDisplay.innerHTML = Math.round(trainerUpgradeCount);
       trainerUpgradeBarWidth += upgradeWitdh;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
     }
 
     if (trainerUpgradeCount === firstTimeStampUpgrade) {
-      trainerUpgradeCount++;
-      trainerMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      trainerMoney *= 3;
+      trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
+
       trainerUpgradeBarWidth = 0;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
-      upgradeWitdh = 1;
-      defaulttrainerMoney *= 2;
+      upgradeWitdh = 2.5;
+      trainerMoney *= 2;
     }
 
     if (trainerUpgradeCount === secondTimeStampUpgrade) {
-      trainerUpgradeCount++;
-      trainerMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      trainerMoney *= 4;
+      trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
+
       trainerUpgradeBarWidth = 0;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
-      defaulttrainerMoney *= 2;
+      upgradeWitdh = 2;
+      trainerMoney *= 2;
     }
 
     if (trainerUpgradeCount === thirdTimeStampUpgrade) {
-      trainerUpgradeCount++;
-      trainerMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      trainerMoney *= 5;
+      trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
+
       trainerUpgradeBarWidth = 0;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
-      defaulttrainerMoney *= 2;
+      upgradeWitdh = 1;
+      trainerMoney *= 2;
     }
     if (trainerUpgradeCount === forthTimeStampUpgrade) {
-      trainerUpgradeCount++;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      trainerMoney *= 10;
+      trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
+      trainerCountUpgradeBar.style.width = 100 + "%";
       trainerMoney *= 2;
-      trainerUpgradeBarWidth = 0;
-      trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
-      defaulttrainerMoney *= 2;
     }
   });
 };

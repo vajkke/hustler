@@ -25,13 +25,13 @@ const babysittingCountUpgradeBar = document.querySelector(
 
 //upgrades
 let babysittingUpgradeBarWidth = 0;
-let babysittingUpgradePrice = 1500;
+let babysittingUpgradePrice = +babysittingUpgradePriceDisplay.innerHTML;
 let babysittingUpgradeCount = 0;
 
 let firstTimeStampUpgrade = 10;
-let secondTimeStampUpgrade = 100;
-let thirdTimeStampUpgrade = 200;
-let forthTimeStampUpgrade = 300;
+let secondTimeStampUpgrade = 50;
+let thirdTimeStampUpgrade = 100;
+let forthTimeStampUpgrade = 200;
 
 let upgradeWitdh = 10;
 
@@ -98,52 +98,65 @@ const babysittingFunction = () => {
   });
 
   babysittingUpgradeBtn.addEventListener("click", () => {
+    babysittingUpgradeAttribute =
+      babysittingUpgradeBtn.getAttribute("upgradeCount");
+    babysittingUpgradePrice = +babysittingUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney > babysittingUpgradePrice) {
-      babysittingMoney += defaultbabysittingMoney;
+      babysittingMoney += babysittingMoney;
       totalMoney -= babysittingUpgradePrice;
       babysittingUpgradeCount++;
-      babysittingUpgradePrice += babysittingUpgradePrice / 4;
+      babysittingUpgradePrice += babysittingUpgradePrice / 7;
 
-      totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+      totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
       babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
       babysittingUpgradePriceDisplay.innerHTML =
         babysittingUpgradePrice.toFixed(2);
-      babysittingUpgradeCountDisplay.innerHTML = babysittingUpgradeCount;
+      babysittingUpgradeCountDisplay.innerHTML = Math.round(
+        babysittingUpgradeCount
+      );
       babysittingUpgradeBarWidth += upgradeWitdh;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
     }
 
     if (babysittingUpgradeCount === firstTimeStampUpgrade) {
-      babysittingUpgradeCount++;
-      babysittingMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      babysittingMoney *= 3;
+      babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
+
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
-      upgradeWitdh = 1;
-      defaultbabysittingMoney *= 2;
+      upgradeWitdh = 2.5;
+      babysittingMoney *= 2;
     }
 
     if (babysittingUpgradeCount === secondTimeStampUpgrade) {
-      babysittingUpgradeCount++;
-      babysittingMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      babysittingMoney *= 4;
+      babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
+
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
-      defaultbabysittingMoney *= 2;
+      upgradeWitdh = 2;
+      babysittingMoney *= 2;
     }
 
     if (babysittingUpgradeCount === thirdTimeStampUpgrade) {
-      babysittingUpgradeCount++;
-      babysittingMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      babysittingMoney *= 5;
+      babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
+
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
-      defaultbabysittingMoney *= 2;
+      upgradeWitdh = 1;
+      babysittingMoney *= 2;
     }
     if (babysittingUpgradeCount === forthTimeStampUpgrade) {
-      babysittingUpgradeCount++;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      babysittingMoney *= 10;
+      babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
+      babysittingCountUpgradeBar.style.width = 100 + "%";
       babysittingMoney *= 2;
-      babysittingUpgradeBarWidth = 0;
-      babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
-      defaultbabysittingMoney *= 2;
     }
   });
 };

@@ -21,20 +21,20 @@ const surveyCountUpgradeBar = document.querySelector(
 
 //upgrades
 let surveyUpgradeBarWidth = 0;
-let surveyUpgradePrice = 1;
+let surveyUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
 let surveyUpgradeCount = 0;
 
 let firstTimeStampUpgrade = 10;
-let secondTimeStampUpgrade = 100;
-let thirdTimeStampUpgrade = 200;
-let forthTimeStampUpgrade = 300;
+let secondTimeStampUpgrade = 50;
+let thirdTimeStampUpgrade = 100;
+let forthTimeStampUpgrade = 200;
 
 let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
 let defaultSurveyMoney = 0.1;
-let surveyMoney = 0.1;
+let surveyMoney = +surveyMoneyDisplay.innerHTML;
 
 //time
 let surveyTime = 4;
@@ -42,6 +42,7 @@ let surveyTimeValue = surveyTime;
 
 //playable
 let btnClicked = false;
+let surveyUpgradeAttribute = surveyUpgradeBtn.getAttribute("upgradeCount");
 
 const surveyFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
@@ -51,6 +52,7 @@ const surveyFunction = () => {
     surveyTimeDisplay.innerHTML = `00:0${surveyTimeValue}`;
   };
   surveysBtn.addEventListener("click", () => {
+    console.log(surveyUpgradePrice);
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
@@ -71,55 +73,60 @@ const surveyFunction = () => {
   });
 
   surveyUpgradeBtn.addEventListener("click", () => {
+    surveyUpgradeAttribute = surveyUpgradeBtn.getAttribute("upgradeCount");
+    surveyUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney > surveyUpgradePrice) {
       surveyMoney += defaultSurveyMoney;
       totalMoney -= surveyUpgradePrice;
       surveyUpgradeCount++;
-      surveyUpgradePrice += surveyUpgradePrice / 5;
+      surveyUpgradePrice += surveyUpgradePrice / 7;
 
       totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
       surveyUpgradePriceDisplay.innerHTML = surveyUpgradePrice.toFixed(2);
-      surveyUpgradeCountDisplay.innerHTML = surveyUpgradeCount;
+      surveyUpgradeCountDisplay.innerHTML = Math.round(surveyUpgradeCount);
       surveyUpgradeBarWidth += upgradeWitdh;
       surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
     }
 
     if (surveyUpgradeCount === firstTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
+      surveyMoney *= 3;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
-      surveyMoney *= 2;
+
       surveyUpgradeBarWidth = 0;
-      surveyUpgradeCount++;
       surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
-      upgradeWitdh = 1;
+      upgradeWitdh = 2.5;
       defaultSurveyMoney *= 2;
     }
 
     if (surveyUpgradeCount === secondTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      surveyMoney *= 4;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
-      surveyMoney *= 2;
+
       surveyUpgradeBarWidth = 0;
       surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
+      upgradeWitdh = 2;
       defaultSurveyMoney *= 2;
     }
 
     if (surveyUpgradeCount === thirdTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      surveyMoney *= 5;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
-      surveyMoney *= 2;
+
       surveyUpgradeBarWidth = 0;
       surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
+      upgradeWitdh = 1;
       defaultSurveyMoney *= 2;
     }
     if (surveyUpgradeCount === forthTimeStampUpgrade) {
-      surveyUpgradeCount++;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      surveyMoney *= 10;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
-      surveyMoney *= 2;
-      surveyUpgradeBarWidth = 0;
-      surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
+      surveyCountUpgradeBar.style.width = 100 + "%";
       defaultSurveyMoney *= 2;
     }
   });

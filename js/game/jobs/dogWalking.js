@@ -25,20 +25,20 @@ const dogWalkingCountUpgradeBar = document.querySelector(
 
 //upgrades
 let dogWalkingUpgradeBarWidth = 0;
-let dogWalkingUpgradePrice = 500;
+let dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;
 let dogWalkingUpgradeCount = 0;
 
 let firstTimeStampUpgrade = 10;
-let secondTimeStampUpgrade = 100;
-let thirdTimeStampUpgrade = 200;
-let forthTimeStampUpgrade = 300;
+let secondTimeStampUpgrade = 50;
+let thirdTimeStampUpgrade = 100;
+let forthTimeStampUpgrade = 200;
 
 let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultdogWalkingMoney = 125;
-let dogWalkingMoney = 250;
+let defaultdogWalkingMoney = 250;
+let dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
 
 //time
 let dogWalkingTime = 36;
@@ -46,8 +46,8 @@ let dogWalkingTimeValue = dogWalkingTime;
 
 //playable
 let btnClicked = false;
-
-const timeFunction = () => {};
+let dogWalkingUpgradeAttribute =
+  dogWalkingUpgradeBtn.getAttribute("upgradeCount");
 
 const dogWalkingFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
@@ -57,6 +57,7 @@ const dogWalkingFunction = () => {
     dogWalkingTimeDisplay.innerHTML = `00:${dogWalkingTimeValue}`;
   };
   dogWalkingBtn.addEventListener("click", () => {
+    console.log(dogWalkingUpgradePrice);
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
@@ -66,7 +67,7 @@ const dogWalkingFunction = () => {
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += dogWalkingMoney;
-        totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+        totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         dogWalkingProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), dogWalkingTime * 1000);
         clearInterval(timeInterval);
@@ -77,51 +78,64 @@ const dogWalkingFunction = () => {
   });
 
   dogWalkingUpgradeBtn.addEventListener("click", () => {
+    dogWalkingUpgradeAttribute =
+      dogWalkingUpgradeBtn.getAttribute("upgradeCount");
+    dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney > dogWalkingUpgradePrice) {
       dogWalkingMoney += defaultdogWalkingMoney;
       totalMoney -= dogWalkingUpgradePrice;
       dogWalkingUpgradeCount++;
-      dogWalkingUpgradePrice += dogWalkingUpgradePrice / 4;
+      dogWalkingUpgradePrice += dogWalkingUpgradePrice / 7;
 
-      totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+      totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
       dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
       dogWalkingUpgradePriceDisplay.innerHTML =
         dogWalkingUpgradePrice.toFixed(2);
-      dogWalkingUpgradeCountDisplay.innerHTML = dogWalkingUpgradeCount;
+      dogWalkingUpgradeCountDisplay.innerHTML = Math.round(
+        dogWalkingUpgradeCount
+      );
       dogWalkingUpgradeBarWidth += upgradeWitdh;
       dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
     }
 
     if (dogWalkingUpgradeCount === firstTimeStampUpgrade) {
-      dogWalkingUpgradeCount++;
-      dogWalkingMoney *= 2;
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      dogWalkingMoney *= 3;
+      dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
+
+      dogWalkingUpgradeBarWidth = 0;
+      dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
+      upgradeWitdh = 2.5;
+      defaultdogWalkingMoney *= 2;
+    }
+
+    if (dogWalkingUpgradeCount === secondTimeStampUpgrade) {
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      dogWalkingMoney *= 4;
+      dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
+
+      dogWalkingUpgradeBarWidth = 0;
+      dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
+      upgradeWitdh = 2;
+      defaultdogWalkingMoney *= 2;
+    }
+
+    if (dogWalkingUpgradeCount === thirdTimeStampUpgrade) {
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      dogWalkingMoney *= 5;
+      dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
+
       dogWalkingUpgradeBarWidth = 0;
       dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
       upgradeWitdh = 1;
       defaultdogWalkingMoney *= 2;
     }
-
-    if (dogWalkingUpgradeCount === secondTimeStampUpgrade) {
-      dogWalkingUpgradeCount++;
-      dogWalkingMoney *= 2;
-      dogWalkingUpgradeBarWidth = 0;
-      dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
-      defaultdogWalkingMoney *= 2;
-    }
-
-    if (dogWalkingUpgradeCount === thirdTimeStampUpgrade) {
-      dogWalkingUpgradeCount++;
-      dogWalkingMoney *= 2;
-      dogWalkingUpgradeBarWidth = 0;
-      dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
-      defaultdogWalkingMoney *= 2;
-    }
     if (dogWalkingUpgradeCount === forthTimeStampUpgrade) {
-      dogWalkingUpgradeCount++;
-      dogWalkingMoney *= 2;
-      dogWalkingUpgradeBarWidth = 0;
-      dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
+      totalMoney = +totalMoneyDisplay.innerHTML;
+      dogWalkingMoney *= 10;
+      dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
+      dogWalkingCountUpgradeBar.style.width = 100 + "%";
       defaultdogWalkingMoney *= 2;
     }
   });

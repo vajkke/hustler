@@ -270,26 +270,13 @@ body {
 }
 
 .avatar {
-  height: 30%;
-  width: 100%;
-  margin-bottom: 3rem;
+  width: 70%;
+  padding: 1rem;
+  margin: 4rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(222, 231, 231, 0.69);
-  border-top-right-radius: 10rem;
-}
-
-.avatar-container {
-  margin-top: 2rem;
-  width: 70%;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2.4px);
-  -webkit-backdrop-filter: blur(2.4px);
   border-radius: 11px;
 }
 

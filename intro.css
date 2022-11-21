@@ -102,8 +102,8 @@ body {
 .game-section {
   cursor: pointer;
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
 }
@@ -267,12 +267,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5rem 0;
 }
 
 .avatar {
   width: 70%;
   padding: 1rem;
-  margin: 4rem 0;
+  margin: 2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -296,4 +297,8 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.7rem;
+}
+
+.shop {
+  margin-bottom: 5rem;
 }

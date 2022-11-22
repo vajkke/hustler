@@ -1,9 +1,10 @@
-const managersBtn = document.querySelector(".managers");
-const overlay = document.querySelector(".overlay");
-const slider = document.querySelector(".slider");
-const sliderContainer = document.querySelector(".slider-container");
-const closeSlider = document.querySelector(".close-container");
 const managerContainer = document.querySelector(".managers-option--container");
+const upgradesContainer = document.querySelector(".upgrades-option--container");
+const sliderHeading = document.querySelector(".slider-heading");
+const sliderInfoHeading = document.querySelector(
+  ".slider-option-info--heading"
+);
+const sliderInfoText = document.querySelector(".slider-option-info--text");
 
 const managersHTML = `
 <div class="managers-option--container">
@@ -116,23 +117,14 @@ const managersHTML = `
 `;
 
 const managersOpenFunction = () => {
-  managersBtn.addEventListener("click", () => {
-    managerContainer.innerHTML = "";
-    managerContainer.innerHTML += managersHTML;
-    slider.style.animationName = "slideup";
-    sliderContainer.style.animationName = "slideup";
-    overlay.classList.remove("hidden");
-    slider.classList.remove("hidden");
-  });
+  upgradesContainer.innerHTML = "";
+  managerContainer.innerHTML = "";
+  managerContainer.innerHTML += managersHTML;
 
-  closeSlider.addEventListener("click", () => {
-    slider.style.animationName = "slidedown";
-    sliderContainer.style.animationName = "slidedown";
-    setTimeout(() => {
-      overlay.classList.add("hidden");
-      slider.classList.add("hidden");
-    }, 600);
-  });
+  sliderHeading.innerHTML = "managers";
+  sliderInfoHeading.innerHTML = "Managers Make Life Easier";
+  sliderInfoText.innerHTML =
+    "Hire one to run your business for you, or to maximaze efficiency, all just for one easy payment!";
 };
 
 export default managersOpenFunction;

@@ -63,10 +63,8 @@ const avatarSwagHTML = `
                   <div class="item-used-top">
                     <div class="item-used--container"></div>
                     <div class="item-used--container"></div>
-                    <div class="item-used--container"></div>
                   </div>
                   <div class="item-used-bottom">
-                    <div class="item-used--container"></div>
                     <div class="item-used--container"></div>
                     <div class="item-used--container"></div>
                   </div>

@@ -1,5 +1,12 @@
+// main option
 const managerContainer = document.querySelector(".managers-option--container");
+
+// other options
 const upgradesContainer = document.querySelector(".upgrades-option--container");
+const avatarContainer = document.querySelector(".avatar-option--container");
+const avatarSwag = document.querySelector(".avatar-selection-container--swag");
+
+// text
 const sliderHeading = document.querySelector(".slider-heading");
 const sliderInfoHeading = document.querySelector(
   ".slider-option-info--heading"
@@ -117,7 +124,12 @@ const managersHTML = `
 `;
 
 const managersOpenFunction = () => {
+  // removing other
+  avatarContainer.innerHTML = "";
+  avatarSwag.innerHTML = "";
   upgradesContainer.innerHTML = "";
+
+  // display managers
   managerContainer.innerHTML = "";
   managerContainer.innerHTML += managersHTML;
 

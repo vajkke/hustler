@@ -1,5 +1,8 @@
 const upgradesContainer = document.querySelector(".upgrades-option--container");
 const managerContainer = document.querySelector(".managers-option--container");
+const avatarContainer = document.querySelector(".avatar-option--container");
+const avatarSwag = document.querySelector(".avatar-selection-container--swag");
+
 const sliderHeading = document.querySelector(".slider-heading");
 const sliderInfoHeading = document.querySelector(
   ".slider-option-info--heading"
@@ -400,6 +403,8 @@ const upgradesHTML = `
 const upgradesOpenFunction = () => {
   upgradesContainer.innerHTML = "";
   managerContainer.innerHTML = "";
+  avatarContainer.innerHTML = "";
+  avatarSwag.innerHTML = "";
   upgradesContainer.innerHTML += upgradesHTML;
 
   sliderHeading.innerHTML = "upgrades";

@@ -8,6 +8,9 @@ const avatarContainer = document.querySelector(".avatar-option--container");
 const avatarSwagContainer = document.querySelector(
   ".avatar-selection-container--swag"
 );
+const avatarInventoryContainer = document.querySelector(
+  ".avatar-selection-container--inventory"
+);
 
 const sliderHeading = document.querySelector(".slider-heading");
 const totalMoneySliderDisplay = document.querySelector(
@@ -72,12 +75,57 @@ const avatarSwagHTML = `
            
 `;
 
+const avatarInventoryHTML = `
+<div class="item-container item-container--average">
+<img src="./img/items/surveysItem.svg" />
+</div>
+<div class="item-container item-container--average">
+<img src="./img/items/mathItem.svg" />
+</div>
+<div class="item-container item-container--average">
+<img src="./img/items/dogsItem.svg" />
+</div>
+<div class="item-container item-container--average">
+<img src="./img/items/lawnmowerItem.svg" />
+</div>
+<div class="item-container item-container--average">
+<img src="./img/items/babysittingItem.svg" />
+</div>
+<div class="item-container item-container--average">
+<img src="./img/items/photographyItem.svg" />
+</div>
+<div class="item-container item-container--average">
+<img src="./img/items/trainerItem.svg" />
+</div>
+<div class="item-container item-container--average">
+<img src="./img/items/cryptoItem.svg" />
+</div>
+<div class="item-container item-container--rare">
+<img src="./img/items/crypto2Item.svg" />
+</div>
+<div class="item-container item-container--rare">
+<img src="./img/items/manekiItem.svg" />
+</div>
+<div class="item-container item-container--rare">
+<img src="./img/items/speedometerItem.svg" />
+</div>
+<div class="item-container item-container--rare">
+<img src="./img/items/juiceItem.svg" />
+</div>
+<div class="item-container item-container--gold">
+<img src="./img/items/leprechaunItem.svg" />
+</div>
+<div class="item-container item-container--gold">
+<img src="./img/items/piggyBank.svg" />
+</div>`;
+
 const avatarOpenFunction = () => {
   sliderHeading.innerHTML = "avatar";
   // removing others
   upgradesContainer.innerHTML = "";
   managerContainer.innerHTML = "";
 
+  avatarInventoryContainer.innerHTML = "";
   avatarSwagContainer.innerHTML = "";
   avatarContainer.innerHTML = "";
 
@@ -85,6 +133,8 @@ const avatarOpenFunction = () => {
 
   if (avatarWrapper.getAttribute("option") === "swag") {
     avatarSwagContainer.innerHTML += avatarSwagHTML;
+  } else if (avatarWrapper.getAttribute("option") === "inventory") {
+    avatarInventoryContainer.innerHTML += avatarInventoryHTML;
   }
 
   totalMoneySliderDisplay.classList.add("hidden");

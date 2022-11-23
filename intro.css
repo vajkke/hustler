@@ -652,12 +652,22 @@ body {
   background-color: #dee7e7;
 }
 
+.inventory-option-img {
+  background-color: #dee7e7;
+}
+
+.inventory-option--heading {
+  background-color: #dee7e7;
+}
+
 .border-effect--avatar {
-  width: 100%;
+  width: 80%;
   height: 10px;
   background-color: #dee7e7;
   margin: 3rem 0;
 }
+
+/* SWAG */
 
 .bottom-part {
   display: flex;
@@ -711,11 +721,12 @@ body {
   justify-content: center;
   position: absolute;
   cursor: pointer;
+  border-bottom-left-radius: 16px;
 }
 
 .item-used--container {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   background: rgba(222, 231, 231, 0.5);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -726,6 +737,44 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* INVENTORY */
+
+.avatar-selection-container--inventory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item-container {
+  width: 160px;
+  height: 160px;
+  margin: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.item-container--average {
+  background: rgba(0, 93, 255, 0.63);
+  border: 5px solid rgba(0, 93, 255, 1);
+}
+
+.item-container--rare {
+  background: rgba(255, 0, 0, 0.63);
+  border: 1px solid rgba(255, 0, 0, 1);
+}
+
+.item-container--gold {
+  background: rgba(255, 215, 0, 0.63);
+  border: 1px solid rgba(255, 215, 0, 1);
 }
 
 .hidden {

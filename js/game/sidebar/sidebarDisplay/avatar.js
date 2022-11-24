@@ -1,5 +1,8 @@
 const upgradesContainer = document.querySelector(".upgrades-option--container");
 const managerContainer = document.querySelector(".managers-option--container");
+const investorsContainer = document.querySelector(
+  ".investors-option--container"
+);
 
 const avatarWrapper = document.querySelector(
   ".avatar-option--container--wrapper"
@@ -122,6 +125,7 @@ const avatarOpenFunction = () => {
   // removing others
   upgradesContainer.innerHTML = "";
   managerContainer.innerHTML = "";
+  investorsContainer.innerHTML = "";
 
   avatarInventoryContainer.innerHTML = "";
   avatarSwagContainer.innerHTML = "";

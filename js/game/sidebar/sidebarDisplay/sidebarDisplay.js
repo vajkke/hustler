@@ -1,4 +1,5 @@
 import avatarOpenFunction from "./avatar.js";
+import investorsOpenFunction from "./investors.js";
 import managersOpenFunction from "./managers.js";
 import upgradesOpenFunction from "./upgrades.js";
 
@@ -38,6 +39,9 @@ const sidebarDisplayFunction = () => {
     ) {
       sliderAnimation();
       avatarOpenFunction();
+    } else if (e.target.classList.contains("investors-heading")) {
+      sliderAnimation();
+      investorsOpenFunction();
     }
   });
 

@@ -4,12 +4,15 @@ const managerContainer = document.querySelector(".managers-option--container");
 // other options
 const upgradesContainer = document.querySelector(".upgrades-option--container");
 const avatarContainer = document.querySelector(".avatar-option--container");
+const avatarInventory = document.querySelector(
+  ".avatar-selection-container--inventory"
+);
 const avatarSwag = document.querySelector(".avatar-selection-container--swag");
 const investorsContainer = document.querySelector(
   ".investors-option--container"
 );
 
-// text
+// text & html
 const sliderHeading = document.querySelector(".slider-heading");
 const sliderInfoHeading = document.querySelector(
   ".slider-option-info--heading"
@@ -130,6 +133,7 @@ const managersOpenFunction = () => {
   // removing other
   avatarContainer.innerHTML = "";
   avatarSwag.innerHTML = "";
+  avatarInventory.innerHTML = "";
   upgradesContainer.innerHTML = "";
   investorsContainer.innerHTML = "";
 

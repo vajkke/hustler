@@ -1,9 +1,4 @@
-const upgradesContainer = document.querySelector(".upgrades-option--container");
-const managerContainer = document.querySelector(".managers-option--container");
-const investorsContainer = document.querySelector(
-  ".investors-option--container"
-);
-
+// main option
 const avatarWrapper = document.querySelector(
   ".avatar-option--container--wrapper"
 );
@@ -15,11 +10,18 @@ const avatarInventoryContainer = document.querySelector(
   ".avatar-selection-container--inventory"
 );
 
+// other options
+const upgradesContainer = document.querySelector(".upgrades-option--container");
+const managerContainer = document.querySelector(".managers-option--container");
+const investorsContainer = document.querySelector(
+  ".investors-option--container"
+);
+
+// text & html
 const sliderHeading = document.querySelector(".slider-heading");
 const totalMoneySliderDisplay = document.querySelector(
   ".total-money-display--slider"
 );
-
 const borderEffect = document.querySelector(".border-effect");
 const sliderText = document.querySelector(".slider-text");
 
@@ -121,27 +123,27 @@ const avatarInventoryHTML = `
 </div>`;
 
 const avatarOpenFunction = () => {
-  sliderHeading.innerHTML = "avatar";
   // removing others
   upgradesContainer.innerHTML = "";
   managerContainer.innerHTML = "";
   investorsContainer.innerHTML = "";
+  totalMoneySliderDisplay.classList.add("hidden");
+  sliderText.classList.add("hidden");
+  borderEffect.classList.add("hidden");
 
+  // refreshing & displaying avatar
   avatarInventoryContainer.innerHTML = "";
   avatarSwagContainer.innerHTML = "";
   avatarContainer.innerHTML = "";
-
   avatarContainer.innerHTML += avatarHTML;
+  sliderHeading.innerHTML = "avatar";
 
+  // deciding which avatar to display -- nepotrebno realno
   if (avatarWrapper.getAttribute("option") === "swag") {
     avatarSwagContainer.innerHTML += avatarSwagHTML;
   } else if (avatarWrapper.getAttribute("option") === "inventory") {
     avatarInventoryContainer.innerHTML += avatarInventoryHTML;
   }
-
-  totalMoneySliderDisplay.classList.add("hidden");
-  sliderText.classList.add("hidden");
-  borderEffect.classList.add("hidden");
 };
 
 export default avatarOpenFunction;

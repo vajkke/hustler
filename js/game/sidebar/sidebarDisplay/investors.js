@@ -12,9 +12,8 @@ const avatarInventory = document.querySelector(
   ".avatar-selection-container--inventory"
 );
 
-// text
+// text & html
 const sliderHeading = document.querySelector(".slider-heading");
-
 const investorsHTML = `<div class="investors-left-side">
 <div class="investors-text">
   <h1 class="investors-text--heading">
@@ -64,15 +63,14 @@ const investorsOpenFunction = () => {
   avatarInventory.innerHTML = "";
   upgradesContainer.innerHTML = "";
   managerContainer.innerHTML = "";
+  totalMoneySliderDisplay.classList.add("hidden");
+  sliderText.classList.add("hidden");
+  borderEffect.classList.add("hidden");
 
   // display investors
   investorsContainer.innerHTML = "";
   investorsContainer.innerHTML += investorsHTML;
-
   sliderHeading.innerHTML = "investors";
-  totalMoneySliderDisplay.classList.add("hidden");
-  sliderText.classList.add("hidden");
-  borderEffect.classList.add("hidden");
 };
 
 export default investorsOpenFunction;

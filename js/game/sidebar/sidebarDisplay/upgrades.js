@@ -1,11 +1,18 @@
+// main option
 const upgradesContainer = document.querySelector(".upgrades-option--container");
+
+// other option
 const managerContainer = document.querySelector(".managers-option--container");
 const avatarContainer = document.querySelector(".avatar-option--container");
 const avatarSwag = document.querySelector(".avatar-selection-container--swag");
+const avatarInventory = document.querySelector(
+  ".avatar-selection-container--inventory"
+);
 const investorsContainer = document.querySelector(
   ".investors-option--container"
 );
 
+// text & HTML
 const sliderHeading = document.querySelector(".slider-heading");
 const sliderInfoHeading = document.querySelector(
   ".slider-option-info--heading"
@@ -404,14 +411,16 @@ const upgradesHTML = `
 `;
 
 const upgradesOpenFunction = () => {
-  upgradesContainer.innerHTML = "";
+  // removing other options
   managerContainer.innerHTML = "";
   avatarContainer.innerHTML = "";
   avatarSwag.innerHTML = "";
+  avatarInventory.innerHTML = "";
   investorsContainer.innerHTML = "";
 
+  // refreshing and displaying upgrades
+  upgradesContainer.innerHTML = "";
   upgradesContainer.innerHTML += upgradesHTML;
-
   sliderHeading.innerHTML = "upgrades";
   sliderInfoHeading.innerHTML = "You Gotta Spend Money To Make Money!";
   sliderInfoText.innerHTML =

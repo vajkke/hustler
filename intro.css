@@ -319,9 +319,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  justify-content: flex-start;
   bottom: -100%;
-  width: 100%;
   left: 0;
   animation-name: slideup;
   animation-duration: 600ms;
@@ -337,7 +336,7 @@ body {
   flex-direction: column;
   align-items: center;
   bottom: -100%;
-
+  height: 100%;
   width: 100%;
   left: 0;
   animation-name: slideup;
@@ -458,7 +457,7 @@ body {
 }
 
 .managers-option--container {
-  margin-top: 3rem;
+  margin-top: -3rem;
   padding-bottom: 6rem;
   display: flex;
   flex-wrap: wrap;
@@ -528,7 +527,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 5rem;
+  margin-top: -7rem;
+  padding-bottom: 5rem;
 }
 
 .upgrader-container {
@@ -904,6 +904,227 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   font-style: italic;
+}
+
+/* SHOP */
+.shop-option--container--wrapper {
+  padding-bottom: 5rem;
+}
+
+.shop-option--container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-top--options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-top-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2rem;
+  cursor: pointer;
+}
+
+.shop-option-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(222, 231, 231, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(222, 231, 231, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-option--heading {
+  background: rgba(222, 231, 231, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(222, 231, 231, 0.3);
+  border-radius: 16px;
+  width: 120px;
+  padding: 0.5rem 0;
+  text-align: center;
+  color: #4f646f;
+}
+
+.shop-option--shop-img {
+  background-color: #dee7e7;
+}
+
+.shop-option--shop-heading {
+  background-color: #dee7e7;
+}
+
+.gold-money--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gold-number--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Nova Mono", monospace;
+}
+
+.gold-number--value {
+  margin-left: 1.2rem;
+  font-size: 3rem;
+  color: #4f646f;
+  margin-right: 4rem;
+}
+
+.total-money-display--shop {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  margin-left: 4rem;
+  font-family: "Nova Mono", monospace;
+  color: #4f646f;
+  font-weight: 900;
+}
+
+/* SHOP SELECTION */
+
+.shop-selection-container--shop {
+  margin: 4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* EXCHANGE SELECTION */
+
+.shop-selection-container--trade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 5rem;
+}
+
+.dollars-to-gold--container {
+  width: 500px;
+  height: 300px;
+  margin-top: -2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(255, 215, 0, 0.65);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 10px solid rgba(255, 215, 0, 1);
+}
+
+.cost-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  width: 80%;
+}
+
+.cost-display--container {
+  width: 300px;
+  padding: 0.5rem 0;
+  background-color: #dee7e7;
+  border: 3px solid #5a5a66;
+  color: #5a5a66;
+  border-radius: 10px;
+  height: 60px;
+  margin-left: 1rem;
+}
+
+.result-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  width: 80%;
+}
+
+.result-display--container {
+  width: 300px;
+  height: 60px;
+  padding: 0.5rem 0;
+  background-color: #dee7e7;
+  border: 3px solid #5a5a66;
+  color: #5a5a66;
+  border-radius: 10px;
+  margin-left: 1rem;
+}
+
+.result-gold-text,
+.cost-money-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2rem;
+}
+
+.result-gold-value {
+  margin-right: 5rem;
+}
+
+.cost-money-value {
+  margin-right: 3rem;
+}
+
+.exchange-cost--heading,
+.exchange-result--heading {
+  font-size: 2.3rem;
+  width: 30%;
+  color: #5a5a66;
+}
+
+.buttons-container {
+  margin-left: 1rem;
+  border: 5px solid #dee7e7;
+}
+
+.arrow {
+  width: 75px;
+  height: 75px;
+  background-color: #3b4dff;
+}
+
+.arrow-up--container {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow-down--container {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-up,
+.arrow-down {
+  font-size: 6rem !important;
+  font-weight: 900 !important;
 }
 
 .hidden {

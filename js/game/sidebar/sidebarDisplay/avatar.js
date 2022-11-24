@@ -47,7 +47,6 @@ const avatarHTML = `
 </div>
 
 <div class="border-effect--avatar">&nbsp;</div>
-<div class="avatar-selection-container--swag"></div>
 `;
 
 const avatarSwagHTML = `
@@ -120,7 +119,8 @@ const avatarInventoryHTML = `
 </div>
 <div class="item-container item-container--gold">
 <img src="./img/items/piggyBank.svg" />
-</div>`;
+</div>
+`;
 
 const avatarOpenFunction = () => {
   // removing others
@@ -134,6 +134,7 @@ const avatarOpenFunction = () => {
   // refreshing & displaying avatar
   avatarInventoryContainer.innerHTML = "";
   avatarSwagContainer.innerHTML = "";
+
   avatarContainer.innerHTML = "";
   avatarContainer.innerHTML += avatarHTML;
   sliderHeading.innerHTML = "avatar";

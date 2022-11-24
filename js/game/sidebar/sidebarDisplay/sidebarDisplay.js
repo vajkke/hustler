@@ -1,6 +1,7 @@
 import avatarOpenFunction from "./avatar.js";
 import investorsOpenFunction from "./investors.js";
 import managersOpenFunction from "./managers.js";
+import shopOpenFunction from "./shop.js";
 import upgradesOpenFunction from "./upgrades.js";
 
 const overlay = document.querySelector(".overlay");
@@ -27,10 +28,16 @@ const sliderAnimation = () => {
 
 const sidebarDisplayFunction = () => {
   window.addEventListener("click", (e) => {
-    if (e.target.classList.contains("managers-heading")) {
+    if (
+      e.target.classList.contains("managers-heading") ||
+      e.target.classList.contains("managers")
+    ) {
       sliderAnimation();
       managersOpenFunction();
-    } else if (e.target.classList.contains("upgrades-heading")) {
+    } else if (
+      e.target.classList.contains("upgrades-heading") ||
+      e.target.classList.contains("upgrades")
+    ) {
       sliderAnimation();
       upgradesOpenFunction();
     } else if (
@@ -39,9 +46,18 @@ const sidebarDisplayFunction = () => {
     ) {
       sliderAnimation();
       avatarOpenFunction();
-    } else if (e.target.classList.contains("investors-heading")) {
+    } else if (
+      e.target.classList.contains("investors-heading") ||
+      e.target.classList.contains("investors")
+    ) {
       sliderAnimation();
       investorsOpenFunction();
+    } else if (
+      e.target.classList.contains("shop-heading") ||
+      e.target.classList.contains("shop")
+    ) {
+      sliderAnimation();
+      shopOpenFunction();
     }
   });
 

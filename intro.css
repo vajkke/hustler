@@ -653,13 +653,13 @@ body {
   background-color: #dee7e7;
 }
 
-.inventory-option-img {
+/* .inventory-option-img {
   background-color: #dee7e7;
 }
 
 .inventory-option--heading {
   background-color: #dee7e7;
-}
+} */
 
 .border-effect--avatar {
   width: 80%;
@@ -776,6 +776,34 @@ body {
 .item-container--gold {
   background: rgba(255, 215, 0, 0.63);
   border: 1px solid rgba(255, 215, 0, 1);
+}
+
+.no-items--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-items--heading {
+  font-size: 2rem;
+}
+
+.no-items--buy {
+  width: 200px;
+  height: 65px;
+  margin-top: 2rem;
+  border: 5px solid #ffd700;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 2.2rem;
+  font-family: "Nova Mono", monospace;
+  color: #dee7e7;
+  background-color: rgba(255, 215, 0, 0.5);
+  font-weight: 900;
 }
 
 /* INVESTORS */
@@ -917,6 +945,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 4rem;
 }
 
 .shop-top--options {
@@ -974,6 +1003,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 4rem;
 }
 
 .gold-number--container {
@@ -1165,7 +1195,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-top: -7rem;
+  margin-top: 4rem;
 }
 
 .social-media--container {

@@ -1,3 +1,6 @@
+// avatar function
+import avatarFunction from "../sidebarFunctions/avatarFunction.js";
+
 // main option
 const avatarWrapper = document.querySelector(
   ".avatar-option--container--wrapper"
@@ -15,6 +18,17 @@ const upgradesContainer = document.querySelector(".upgrades-option--container");
 const managerContainer = document.querySelector(".managers-option--container");
 const investorsContainer = document.querySelector(
   ".investors-option--container"
+);
+
+const shopContainer = document.querySelector(".shop-option--container");
+const shopShopContainer = document.querySelector(
+  ".shop-selection-container--shop"
+);
+const shopExchangeContainer = document.querySelector(
+  ".shop-selection-container--trade"
+);
+const shopFreeContainer = document.querySelector(
+  ".shop-selection-container--freeGold"
 );
 
 // text & html
@@ -49,102 +63,32 @@ const avatarHTML = `
 <div class="border-effect--avatar">&nbsp;</div>
 `;
 
-const avatarSwagHTML = `
-                
-              <div class="bottom-part">
-                <div class="left-side">
-                  <div class="avatar-selection--container">
-                    <img
-                      src="./img/avatars/avatarMan-select.svg"
-                      class="avatar-seletion"
-                    />
-                    <div class="gender-select">
-                      <img src="./img/avatars/male-sign.svg" class="gender" />
-                    </div>
-                  </div>
-                </div>
-                <div class="right-side">
-                  <div class="item-used-top">
-                    <div class="item-used--container"></div>
-                    <div class="item-used--container"></div>
-                  </div>
-                  <div class="item-used-bottom">
-                    <div class="item-used--container"></div>
-                    <div class="item-used--container"></div>
-                  </div>
-                </div>
-              </div>
-           
-`;
-
-const avatarInventoryHTML = `
-<div class="item-container item-container--average">
-<img src="./img/items/surveysItem.svg" />
-</div>
-<div class="item-container item-container--average">
-<img src="./img/items/mathItem.svg" />
-</div>
-<div class="item-container item-container--average">
-<img src="./img/items/dogsItem.svg" />
-</div>
-<div class="item-container item-container--average">
-<img src="./img/items/lawnmowerItem.svg" />
-</div>
-<div class="item-container item-container--average">
-<img src="./img/items/babysittingItem.svg" />
-</div>
-<div class="item-container item-container--average">
-<img src="./img/items/photographyItem.svg" />
-</div>
-<div class="item-container item-container--average">
-<img src="./img/items/trainerItem.svg" />
-</div>
-<div class="item-container item-container--average">
-<img src="./img/items/cryptoItem.svg" />
-</div>
-<div class="item-container item-container--rare">
-<img src="./img/items/crypto2Item.svg" />
-</div>
-<div class="item-container item-container--rare">
-<img src="./img/items/manekiItem.svg" />
-</div>
-<div class="item-container item-container--rare">
-<img src="./img/items/speedometerItem.svg" />
-</div>
-<div class="item-container item-container--rare">
-<img src="./img/items/juiceItem.svg" />
-</div>
-<div class="item-container item-container--gold">
-<img src="./img/items/leprechaunItem.svg" />
-</div>
-<div class="item-container item-container--gold">
-<img src="./img/items/piggyBank.svg" />
-</div>
-`;
-
 const avatarOpenFunction = () => {
   // removing others
-  upgradesContainer.innerHTML = "";
-  managerContainer.innerHTML = "";
-  investorsContainer.innerHTML = "";
+  upgradesContainer.classList.add("hidden");
+  managerContainer.classList.add("hidden");
+  investorsContainer.classList.add("hidden");
+
+  shopContainer.innerHTML = "";
+  shopShopContainer.classList.add("hidden");
+  shopExchangeContainer.classList.add("hidden");
+  shopFreeContainer.classList.add("hidden");
+
   totalMoneySliderDisplay.classList.add("hidden");
   sliderText.classList.add("hidden");
   borderEffect.classList.add("hidden");
 
   // refreshing & displaying avatar
-  avatarInventoryContainer.innerHTML = "";
-  avatarSwagContainer.innerHTML = "";
+  avatarInventoryContainer.classList.add("hidden");
+  avatarSwagContainer.classList.remove("hidden");
+  avatarContainer.classList.remove("hidden");
 
   avatarContainer.innerHTML = "";
   avatarContainer.innerHTML += avatarHTML;
   sliderHeading.innerHTML = "avatar";
 
-  // deciding which avatar to display -- nepotrebno realno
-  if (avatarWrapper.getAttribute("option") === "swag") {
-    avatarSwagContainer.innerHTML += avatarSwagHTML;
-  } else if (avatarWrapper.getAttribute("option") === "inventory") {
-    avatarInventoryContainer.innerHTML += avatarInventoryHTML;
-  }
+  // functions
+  avatarFunction();
 };
 
 export default avatarOpenFunction;

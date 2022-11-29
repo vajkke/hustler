@@ -5,6 +5,8 @@ const surveysBtn = document.querySelector(".surveysBtn");
 const surveyUpgradeBtn = document.querySelector(".surveys-cost-container");
 
 //display
+const totalMoneySliderDisplay = document.querySelector(".total-money--slider");
+const totalMoneyShopDisplay = document.querySelector(".total-money--shop");
 const totalMoneyDisplay = document.querySelector(".total-money--amount");
 const surveyMoneyDisplay = document.querySelector(".survey-profit");
 const surveyTimeDisplay = document.querySelector(".surveys-time");
@@ -56,8 +58,8 @@ const surveyFunction = () => {
     }`;
   };
   surveysBtn.addEventListener("click", () => {
-    console.log(surveyUpgradePrice);
     totalMoney = +totalMoneyDisplay.innerHTML;
+
     if (!btnClicked) {
       btnClicked = true;
       surveyProgressBar.style.cssText = `width: 100%; transition: width ${surveyTime}s ease-in-out;`;
@@ -67,6 +69,8 @@ const surveyFunction = () => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += surveyMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         surveyProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), surveyTime * 1000);
         clearInterval(timeInterval);

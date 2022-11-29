@@ -457,7 +457,6 @@ body {
 }
 
 .managers-option--container {
-  margin-top: -3rem;
   padding-bottom: 6rem;
   display: flex;
   flex-wrap: wrap;
@@ -527,7 +526,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: -7rem;
+  margin-top: -1rem;
   padding-bottom: 5rem;
 }
 
@@ -603,7 +602,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  /* width: 100%; */
+  padding-bottom: 3rem;
+  border-bottom: 10px solid #f4faff;
+  margin-bottom: 2rem;
 }
 
 .top-options--container {
@@ -952,6 +954,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 5rem;
+  border-bottom: 10px solid #f4faff;
 }
 
 .shop-top-option {
@@ -1003,7 +1007,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin: 3rem 0;
 }
 
 .gold-number--container {
@@ -1049,6 +1053,7 @@ body {
   justify-content: center;
   width: 100%;
   padding-bottom: 5rem;
+  margin-top: 3rem;
 }
 
 .converter--buttons {

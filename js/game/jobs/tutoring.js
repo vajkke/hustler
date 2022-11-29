@@ -5,6 +5,8 @@ const tutoringBtn = document.querySelector(".tutoringBtn");
 const tutoringUpgradeBtn = document.querySelector(".tutoring-cost-container");
 
 //display
+const totalMoneySliderDisplay = document.querySelector(".total-money--slider");
+const totalMoneyShopDisplay = document.querySelector(".total-money--shop");
 const totalMoneyDisplay = document.querySelector(".total-money--amount");
 const tutoringMoneyDisplay = document.querySelector(".tutoring-profit");
 const tutoringTimeDisplay = document.querySelector(".tutoring-time");
@@ -67,6 +69,8 @@ const tutoringFunction = () => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += tutoringMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         tutoringProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), tutoringTime * 1000);
         clearInterval(timeInterval);

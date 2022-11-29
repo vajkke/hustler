@@ -11,6 +11,16 @@ const avatarInventory = document.querySelector(
 const investorsContainer = document.querySelector(
   ".investors-option--container"
 );
+const shopContainer = document.querySelector(".shop-option--container");
+const shopShopContainer = document.querySelector(
+  ".shop-selection-container--shop"
+);
+const shopExchangeContainer = document.querySelector(
+  ".shop-selection-container--trade"
+);
+const shopFreeContainer = document.querySelector(
+  ".shop-selection-container--freeGold"
+);
 
 // text & HTML
 const sliderHeading = document.querySelector(".slider-heading");
@@ -412,13 +422,21 @@ const upgradesHTML = `
 
 const upgradesOpenFunction = () => {
   // removing other options
-  managerContainer.innerHTML = "";
-  avatarContainer.innerHTML = "";
-  avatarSwag.innerHTML = "";
-  avatarInventory.innerHTML = "";
-  investorsContainer.innerHTML = "";
+  const otherOptions = [
+    avatarContainer,
+    avatarSwag,
+    avatarInventory,
+    managerContainer,
+    investorsContainer,
+    shopContainer,
+    shopShopContainer,
+    shopExchangeContainer,
+    shopFreeContainer,
+  ];
+  otherOptions.forEach((option) => option.classList.add("hidden"));
 
   // refreshing and displaying upgrades
+  upgradesContainer.classList.remove("hidden");
   upgradesContainer.innerHTML = "";
   upgradesContainer.innerHTML += upgradesHTML;
   sliderHeading.innerHTML = "upgrades";

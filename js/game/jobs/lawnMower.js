@@ -5,6 +5,8 @@ const lawnMowerBtn = document.querySelector(".lawnMowerBtn");
 const lawnMowerUpgradeBtn = document.querySelector(".lawnMower-cost-container");
 
 //display
+const totalMoneySliderDisplay = document.querySelector(".total-money--slider");
+const totalMoneyShopDisplay = document.querySelector(".total-money--shop");
 const totalMoneyDisplay = document.querySelector(".total-money--amount");
 const lawnMowerMoneyDisplay = document.querySelector(".lawnMower-profit");
 const lawnMowerTimeDisplay = document.querySelector(".lawnMower-time");
@@ -34,7 +36,7 @@ let upgradeWitdh = 10;
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
 let defaultlawnMowerMoney = 500;
-let lawnMowerMoney = 1000;
+let lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
 
 //time
 let lawnMowerTime = 120;
@@ -81,7 +83,9 @@ const lawnMowerFunction = () => {
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += lawnMowerMoney;
-        totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+        totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         lawnMowerProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), lawnMowerTime * 1000);
         clearInterval(timeInterval);

@@ -38,46 +38,6 @@ const totalMoneySliderDisplay = document.querySelector(
 const borderEffect = document.querySelector(".border-effect");
 const sliderText = document.querySelector(".slider-text");
 
-const shopHTML = `<div class="shop-top--options">
-<div class="shop-top-option shop-option--shop">
-  <div class="shop-option-img shop-option--shop-img">
-    <img src="./img/shop/shop.svg" alt="" />
-  </div>
-  <h1 class="shop-option--heading shop-option--shop-heading">
-    Shop
-  </h1>
-</div>
-<div class="shop-top-option shop-option--trade">
-  <div class="shop-option-img shop-option--trade-img">
-    <img src="./img/shop/exchange.svg" alt="" />
-  </div>
-  <h1 class="shop-option--heading shop-option--trade-heading">
-    Exchange
-  </h1>
-</div>
-
-<div class="shop-top-option shop-option--freeGold">
-  <div class="shop-option-img shop-option--freeGold-img">
-    <img src="./img/shop/free.svg" alt="" />
-  </div>
-  <h1
-    class="shop-option--heading shop-option--freeGold-heading"
-  >
-    Free Gold
-  </h1>
-</div>
-</div>
-<div class="border-effect--avatar">&nbsp;</div>
-<div class="gold-money--container">
-<div class="gold-number--container">
-  <img src="./img/shop/gold.svg" class="gold-img" />
-  <h1 class="gold-number--value">0</h1>
-</div>
-<p class="total-money-display--shop">
-  $ <span class="total-money--slider">0</span>
-</p>
-</div>`;
-
 const shopOpenFunction = () => {
   // removing others
   upgradesContainer.innerHTML = "";
@@ -93,9 +53,8 @@ const shopOpenFunction = () => {
 
   // refreshing & displaying shop
   shopShopContainer.classList.remove("hidden");
+  shopContainer.classList.remove("hidden");
   sliderHeading.innerHTML = "shop";
-  shopContainer.innerHTML = "";
-  shopContainer.innerHTML += shopHTML;
 
   shopFunction();
 };

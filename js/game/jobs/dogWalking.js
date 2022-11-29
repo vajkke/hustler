@@ -9,6 +9,8 @@ const dogWalkingUpgradeBtn = document.querySelector(
 );
 
 //display
+const totalMoneySliderDisplay = document.querySelector(".total-money--slider");
+const totalMoneyShopDisplay = document.querySelector(".total-money--shop");
 const totalMoneyDisplay = document.querySelector(".total-money--amount");
 const dogWalkingMoneyDisplay = document.querySelector(".dogWalking-profit");
 const dogWalkingTimeDisplay = document.querySelector(".dogWalking-time");
@@ -74,6 +76,8 @@ const dogWalkingFunction = () => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += dogWalkingMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         dogWalkingProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), dogWalkingTime * 1000);
         clearInterval(timeInterval);

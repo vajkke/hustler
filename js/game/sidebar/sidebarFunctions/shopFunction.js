@@ -74,6 +74,48 @@ const shopFunction = () => {
     shopExchangeContainer.classList.add("hidden");
     goldMoneyContainer.classList.add("hidden");
   });
+
+  // exchange //
+
+  //buttons
+  const tradeArrowUp = document.querySelector(".arrow-up--container");
+  const tradeArrowDown = document.querySelector(".arrow-down--container");
+  const exchangeBtn = document.querySelector(".exchange-button");
+
+  //display
+  const tradeMoneyValueDisplay = document.querySelector(".cost-money-value");
+  const goldValueDisplay = document.querySelector(".result-gold-value");
+  const totalMoneyDisplay = document.querySelector(".total-money--amount");
+
+  // values
+  let tradeMoneyValue = +tradeMoneyValueDisplay.innerHTML;
+  let goldValue = +goldValueDisplay.innerHTML;
+  let totalMoney = +totalMoneyDisplay.innerHTML;
+
+  // arrows
+  tradeArrowUp.addEventListener("click", () => {
+    tradeMoneyValue += 1000000;
+    goldValue++;
+    tradeMoneyValueDisplay.innerHTML = tradeMoneyValue;
+    goldValueDisplay.innerHTML = goldValue;
+  });
+  tradeArrowDown.addEventListener("click", () => {
+    if (goldValue > 0) {
+      tradeMoneyValue -= 1000000;
+      goldValue--;
+      tradeMoneyValueDisplay.innerHTML = tradeMoneyValue;
+      goldValueDisplay.innerHTML = goldValue;
+    } else {
+      return;
+    }
+  });
+
+  //exchange
+  exchangeBtn.addEventListener("click", () => {
+    if (totalMoney >= tradeMoneyValue) {
+      console.log("imas dovoljno kesa");
+    }
+  });
 };
 
 export default shopFunction;

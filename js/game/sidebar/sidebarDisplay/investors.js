@@ -12,6 +12,17 @@ const avatarInventory = document.querySelector(
   ".avatar-selection-container--inventory"
 );
 
+const shopContainer = document.querySelector(".shop-option--container");
+const shopShopContainer = document.querySelector(
+  ".shop-selection-container--shop"
+);
+const shopExchangeContainer = document.querySelector(
+  ".shop-selection-container--trade"
+);
+const shopFreeContainer = document.querySelector(
+  ".shop-selection-container--freeGold"
+);
+
 // text & html
 const sliderHeading = document.querySelector(".slider-heading");
 const investorsHTML = `<div class="investors-left-side">
@@ -58,16 +69,25 @@ const sliderText = document.querySelector(".slider-text");
 
 const investorsOpenFunction = () => {
   // removing other
-  avatarContainer.innerHTML = "";
-  avatarSwag.innerHTML = "";
-  avatarInventory.innerHTML = "";
-  upgradesContainer.innerHTML = "";
-  managerContainer.innerHTML = "";
-  totalMoneySliderDisplay.classList.add("hidden");
-  sliderText.classList.add("hidden");
-  borderEffect.classList.add("hidden");
+  const otherOptions = [
+    avatarContainer,
+    avatarSwag,
+    avatarInventory,
+    upgradesContainer,
+    managerContainer,
+    totalMoneySliderDisplay,
+    sliderText,
+    borderEffect,
+    shopContainer,
+    shopShopContainer,
+    shopExchangeContainer,
+    shopFreeContainer,
+  ];
+
+  otherOptions.forEach((option) => option.classList.add("hidden"));
 
   // display investors
+  investorsContainer.classList.remove("hidden");
   investorsContainer.innerHTML = "";
   investorsContainer.innerHTML += investorsHTML;
   sliderHeading.innerHTML = "investors";

@@ -9,6 +9,8 @@ const babysittingUpgradeBtn = document.querySelector(
 );
 
 //display
+const totalMoneySliderDisplay = document.querySelector(".total-money--slider");
+const totalMoneyShopDisplay = document.querySelector(".total-money--shop");
 const totalMoneyDisplay = document.querySelector(".total-money--amount");
 const babysittingMoneyDisplay = document.querySelector(".babysitting-profit");
 const babysittingTimeDisplay = document.querySelector(".babysitting-time");
@@ -38,7 +40,7 @@ let upgradeWitdh = 10;
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
 let defaultbabysittingMoney = 2000;
-let babysittingMoney = 5000;
+let babysittingMoney = +babysittingMoneyDisplay.innerHTML;
 
 //time
 let babysittingTime = 360;
@@ -85,7 +87,9 @@ const babysittingFunction = () => {
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += babysittingMoney;
-        totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+        totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         babysittingProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), babysittingTime * 1000);
         clearInterval(timeInterval);

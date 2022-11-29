@@ -5,6 +5,8 @@ const cryptoBtn = document.querySelector(".cryptoBtn");
 const cryptoUpgradeBtn = document.querySelector(".crypto-cost-container");
 
 //display
+const totalMoneySliderDisplay = document.querySelector(".total-money--slider");
+const totalMoneyShopDisplay = document.querySelector(".total-money--shop");
 const totalMoneyDisplay = document.querySelector(".total-money--amount");
 const cryptoMoneyDisplay = document.querySelector(".crypto-profit");
 const cryptoTimeDisplay = document.querySelector(".crypto-time");
@@ -34,7 +36,7 @@ let upgradeWitdh = 10;
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
 let defaultcryptoMoney = 50000;
-let cryptoMoney = 20000;
+let cryptoMoney = +cryptoMoneyDisplay.innerHTML;
 
 //time
 let cryptoTime = 10800;
@@ -101,7 +103,9 @@ const cryptoFunction = () => {
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += cryptoMoney;
-        totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+        totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         cryptoProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), cryptoTime * 1000);
         clearInterval(timeInterval);

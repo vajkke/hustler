@@ -12,6 +12,17 @@ const investorsContainer = document.querySelector(
   ".investors-option--container"
 );
 
+const shopContainer = document.querySelector(".shop-option--container");
+const shopShopContainer = document.querySelector(
+  ".shop-selection-container--shop"
+);
+const shopExchangeContainer = document.querySelector(
+  ".shop-selection-container--trade"
+);
+const shopFreeContainer = document.querySelector(
+  ".shop-selection-container--freeGold"
+);
+
 // text & html
 const sliderHeading = document.querySelector(".slider-heading");
 const sliderInfoHeading = document.querySelector(
@@ -131,13 +142,21 @@ const managersHTML = `
 
 const managersOpenFunction = () => {
   // removing other
-  avatarContainer.innerHTML = "";
-  avatarSwag.innerHTML = "";
-  avatarInventory.innerHTML = "";
-  upgradesContainer.innerHTML = "";
-  investorsContainer.innerHTML = "";
+  const otherOptions = [
+    avatarContainer,
+    avatarSwag,
+    avatarInventory,
+    upgradesContainer,
+    investorsContainer,
+    shopContainer,
+    shopShopContainer,
+    shopExchangeContainer,
+    shopFreeContainer,
+  ];
+  otherOptions.forEach((option) => option.classList.add("hidden"));
 
   // display managers
+  managerContainer.classList.remove("hidden");
   managerContainer.innerHTML = "";
   managerContainer.innerHTML += managersHTML;
 

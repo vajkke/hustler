@@ -5,6 +5,8 @@ const trainerBtn = document.querySelector(".trainerBtn");
 const trainerUpgradeBtn = document.querySelector(".trainer-cost-container");
 
 //display
+const totalMoneySliderDisplay = document.querySelector(".total-money--slider");
+const totalMoneyShopDisplay = document.querySelector(".total-money--shop");
 const totalMoneyDisplay = document.querySelector(".total-money--amount");
 const trainerMoneyDisplay = document.querySelector(".trainer-profit");
 const trainerTimeDisplay = document.querySelector(".trainer-time");
@@ -34,7 +36,7 @@ let upgradeWitdh = 10;
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
 let defaulttrainerMoney = 25000;
-let trainerMoney = 10000;
+let trainerMoney = +trainerMoneyDisplay.innerHTML;
 
 //time
 let trainerTime = 3600;
@@ -101,7 +103,9 @@ const trainerFunction = () => {
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += trainerMoney;
-        totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+        totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         trainerProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), trainerTime * 1000);
         clearInterval(timeInterval);

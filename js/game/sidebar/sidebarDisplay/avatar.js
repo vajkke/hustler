@@ -59,24 +59,23 @@ const avatarHTML = `
   </h1>
 </div>
 </div>
-
-<div class="border-effect--avatar">&nbsp;</div>
 `;
 
 const avatarOpenFunction = () => {
   // removing others
-  upgradesContainer.classList.add("hidden");
-  managerContainer.classList.add("hidden");
-  investorsContainer.classList.add("hidden");
-
-  shopContainer.innerHTML = "";
-  shopShopContainer.classList.add("hidden");
-  shopExchangeContainer.classList.add("hidden");
-  shopFreeContainer.classList.add("hidden");
-
-  totalMoneySliderDisplay.classList.add("hidden");
-  sliderText.classList.add("hidden");
-  borderEffect.classList.add("hidden");
+  const otherOptions = [
+    upgradesContainer,
+    investorsContainer,
+    shopContainer,
+    shopShopContainer,
+    shopExchangeContainer,
+    shopFreeContainer,
+    managerContainer,
+    totalMoneySliderDisplay,
+    sliderText,
+    borderEffect,
+  ];
+  otherOptions.forEach((option) => option.classList.add("hidden"));
 
   // refreshing & displaying avatar
   avatarInventoryContainer.classList.add("hidden");

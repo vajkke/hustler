@@ -9,6 +9,8 @@ const photographyUpgradeBtn = document.querySelector(
 );
 
 //display
+const totalMoneySliderDisplay = document.querySelector(".total-money--slider");
+const totalMoneyShopDisplay = document.querySelector(".total-money--shop");
 const totalMoneyDisplay = document.querySelector(".total-money--amount");
 const photographyMoneyDisplay = document.querySelector(".photography-profit");
 const photographyTimeDisplay = document.querySelector(".photography-time");
@@ -38,7 +40,7 @@ let upgradeWitdh = 10;
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
 let defaultphotographyMoney = 3000;
-let photographyMoney = 10000;
+let photographyMoney = +photographyMoneyDisplay.innerHTML;
 
 //time
 let photographyTime = 1200;
@@ -85,7 +87,9 @@ const photographyFunction = () => {
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += photographyMoney;
-        totalMoneyDisplay.innerHTML = totalMoney.toFixed(2);
+        totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
+        totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         photographyProgressBar.style.cssText = `width: 0%;`;
         setTimeout((btnClicked = false), photographyTime * 1000);
         clearInterval(timeInterval);

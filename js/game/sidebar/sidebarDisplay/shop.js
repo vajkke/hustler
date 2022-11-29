@@ -13,6 +13,16 @@ const shopFreeContainer = document.querySelector(
   ".shop-selection-container--freeGold"
 );
 
+// display main option
+const shopImg = document.querySelector(".shop-option--shop-img");
+const shopHeading = document.querySelector(".shop-option--shop-heading");
+const tradeImg = document.querySelector(".shop-option--trade-img");
+const tradeHeading = document.querySelector(".shop-option--trade-heading");
+const freeGoldImg = document.querySelector(".shop-option--freeGold-img");
+const freeGoldHeading = document.querySelector(
+  ".shop-option--freeGold-heading"
+);
+
 // other options
 const upgradesContainer = document.querySelector(".upgrades-option--container");
 const managerContainer = document.querySelector(".managers-option--container");
@@ -40,21 +50,31 @@ const sliderText = document.querySelector(".slider-text");
 
 const shopOpenFunction = () => {
   // removing others
-  upgradesContainer.innerHTML = "";
-  managerContainer.innerHTML = "";
-  investorsContainer.innerHTML = "";
-  avatarInventoryContainer.classList.add("hidden");
-  avatarSwagContainer.classList.add("hidden");
-  avatarContainer.classList.add("hidden");
-
-  totalMoneySliderDisplay.classList.add("hidden");
-  sliderText.classList.add("hidden");
-  borderEffect.classList.add("hidden");
+  const otherOptions = [
+    avatarContainer,
+    managerContainer,
+    avatarInventoryContainer,
+    avatarSwagContainer,
+    upgradesContainer,
+    investorsContainer,
+    shopExchangeContainer,
+    shopFreeContainer,
+    totalMoneySliderDisplay,
+    sliderText,
+    borderEffect,
+  ];
+  otherOptions.forEach((option) => option.classList.add("hidden"));
 
   // refreshing & displaying shop
   shopShopContainer.classList.remove("hidden");
   shopContainer.classList.remove("hidden");
   sliderHeading.innerHTML = "shop";
+  shopImg.style.backgroundColor = "#dee7e7";
+  shopHeading.style.backgroundColor = "#dee7e7";
+  tradeImg.style.backgroundColor = "rgba(222, 231, 231, 0.5)";
+  tradeHeading.style.backgroundColor = "rgba(222, 231, 231, 0.5)";
+  freeGoldImg.style.backgroundColor = "rgba(222, 231, 231, 0.5)";
+  freeGoldHeading.style.backgroundColor = "rgba(222, 231, 231, 0.5)";
 
   shopFunction();
 };

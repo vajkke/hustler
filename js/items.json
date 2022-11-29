@@ -1,0 +1,102 @@
+{
+  "items": [
+    {
+      "heading": "Leprechaun",
+      "info": "This item boost your investors profit 5x",
+      "image": "./img/items/leprechaun.svg",
+      "type": "gold",
+      "price": 50
+    },
+    {
+      "heading": "Piggy Bank",
+      "info": "This item makes your businesses cheaper for 7.77x",
+      "image": "./img/items/piggy-bank.svg",
+      "type": "gold",
+      "price": 50
+    },
+    {
+      "heading": "Crypto Financial Adviser",
+      "info": "This item boost your profit 5x",
+      "image": "./img/items/crypto-financial-adviser.svg",
+      "type": "rare",
+      "price": 25
+    },
+    {
+      "heading": "Lucky Cat Maneki",
+      "info": "This item double the golds you get from the trade",
+      "image": "./img/items/lucky-cat-maneki.svg",
+      "type": "rare",
+      "price": 25
+    },
+    {
+      "heading": "Speed Is All I Need",
+      "info": "This item speeds your businesses 5x",
+      "image": "./img/items/speed-is-all-i-need.svg",
+      "type": "rare",
+      "price": 25
+    },
+    {
+      "heading": "Vitamin Bomb",
+      "info": "This items boost speed & profit your businesses 3.33x",
+      "image": "./img/items/vitamin-bomb.svg",
+      "type": "rare",
+      "price": 25
+    },
+    {
+      "heading": "All Surveys Unlocked",
+      "info": "This item boost your Surveys business profit 3x",
+      "image": "./img/items/all-surveys-unlocked.svg",
+      "type": "average",
+      "price": 10
+    },
+    {
+      "heading": "New Ipad",
+      "info": "This item boost your Tutoring business profit 3x",
+      "image": "./img/items/new-ipad.svg",
+      "type": "average",
+      "price": 10
+    },
+    {
+      "heading": "Premium Food",
+      "info": "This item boost your Dog Walking business profit 3x",
+      "image": "./img/items/premium-food.svg",
+      "type": "average",
+      "price": 10
+    },
+    {
+      "heading": "Electric Mower",
+      "info": "This item speed up your Lawn Mowing business 3x",
+      "image": "./img/items/electric-mower.svg",
+      "type": "average",
+      "price": 10
+    },
+    {
+      "heading": "Top Tier Stroller",
+      "info": "This item speed up your Babysitting business 3x",
+      "image": "./img/items/top-tier-stroller.svg",
+      "type": "average",
+      "price": 10
+    },
+    {
+      "heading": "4K Camera",
+      "info": "This item speed up your Photography business 3x",
+      "image": "./img/items/4K-camera.svg",
+      "type": "average",
+      "price": 10
+    },
+    {
+      "heading": "Fitness Trainer Certification",
+      "info": "This item speed up your Personal Trainer business 3x",
+      "image": "./img/items/fitness-trainer-certification.svg",
+      "type": "average",
+      "price": 10
+    },
+    {
+      "heading": "UltraWide Monitor",
+      "info": "This item speed up your Crypto Trading business 3x",
+      "image": "./img/items/UltraWide-monitor.svg",
+      "type": "average",
+      "price": 10
+    }
+  ]
+}

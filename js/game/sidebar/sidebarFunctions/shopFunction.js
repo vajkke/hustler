@@ -1,3 +1,5 @@
+import data from "../../../items.json" assert { type: "json" };
+
 const shopFunction = () => {
   //buttons
   const shopOptionBtn = document.querySelector(".shop-option--shop");
@@ -107,7 +109,7 @@ const shopFunction = () => {
     goldValueTradeDisplay.innerHTML = goldValueTrade;
   });
   tradeArrowDown.addEventListener("click", () => {
-    if (goldValueTrade > 0) {
+    if (goldValueTrade > 1) {
       tradeMoneyValue -= 1000000;
       goldValueTrade--;
       tradeMoneyValueDisplay.innerHTML = tradeMoneyValue;
@@ -129,7 +131,7 @@ const shopFunction = () => {
     }
   });
 
-  // free gold
+  // free gold //
 
   //btns
   const socialMediaBtns = document.querySelectorAll(".social-media--btn");
@@ -145,6 +147,7 @@ const shopFunction = () => {
   const freeGoldNumber = document.querySelector(".pop-up--freeGold-number");
   const promoCodeContainer = document.querySelector(".promo-code--container");
   const alertText = document.querySelector(".text-alert");
+  const promoCodeHeading = document.querySelector(".promo-code--heading");
 
   socialMediaBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -184,26 +187,67 @@ const shopFunction = () => {
       alertText.classList.add("hidden");
     } else if (promoCodeInput.value !== "youshouldhireme") {
       promoCodeContainer.style.borderColor = "#f71735";
+      promoCodeHeading.style.color = "#f71735";
       alertText.innerHTML = "Sorry, wrong code.";
       alertText.classList.remove("hidden");
       promoCodeInput.value = "";
       setTimeout(() => {
         promoCodeContainer.style.borderColor = "";
         alertText.classList.add("hidden");
+        promoCodeHeading.style.color = "";
       }, 3000);
     } else if (
       promoCodeInput.value === "youshouldhireme" &&
       promoCodeBtn.getAttribute("claimed") === "yes"
     ) {
       promoCodeContainer.style.borderColor = "#f71735";
+      promoCodeHeading.style.color = "#f71735";
       alertText.innerHTML = "Already claimed!";
       alertText.classList.remove("hidden");
       promoCodeInput.value = "";
       setTimeout(() => {
         promoCodeContainer.style.borderColor = "";
         alertText.classList.add("hidden");
+        promoCodeHeading.style.color = "";
       }, 3000);
     }
+  });
+
+  // SHOP SHOP //
+
+  // btns
+  const allItems = document.querySelectorAll(".item-container");
+  const closeItemPopUp = document.querySelector(".close-pop-up");
+
+  //display
+  const itemImgDisplay = document.querySelector(".item-img");
+  const itemHeadingDisplay = document.querySelector(".item-heading");
+  const itemInfoDisplay = document.querySelector(".item-info");
+  const itemPriceDisplay = document.querySelector(".item-price");
+  const itemPopUp = document.querySelector(".shop-pop-up--item");
+
+  const items = data.items; //items array
+
+  allItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      itemPopUp.classList.remove("hidden");
+      items.forEach((item) => {
+        if (item.image === e.target.getAttribute("src")) {
+          itemImgDisplay.src = item.image;
+          itemHeadingDisplay.innerHTML = item.heading;
+          itemInfoDisplay.innerHTML = item.info;
+          itemPriceDisplay.innerHTML = item.price;
+        }
+      });
+    });
+  });
+
+  closeItemPopUp.addEventListener("click", () => {
+    itemImgDisplay.src = "";
+    itemHeadingDisplay.innerHTML = "";
+    itemInfoDisplay.innerHTML = "";
+    itemPriceDisplay.innerHTML = "";
+    itemPopUp.classList.add("hidden");
   });
 };
 

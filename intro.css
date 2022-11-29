@@ -1175,6 +1175,11 @@ body {
   border-bottom-right-radius: 16px;
 }
 
+.arrow-up--container:active,
+.arrow-down--container:active {
+  background: rgba(59, 77, 255, 1);
+}
+
 .arrow-up,
 .arrow-down {
   font-size: 6rem !important;
@@ -1192,6 +1197,10 @@ body {
   border-radius: 11px;
   font-family: "Nova Mono", monospace;
   font-weight: 900;
+}
+
+.exchange-button:active {
+  color: rgba(59, 77, 255, 1);
 }
 
 /* FREE */
@@ -1363,6 +1372,97 @@ a {
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 2;
   cursor: default;
+}
+
+/* ITEMS POPUP */
+
+.shop-pop-up--item {
+  position: absolute;
+  z-index: 100;
+  background-color: #f4faff;
+  border-radius: 11px;
+  border: 5px solid #ffd700;
+  width: 450px;
+  height: 600px;
+  color: #415a77;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  cursor: default;
+  left: 0;
+  right: 0;
+  top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Nova Mono", monospace;
+}
+
+.item-heading {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.item-info {
+  font-size: 1.5rem;
+  text-align: center;
+  width: 90%;
+}
+
+.item-price-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5px solid #ffd700;
+}
+
+.item-price-container img {
+  margin-left: 1rem;
+}
+
+.item-price {
+  display: flex;
+  align-items: center;
+  font-size: 3.5rem;
+}
+
+.buy-itemBtn {
+  width: 150px;
+  background-color: rgba(255, 215, 0, 0.65);
+  border: 3px solid #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  font-weight: 900;
+  border-radius: 11px;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+
+.buy-itemBtn:active {
+  background-color: rgba(255, 215, 0, 1);
+}
+
+.close-pop-up {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: "Roboto", sans-serif;
+  color: #f4faff;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #f71735;
+  background-color: rgba(247, 23, 53, 0.65);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.close-pop-up:active {
+  background-color: rgba(247, 23, 53, 1);
 }
 
 .hidden {

@@ -177,6 +177,7 @@ const shopFunction = () => {
       goldValue += 5;
       goldValueDisplay.innerHTML = goldValue;
       promoCodeInput.value = "";
+      promoCodeBtn.setAttribute("claimed", "yes");
     } else {
       promoCodeInput.value = "";
     }

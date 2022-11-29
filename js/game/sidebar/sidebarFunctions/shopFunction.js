@@ -14,6 +14,9 @@ const shopFunction = () => {
     ".shop-option--freeGold-heading"
   );
 
+  const goldValueDisplay = document.querySelector(".gold-number--value");
+  let goldValue = +goldValueDisplay.innerHTML;
+
   const shopContainer = document.querySelector(".shop-option--container");
   const goldMoneyContainer = document.querySelector(".gold-money--container");
 
@@ -84,27 +87,31 @@ const shopFunction = () => {
 
   //display
   const tradeMoneyValueDisplay = document.querySelector(".cost-money-value");
-  const goldValueDisplay = document.querySelector(".result-gold-value");
+  const goldValueTradeDisplay = document.querySelector(".result-gold-value");
   const totalMoneyDisplay = document.querySelector(".total-money--amount");
+  const totalMoneySliderDisplay = document.querySelector(
+    ".total-money--slider"
+  );
+  const totalMoneyShopDisplay = document.querySelector(".total-money--shop");
 
   // values
   let tradeMoneyValue = +tradeMoneyValueDisplay.innerHTML;
-  let goldValue = +goldValueDisplay.innerHTML;
+  let goldValueTrade = +goldValueTradeDisplay.innerHTML;
   let totalMoney = +totalMoneyDisplay.innerHTML;
 
   // arrows
   tradeArrowUp.addEventListener("click", () => {
     tradeMoneyValue += 1000000;
-    goldValue++;
+    goldValueTrade++;
     tradeMoneyValueDisplay.innerHTML = tradeMoneyValue;
-    goldValueDisplay.innerHTML = goldValue;
+    goldValueTradeDisplay.innerHTML = goldValueTrade;
   });
   tradeArrowDown.addEventListener("click", () => {
-    if (goldValue > 0) {
+    if (goldValueTrade > 0) {
       tradeMoneyValue -= 1000000;
-      goldValue--;
+      goldValueTrade--;
       tradeMoneyValueDisplay.innerHTML = tradeMoneyValue;
-      goldValueDisplay.innerHTML = goldValue;
+      goldValueTradeDisplay.innerHTML = goldValueTrade;
     } else {
       return;
     }
@@ -113,7 +120,65 @@ const shopFunction = () => {
   //exchange
   exchangeBtn.addEventListener("click", () => {
     if (totalMoney >= tradeMoneyValue) {
-      console.log("imas dovoljno kesa");
+      goldValue += goldValueTrade;
+      totalMoney -= tradeMoneyValue;
+      goldValueDisplay.innerHTML = goldValue;
+      totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
+      totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
+      totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
+    }
+  });
+
+  // free gold
+
+  //btns
+  const socialMediaBtns = document.querySelectorAll(".social-media--btn");
+  const popUpYAY = document.querySelector(".pop-up--yay");
+  const promoCodeBtn = document.querySelector(".promo-codeBtn");
+
+  // values
+  const promoCodeInput = document.querySelector(".promo-code--input");
+
+  // display
+  const freeGoldPopUp = document.querySelector(".pop-up--freeGold");
+  const popUpOverlay = document.querySelector(".pop-up--overlay");
+  const freeGoldNumber = document.querySelector(".pop-up--freeGold-number");
+
+  socialMediaBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      if (e.target.getAttribute("claimed") === "no") {
+        freeGoldPopUp.classList.remove("hidden");
+        popUpOverlay.classList.remove("hidden");
+        e.target.setAttribute("claimed", "yes");
+        goldValue += 1;
+        goldValueDisplay.innerHTML = goldValue;
+      }
+    });
+  });
+
+  const removePopUpItems = [popUpOverlay, popUpYAY];
+
+  removePopUpItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      freeGoldPopUp.classList.add("hidden");
+      popUpOverlay.classList.add("hidden");
+    });
+  });
+
+  promoCodeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (
+      promoCodeInput.value === "youshouldhireme" &&
+      promoCodeBtn.getAttribute("claimed") === "no"
+    ) {
+      freeGoldNumber.innerHTML = " 5";
+      freeGoldPopUp.classList.remove("hidden");
+      popUpOverlay.classList.remove("hidden");
+      goldValue += 5;
+      goldValueDisplay.innerHTML = goldValue;
+      promoCodeInput.value = "";
+    } else {
+      promoCodeInput.value = "";
     }
   });
 };

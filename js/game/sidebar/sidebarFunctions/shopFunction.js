@@ -143,6 +143,8 @@ const shopFunction = () => {
   const freeGoldPopUp = document.querySelector(".pop-up--freeGold");
   const popUpOverlay = document.querySelector(".pop-up--overlay");
   const freeGoldNumber = document.querySelector(".pop-up--freeGold-number");
+  const promoCodeContainer = document.querySelector(".promo-code--container");
+  const alertText = document.querySelector(".text-alert");
 
   socialMediaBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -178,8 +180,29 @@ const shopFunction = () => {
       goldValueDisplay.innerHTML = goldValue;
       promoCodeInput.value = "";
       promoCodeBtn.setAttribute("claimed", "yes");
-    } else {
+      promoCodeContainer.style.borderColor = "";
+      alertText.classList.add("hidden");
+    } else if (promoCodeInput.value !== "youshouldhireme") {
+      promoCodeContainer.style.borderColor = "#f71735";
+      alertText.innerHTML = "Sorry, wrong code.";
+      alertText.classList.remove("hidden");
       promoCodeInput.value = "";
+      setTimeout(() => {
+        promoCodeContainer.style.borderColor = "";
+        alertText.classList.add("hidden");
+      }, 3000);
+    } else if (
+      promoCodeInput.value === "youshouldhireme" &&
+      promoCodeBtn.getAttribute("claimed") === "yes"
+    ) {
+      promoCodeContainer.style.borderColor = "#f71735";
+      alertText.innerHTML = "Already claimed!";
+      alertText.classList.remove("hidden");
+      promoCodeInput.value = "";
+      setTimeout(() => {
+        promoCodeContainer.style.borderColor = "";
+        alertText.classList.add("hidden");
+      }, 3000);
     }
   });
 };

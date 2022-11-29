@@ -1262,6 +1262,11 @@ a {
   margin-top: 4rem;
 }
 
+.text-alert {
+  margin-top: 3rem;
+  color: #f71735;
+}
+
 .promo-code--heading {
   font-size: 2rem;
   color: #415a77;

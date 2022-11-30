@@ -71,7 +71,7 @@ const avatarFunction = () => {
   });
 
   // shortcut
-  const addItems = document.querySelectorAll(".item-used--container");
+  const addItems = document.querySelectorAll(".item-add");
 
   addItems.forEach((addItem) => {
     addItem.addEventListener("click", () => {
@@ -162,6 +162,48 @@ const avatarFunction = () => {
         equipedItem1.classList.add("item-container--rare");
       } else if (itemToEquip.classList.contains("item-container--gold")) {
         equipedItem1.classList.add("item-container--gold");
+      }
+    } else if (
+      equipedItem1.getAttribute("equiped") === "yes" &&
+      equipedItem2.getAttribute("equiped") === "no"
+    ) {
+      equipedItem2.innerHTML = itemToEquip.innerHTML;
+      equipedItem2.setAttribute("equiped", "yes");
+      if (itemToEquip.classList.contains("item-container--average")) {
+        equipedItem2.classList.add("item-container--average");
+      } else if (itemToEquip.classList.contains("item-container--rare")) {
+        equipedItem2.classList.add("item-container--rare");
+      } else if (itemToEquip.classList.contains("item-container--gold")) {
+        equipedItem2.classList.add("item-container--gold");
+      }
+    } else if (
+      equipedItem1.getAttribute("equiped") === "yes" &&
+      equipedItem2.getAttribute("equiped") === "yes" &&
+      equipedItem3.getAttribute("equiped") === "no"
+    ) {
+      equipedItem3.innerHTML = itemToEquip.innerHTML;
+      equipedItem3.setAttribute("equiped", "yes");
+      if (itemToEquip.classList.contains("item-container--average")) {
+        equipedItem3.classList.add("item-container--average");
+      } else if (itemToEquip.classList.contains("item-container--rare")) {
+        equipedItem3.classList.add("item-container--rare");
+      } else if (itemToEquip.classList.contains("item-container--gold")) {
+        equipedItem3.classList.add("item-container--gold");
+      }
+    } else if (
+      equipedItem1.getAttribute("equiped") === "yes" &&
+      equipedItem2.getAttribute("equiped") === "yes" &&
+      equipedItem3.getAttribute("equiped") === "yes" &&
+      equipedItem4.getAttribute("equiped") === "no"
+    ) {
+      equipedItem4.innerHTML = itemToEquip.innerHTML;
+      equipedItem4.setAttribute("equiped", "yes");
+      if (itemToEquip.classList.contains("item-container--average")) {
+        equipedItem4.classList.add("item-container--average");
+      } else if (itemToEquip.classList.contains("item-container--rare")) {
+        equipedItem4.classList.add("item-container--rare");
+      } else if (itemToEquip.classList.contains("item-container--gold")) {
+        equipedItem4.classList.add("item-container--gold");
       }
     }
   });

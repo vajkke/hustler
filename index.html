@@ -65,20 +65,49 @@
                 </div>
                 <div class="right-side">
                   <div class="item-used-top">
-                    <div class="item-used--container"></div>
-                    <div class="item-used--container"></div>
+                    <div class="item-used--container item-used--1" equiped="no">
+                      <span class="material-symbols-outlined item-add">
+                        add
+                      </span>
+                    </div>
+                    <div class="item-used--container item-used--2" equiped="no">
+                      <span class="material-symbols-outlined item-add">
+                        add
+                      </span>
+                    </div>
                   </div>
                   <div class="item-used-bottom">
-                    <div class="item-used--container"></div>
-                    <div class="item-used--container"></div>
+                    <div class="item-used--container item-used--3" equiped="no">
+                      <span class="material-symbols-outlined item-add">
+                        add
+                      </span>
+                    </div>
+                    <div
+                      class="item-used--container item--used--4"
+                      equiped="no"
+                    >
+                      <span class="material-symbols-outlined item-add">
+                        add
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="avatar-selection-container--inventory" itemCount="0">
-              <!-- <div class="item-container item-container--average">
-                <img src="./img/items/surveysItem.svg" />
-              </div> -->
+              <div class="inventory-items-container">
+                <div class="pop-up-item--overlay hidden"></div>
+                <div class="inventory-pop-up--item hidden">
+                  <h1 class="inventory-close-pop-up">X</h1>
+                  <img
+                    src="./img/items/leprechaun.svg"
+                    class="inventory-item-img"
+                  />
+                  <h1 class="inventory-item-heading"></h1>
+                  <p class="inventory-item-info"></p>
+                  <div class="use-itemBtn">Equip</div>
+                </div>
+              </div>
               <div class="no-items--container">
                 <h1 class="no-items--heading">No items yet, buy some tho...</h1>
                 <div class="no-items--buy">Shop</div>
@@ -127,16 +156,14 @@
               </div>
             </div>
             <div class="shop-selection-container--shop">
-              <div class="pop-up-item--overlay"></div>
+              <div class="pop-up-item--overlay hidden"></div>
               <div class="shop-pop-up--item hidden">
                 <h1 class="close-pop-up">X</h1>
                 <img src="./img/items/leprechaun.svg" class="item-img" />
-                <h1 class="item-heading">Leprechaun</h1>
-                <p class="item-info">
-                  This item boost your investors profit 5x
-                </p>
+                <h1 class="item-heading"></h1>
+                <p class="item-info"></p>
                 <div class="item-price-container">
-                  <p class="item-price">50</p>
+                  <p class="item-price"></p>
                   <img src="./img/shop/gold-item.svg" />
                 </div>
                 <div class="buy-itemBtn">Buy</div>
@@ -223,7 +250,7 @@
             </div>
             <div class="shop-selection-container--freeGold">
               <!-- popup -->
-              <div class="pop-up--overlay"></div>
+              <div class="pop-up--overlay hidden"></div>
               <div class="pop-up--freeGold hidden">
                 <h1 class="pop-up--freeGold-heading">Congratulations</h1>
                 <p class="pop-up--freeGold-text">

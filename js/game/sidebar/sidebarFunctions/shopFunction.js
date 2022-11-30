@@ -152,6 +152,7 @@ const shopFunction = () => {
   socialMediaBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       if (e.target.getAttribute("claimed") === "no") {
+        freeGoldNumber.innerHTML = " 1";
         freeGoldPopUp.classList.remove("hidden");
         popUpOverlay.classList.remove("hidden");
         e.target.setAttribute("claimed", "yes");
@@ -218,6 +219,7 @@ const shopFunction = () => {
   // btns
   const allItems = document.querySelectorAll(".item-container");
   const closeItemPopUp = document.querySelector(".close-pop-up");
+  const buyItemBtn = document.querySelector(".buy-itemBtn");
 
   //display
   const itemImgDisplay = document.querySelector(".item-img");
@@ -225,29 +227,64 @@ const shopFunction = () => {
   const itemInfoDisplay = document.querySelector(".item-info");
   const itemPriceDisplay = document.querySelector(".item-price");
   const itemPopUp = document.querySelector(".shop-pop-up--item");
+  const itemPopUpOverlay = document.querySelector(".pop-up-item--overlay");
+
+  // transfering items
+  const avatarInventoryContainer = document.querySelector(
+    ".avatar-selection-container--inventory"
+  );
+  const inventoryItemsContainer = document.querySelector(
+    ".inventory-items-container"
+  );
+
+  // value
+  const itemPriceValueDisplay = document.querySelector(".item-price");
+  let itemPriceValue = +itemPriceValueDisplay.innerHTML;
+  let itemCount = 0;
+  let itemChoosed;
 
   const items = data.items; //items array
 
   allItems.forEach((item) => {
     item.addEventListener("click", (e) => {
+      itemChoosed = item;
       itemPopUp.classList.remove("hidden");
+      itemPopUpOverlay.classList.remove("hidden");
       items.forEach((item) => {
         if (item.image === e.target.getAttribute("src")) {
           itemImgDisplay.src = item.image;
           itemHeadingDisplay.innerHTML = item.heading;
           itemInfoDisplay.innerHTML = item.info;
           itemPriceDisplay.innerHTML = item.price;
+          itemPriceValue = item.price;
         }
       });
     });
   });
 
-  closeItemPopUp.addEventListener("click", () => {
-    itemImgDisplay.src = "";
-    itemHeadingDisplay.innerHTML = "";
-    itemInfoDisplay.innerHTML = "";
-    itemPriceDisplay.innerHTML = "";
-    itemPopUp.classList.add("hidden");
+  const closingOverlay = [closeItemPopUp, itemPopUpOverlay];
+
+  closingOverlay.forEach((closingItem) => {
+    closingItem.addEventListener("click", () => {
+      itemImgDisplay.src = "";
+      itemHeadingDisplay.innerHTML = "";
+      itemInfoDisplay.innerHTML = "";
+      itemPriceDisplay.innerHTML = "";
+      itemPopUp.classList.add("hidden");
+      itemPopUpOverlay.classList.add("hidden");
+    });
+  });
+
+  buyItemBtn.addEventListener("click", (e) => {
+    if (goldValue >= itemPriceValue) {
+      itemCount++;
+      avatarInventoryContainer.setAttribute("itemCount", itemCount);
+      inventoryItemsContainer.appendChild(itemChoosed);
+      goldValue -= itemPriceValue;
+      goldValueDisplay.innerHTML = goldValue;
+      itemPopUpOverlay.classList.add("hidden");
+      itemPopUp.classList.add("hidden");
+    }
   });
 };
 

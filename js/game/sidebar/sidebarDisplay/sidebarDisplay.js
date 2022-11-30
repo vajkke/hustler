@@ -11,6 +11,9 @@ const closeSlider = document.querySelector(".close-container");
 const totalMoneySliderDisplay = document.querySelector(
   ".total-money-display--slider"
 );
+const inventoryPopUpItem = document.querySelector(".inventory-pop-up--item");
+const itemPopUp = document.querySelector(".shop-pop-up--item");
+const itemPopUpOverlay = document.querySelector(".pop-up-item--overlay");
 
 const borderEffect = document.querySelector(".border-effect");
 const sliderText = document.querySelector(".slider-text");
@@ -64,6 +67,9 @@ const sidebarDisplayFunction = () => {
   closeSlider.addEventListener("click", () => {
     slider.style.animationName = "slidedown";
     sliderContainer.style.animationName = "slidedown";
+    inventoryPopUpItem.classList.add("hidden");
+    itemPopUp.classList.add("hidden");
+    itemPopUpOverlay.classList.add("hidden");
     setTimeout(() => {
       overlay.classList.add("hidden");
       slider.classList.add("hidden");

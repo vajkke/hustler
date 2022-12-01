@@ -170,14 +170,12 @@ const avatarFunction = () => {
     if (equipedItem1.getAttribute("filled") === "no") {
       equipedItem1.innerHTML = itemToEquip.innerHTML;
       equipedItem1.setAttribute("filled", "yes");
-      itemToEquip.setAttribute("equiped", "yes");
       equipedItemClass(equipedItem1);
+
+      itemToEquip.setAttribute("equiped", "yes");
       equipBtn.classList.add("hidden");
       equipItemName = itemToEquip.getAttribute("name");
-      console.log(equipItemName);
-      console.log(itemToEquip.getAttribute("name"));
       equipedItem1.setAttribute("name", equipItemName);
-
       itemEffect(equipedItem1);
     } else if (
       equipedItem1.getAttribute("filled") === "yes" &&
@@ -186,6 +184,11 @@ const avatarFunction = () => {
       equipedItem2.innerHTML = itemToEquip.innerHTML;
       equipedItem2.setAttribute("filled", "yes");
       equipedItemClass(equipedItem2);
+      itemToEquip.setAttribute("equiped", "yes");
+      equipBtn.classList.add("hidden");
+      equipItemName = itemToEquip.getAttribute("name");
+      equipedItem2.setAttribute("name", equipItemName);
+      itemEffect(equipedItem2);
     } else if (
       equipedItem1.getAttribute("filled") === "yes" &&
       equipedItem2.getAttribute("filled") === "yes" &&
@@ -194,6 +197,11 @@ const avatarFunction = () => {
       equipedItem3.innerHTML = itemToEquip.innerHTML;
       equipedItem3.setAttribute("filled", "yes");
       equipedItemClass(equipedItem3);
+      itemToEquip.setAttribute("equiped", "yes");
+      equipBtn.classList.add("hidden");
+      equipItemName = itemToEquip.getAttribute("name");
+      equipedItem3.setAttribute("name", equipItemName);
+      itemEffect(equipedItem3);
     } else if (
       equipedItem1.getAttribute("filled") === "yes" &&
       equipedItem2.getAttribute("filled") === "yes" &&
@@ -203,6 +211,12 @@ const avatarFunction = () => {
       equipedItem4.innerHTML = itemToEquip.innerHTML;
       equipedItem4.setAttribute("filled", "yes");
       equipedItemClass(equipedItem4);
+
+      itemToEquip.setAttribute("equiped", "yes");
+      equipBtn.classList.add("hidden");
+      equipItemName = itemToEquip.getAttribute("name");
+      equipedItem4.setAttribute("name", equipItemName);
+      itemEffect(equipedItem4);
     }
   });
 };

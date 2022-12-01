@@ -228,6 +228,7 @@ const shopFunction = () => {
   const itemPriceDisplay = document.querySelector(".item-price");
   const itemPopUp = document.querySelector(".shop-pop-up--item");
   const itemPopUpOverlay = document.querySelector(".pop-up-item--overlay");
+  const inventoryPopUpItem = document.querySelector(".inventory-pop-up--item");
 
   // transfering items
   const avatarInventoryContainer = document.querySelector(
@@ -272,6 +273,7 @@ const shopFunction = () => {
       itemPriceDisplay.innerHTML = "";
       itemPopUp.classList.add("hidden");
       itemPopUpOverlay.classList.add("hidden");
+      inventoryPopUpItem.classList.add("hidden");
     });
   });
 

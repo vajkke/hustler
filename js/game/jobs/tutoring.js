@@ -35,8 +35,8 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaulttutoringMoney = 0.1;
-let tutoringMoney = +tutoringMoneyDisplay.innerHTML;
+let defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
+let tutoringMoney = 10000000;
 
 //time
 let tutoringTime = 12;

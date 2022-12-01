@@ -1,4 +1,5 @@
 import shopOpenFunction from "../sidebarDisplay/shop.js";
+import itemEffect from "./itemEffect.js";
 import data from "../../../items.json" assert { type: "json" };
 
 const avatarFunction = () => {
@@ -144,7 +145,9 @@ const avatarFunction = () => {
 
   // equiping items
   const equipBtn = document.querySelector(".use-itemBtn");
+  let equipItemName;
 
+  const equipedHeading = document.querySelector(".equipedHeading");
   const equipedItemsTopDisplay = document.querySelector(".item-used-top");
   const equipedItemsBottomDisplay = document.querySelector(".item-used-bottom");
   const equipedItem1 = document.querySelector(".item-used--1");
@@ -152,59 +155,54 @@ const avatarFunction = () => {
   const equipedItem3 = document.querySelector(".item-used--3");
   const equipedItem4 = document.querySelector(".item-used--4");
 
+  const equipedItemClass = (equipedItem) => {
+    equipedHeading.classList.remove("hidden");
+    if (itemToEquip.classList.contains("item-container--average")) {
+      equipedItem.classList.add("item-container--average");
+    } else if (itemToEquip.classList.contains("item-container--rare")) {
+      equipedItem.classList.add("item-container--rare");
+    } else if (itemToEquip.classList.contains("item-container--gold")) {
+      equipedItem.classList.add("item-container--gold");
+    }
+  };
+
   equipBtn.addEventListener("click", () => {
-    if (equipedItem1.getAttribute("equiped") === "no") {
+    if (equipedItem1.getAttribute("filled") === "no") {
       equipedItem1.innerHTML = itemToEquip.innerHTML;
-      equipedItem1.setAttribute("equiped", "yes");
-      if (itemToEquip.classList.contains("item-container--average")) {
-        equipedItem1.classList.add("item-container--average");
-      } else if (itemToEquip.classList.contains("item-container--rare")) {
-        equipedItem1.classList.add("item-container--rare");
-      } else if (itemToEquip.classList.contains("item-container--gold")) {
-        equipedItem1.classList.add("item-container--gold");
-      }
+      equipedItem1.setAttribute("filled", "yes");
+      itemToEquip.setAttribute("equiped", "yes");
+      equipedItemClass(equipedItem1);
+      equipBtn.classList.add("hidden");
+      equipItemName = itemToEquip.getAttribute("name");
+      console.log(equipItemName);
+      console.log(itemToEquip.getAttribute("name"));
+      equipedItem1.setAttribute("name", equipItemName);
+
+      itemEffect(equipedItem1);
     } else if (
-      equipedItem1.getAttribute("equiped") === "yes" &&
-      equipedItem2.getAttribute("equiped") === "no"
+      equipedItem1.getAttribute("filled") === "yes" &&
+      equipedItem2.getAttribute("filled") === "no"
     ) {
       equipedItem2.innerHTML = itemToEquip.innerHTML;
-      equipedItem2.setAttribute("equiped", "yes");
-      if (itemToEquip.classList.contains("item-container--average")) {
-        equipedItem2.classList.add("item-container--average");
-      } else if (itemToEquip.classList.contains("item-container--rare")) {
-        equipedItem2.classList.add("item-container--rare");
-      } else if (itemToEquip.classList.contains("item-container--gold")) {
-        equipedItem2.classList.add("item-container--gold");
-      }
+      equipedItem2.setAttribute("filled", "yes");
+      equipedItemClass(equipedItem2);
     } else if (
-      equipedItem1.getAttribute("equiped") === "yes" &&
-      equipedItem2.getAttribute("equiped") === "yes" &&
-      equipedItem3.getAttribute("equiped") === "no"
+      equipedItem1.getAttribute("filled") === "yes" &&
+      equipedItem2.getAttribute("filled") === "yes" &&
+      equipedItem3.getAttribute("filled") === "no"
     ) {
       equipedItem3.innerHTML = itemToEquip.innerHTML;
-      equipedItem3.setAttribute("equiped", "yes");
-      if (itemToEquip.classList.contains("item-container--average")) {
-        equipedItem3.classList.add("item-container--average");
-      } else if (itemToEquip.classList.contains("item-container--rare")) {
-        equipedItem3.classList.add("item-container--rare");
-      } else if (itemToEquip.classList.contains("item-container--gold")) {
-        equipedItem3.classList.add("item-container--gold");
-      }
+      equipedItem3.setAttribute("filled", "yes");
+      equipedItemClass(equipedItem3);
     } else if (
-      equipedItem1.getAttribute("equiped") === "yes" &&
-      equipedItem2.getAttribute("equiped") === "yes" &&
-      equipedItem3.getAttribute("equiped") === "yes" &&
-      equipedItem4.getAttribute("equiped") === "no"
+      equipedItem1.getAttribute("filled") === "yes" &&
+      equipedItem2.getAttribute("filled") === "yes" &&
+      equipedItem3.getAttribute("filled") === "yes" &&
+      equipedItem4.getAttribute("filled") === "no"
     ) {
       equipedItem4.innerHTML = itemToEquip.innerHTML;
-      equipedItem4.setAttribute("equiped", "yes");
-      if (itemToEquip.classList.contains("item-container--average")) {
-        equipedItem4.classList.add("item-container--average");
-      } else if (itemToEquip.classList.contains("item-container--rare")) {
-        equipedItem4.classList.add("item-container--rare");
-      } else if (itemToEquip.classList.contains("item-container--gold")) {
-        equipedItem4.classList.add("item-container--gold");
-      }
+      equipedItem4.setAttribute("filled", "yes");
+      equipedItemClass(equipedItem4);
     }
   });
 };

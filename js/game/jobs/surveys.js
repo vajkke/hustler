@@ -35,8 +35,8 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultSurveyMoney = 0.1;
-let surveyMoney = 100000000;
+let defaultSurveyMoney = +surveyMoneyDisplay.innerHTML;
+let surveyMoney = +surveyMoneyDisplay.innerHTML;
 
 //time
 let surveyTime = 4;
@@ -59,7 +59,8 @@ const surveyFunction = () => {
   };
   surveysBtn.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
-
+    surveyMoney = +surveyMoneyDisplay.innerHTML;
+    defaultSurveyMoney = +surveyMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       surveyProgressBar.style.cssText = `width: 100%; transition: width ${surveyTime}s ease-in-out;`;
@@ -86,6 +87,8 @@ const surveyFunction = () => {
     surveyUpgradeAttribute = surveyUpgradeBtn.getAttribute("upgradeCount");
     surveyUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
+    surveyMoney = +surveyMoneyDisplay.innerHTML;
+    defaultSurveyMoney = +surveyMoneyDisplay.innerHTML;
     if (totalMoney > surveyUpgradePrice) {
       surveyMoney += defaultSurveyMoney;
       totalMoney -= surveyUpgradePrice;

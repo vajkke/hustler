@@ -35,7 +35,7 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultcryptoMoney = 50000;
+let defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;
 let cryptoMoney = +cryptoMoneyDisplay.innerHTML;
 
 //time

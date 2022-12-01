@@ -39,7 +39,7 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultdogWalkingMoney = 250;
+let defaultdogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
 let dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
 
 //time
@@ -53,6 +53,7 @@ let dogWalkingUpgradeAttribute =
 
 const dogWalkingFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
+
   dogWalkingTimeDisplay.innerHTML = `00:${
     dogWalkingTimeValue >= 10 ? dogWalkingTimeValue : "0" + dogWalkingTimeValue
   }`;
@@ -65,7 +66,8 @@ const dogWalkingFunction = () => {
     }`;
   };
   dogWalkingBtn.addEventListener("click", () => {
-    console.log(dogWalkingUpgradePrice);
+    defaultdogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
+    dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
@@ -96,6 +98,8 @@ const dogWalkingFunction = () => {
       dogWalkingUpgradeBtn.getAttribute("upgradeCount");
     dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaultdogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
+    dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
     if (totalMoney > dogWalkingUpgradePrice) {
       dogWalkingMoney += defaultdogWalkingMoney;
       totalMoney -= dogWalkingUpgradePrice;

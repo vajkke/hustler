@@ -36,7 +36,7 @@ let upgradeWitdh = 10;
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
 let defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
-let tutoringMoney = 10000000;
+let tutoringMoney = +tutoringMoneyDisplay.innerHTML;
 
 //time
 let tutoringTime = 12;
@@ -58,8 +58,9 @@ const tutoringFunction = () => {
     }`;
   };
   tutoringBtn.addEventListener("click", () => {
-    console.log(tutoringUpgradePrice);
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
+    tutoringMoney = +tutoringMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       tutoringProgressBar.style.cssText = `width: 100%; transition: width ${tutoringTime}s ease-in-out;`;
@@ -86,6 +87,8 @@ const tutoringFunction = () => {
     tutoringUpgradeAttribute = tutoringUpgradeBtn.getAttribute("upgradeCount");
     tutoringUpgradePrice = +tutoringUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
+    tutoringMoney = +tutoringMoneyDisplay.innerHTML;
     if (totalMoney > tutoringUpgradePrice) {
       tutoringMoney += defaulttutoringMoney;
       totalMoney -= tutoringUpgradePrice;

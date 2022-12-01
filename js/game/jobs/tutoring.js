@@ -39,7 +39,7 @@ let defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
 let tutoringMoney = +tutoringMoneyDisplay.innerHTML;
 
 //time
-let tutoringTime = 12;
+let tutoringTime = +tutoringTimeDisplay.getAttribute("time");
 let tutoringTimeValue = tutoringTime;
 
 //playable
@@ -58,6 +58,7 @@ const tutoringFunction = () => {
     }`;
   };
   tutoringBtn.addEventListener("click", () => {
+    tutoringTime = +tutoringTimeDisplay.getAttribute("time");
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
     tutoringMoney = +tutoringMoneyDisplay.innerHTML;
@@ -84,6 +85,7 @@ const tutoringFunction = () => {
   });
 
   tutoringUpgradeBtn.addEventListener("click", () => {
+    tutoringTime = +tutoringTimeDisplay.getAttribute("time");
     tutoringUpgradeAttribute = tutoringUpgradeBtn.getAttribute("upgradeCount");
     tutoringUpgradePrice = +tutoringUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;

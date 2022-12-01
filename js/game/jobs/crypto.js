@@ -39,8 +39,7 @@ let defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;
 let cryptoMoney = +cryptoMoneyDisplay.innerHTML;
 
 //time
-let cryptoTime = 10800;
-let cryptoTimeValue = cryptoTime;
+let cryptoTime = +cryptoTimeDisplay.getAttribute("time");
 
 //playable
 let btnClicked = false;
@@ -70,6 +69,7 @@ const intervalTimeFunction = () => {
 };
 
 const timeFunction = () => {
+  cryptoTime = +cryptoTimeDisplay.getAttribute("time");
   hours = Math.floor(cryptoTime / 3600);
   minutes = Math.floor(cryptoTime / 60) - hours * 60;
   seconds = cryptoTime % 60;
@@ -88,13 +88,17 @@ const timeFunction = () => {
 };
 
 const cryptoFunction = () => {
+  cryptoTime = +cryptoTimeDisplay.getAttribute("time");
   intervalTimeFunction();
 
   totalMoney = +totalMoneyDisplay.innerHTML;
   cryptoTimeDisplay.innerHTML = `${hours}:${minutes}:${seconds}`;
 
   cryptoBtn.addEventListener("click", () => {
+    cryptoTime = +cryptoTimeDisplay.getAttribute("time");
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;
+    cryptoMoney = +cryptoMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       cryptoProgressBar.style.cssText = `width: 100%; transition: width ${cryptoTime}s ease-in-out;`;
@@ -121,8 +125,10 @@ const cryptoFunction = () => {
     cryptoUpgradeAttribute = cryptoUpgradeBtn.getAttribute("upgradeCount");
     cryptoUpgradePrice = +cryptoUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;
+    cryptoMoney = +cryptoMoneyDisplay.innerHTML;
     if (totalMoney > cryptoUpgradePrice) {
-      cryptoMoney += cryptoMoney;
+      cryptoMoney += defaultcryptoMoney;
       totalMoney -= cryptoUpgradePrice;
       cryptoUpgradeCount++;
       cryptoUpgradePrice += cryptoUpgradePrice / 7;
@@ -143,7 +149,7 @@ const cryptoFunction = () => {
       cryptoUpgradeBarWidth = 0;
       cryptoCountUpgradeBar.style.width = cryptoUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      cryptoMoney *= 2;
+      defaultcryptoMoney *= 2;
     }
 
     if (cryptoUpgradeCount === secondTimeStampUpgrade) {
@@ -154,7 +160,7 @@ const cryptoFunction = () => {
       cryptoUpgradeBarWidth = 0;
       cryptoCountUpgradeBar.style.width = cryptoUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      cryptoMoney *= 2;
+      defaultcryptoMoney *= 2;
     }
 
     if (cryptoUpgradeCount === thirdTimeStampUpgrade) {
@@ -165,14 +171,14 @@ const cryptoFunction = () => {
       cryptoUpgradeBarWidth = 0;
       cryptoCountUpgradeBar.style.width = cryptoUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      cryptoMoney *= 2;
+      defaultcryptoMoney *= 2;
     }
     if (cryptoUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
       cryptoMoney *= 10;
       cryptoMoneyDisplay.innerHTML = cryptoMoney.toFixed(2);
       cryptoCountUpgradeBar.style.width = 100 + "%";
-      cryptoMoney *= 2;
+      defaultcryptoMoney *= 2;
     }
   });
 };

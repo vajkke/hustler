@@ -39,11 +39,11 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultphotographyMoney = 3000;
+let defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;
 let photographyMoney = +photographyMoneyDisplay.innerHTML;
 
 //time
-let photographyTime = 1200;
+let photographyTime = +photographyTimeDisplay.getAttribute("time");
 let photographyTimeValue = photographyTime;
 
 //playable
@@ -63,6 +63,7 @@ const intervalTimeFunction = () => {
 };
 
 const timeFunction = () => {
+  photographyTime = +photographyTimeDisplay.getAttribute("time");
   minutes = Math.floor(photographyTime / 60);
   seconds = photographyTime % 60;
   minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -72,12 +73,16 @@ const timeFunction = () => {
 };
 
 const photographyFunction = () => {
+  photographyTime = +photographyTimeDisplay.getAttribute("time");
   intervalTimeFunction();
 
   totalMoney = +totalMoneyDisplay.innerHTML;
+  defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;
+  photographyMoney = +photographyMoneyDisplay.innerHTML;
   photographyTimeDisplay.innerHTML = `${minutes}:${seconds}`;
 
   photographyBtn.addEventListener("click", () => {
+    photographyTime = +photographyTimeDisplay.getAttribute("time");
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
@@ -106,8 +111,10 @@ const photographyFunction = () => {
       photographyUpgradeBtn.getAttribute("upgradeCount");
     photographyUpgradePrice = +photographyUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;
+    photographyMoney = +photographyMoneyDisplay.innerHTML;
     if (totalMoney > photographyUpgradePrice) {
-      photographyMoney += photographyMoney;
+      photographyMoney += defaultphotographyMoney;
       totalMoney -= photographyUpgradePrice;
       photographyUpgradeCount++;
       photographyUpgradePrice += photographyUpgradePrice / 7;
@@ -131,7 +138,7 @@ const photographyFunction = () => {
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      photographyMoney *= 2;
+      defaultphotographyMoney *= 2;
     }
 
     if (photographyUpgradeCount === secondTimeStampUpgrade) {
@@ -142,7 +149,7 @@ const photographyFunction = () => {
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      photographyMoney *= 2;
+      defaultphotographyMoney *= 2;
     }
 
     if (photographyUpgradeCount === thirdTimeStampUpgrade) {
@@ -153,14 +160,14 @@ const photographyFunction = () => {
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      photographyMoney *= 2;
+      defaultphotographyMoney *= 2;
     }
     if (photographyUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
       photographyMoney *= 10;
       photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
       photographyCountUpgradeBar.style.width = 100 + "%";
-      photographyMoney *= 2;
+      defaultphotographyMoney *= 2;
     }
   });
 };

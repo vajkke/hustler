@@ -35,11 +35,11 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaulttrainerMoney = 25000;
+let defaulttrainerMoney = +trainerMoneyDisplay.innerHTML;
 let trainerMoney = +trainerMoneyDisplay.innerHTML;
 
 //time
-let trainerTime = 3600;
+let trainerTime = +trainerTimeDisplay.getAttribute("time");
 let trainerTimeValue = trainerTime;
 
 //playable
@@ -56,6 +56,8 @@ const intervalTimeFunction = () => {
 
   if (hours < 10) {
     hours = `0${hours}`;
+  } else if (hours === 0) {
+    hours = ``;
   }
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -70,12 +72,16 @@ const intervalTimeFunction = () => {
 };
 
 const timeFunction = () => {
+  trainerTime = +trainerTimeDisplay.getAttribute("time");
   hours = Math.floor(trainerTime / 3600);
   minutes = Math.floor(trainerTime / 60) - hours * 60;
   seconds = trainerTime % 60;
 
   if (hours < 10) {
     hours = `0${hours}`;
+  } else if (hours === 0) {
+    hours = ``;
+    console.log("lalal");
   }
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -88,13 +94,17 @@ const timeFunction = () => {
 };
 
 const trainerFunction = () => {
+  trainerTime = +trainerTimeDisplay.getAttribute("time");
   intervalTimeFunction();
 
   totalMoney = +totalMoneyDisplay.innerHTML;
   trainerTimeDisplay.innerHTML = `${hours}:${minutes}:${seconds}`;
 
   trainerBtn.addEventListener("click", () => {
+    trainerTime = +trainerTimeDisplay.getAttribute("time");
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaulttrainerMoney = +trainerMoneyDisplay.innerHTML;
+    trainerMoney = +trainerMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       trainerProgressBar.style.cssText = `width: 100%; transition: width ${trainerTime}s ease-in-out;`;
@@ -121,8 +131,10 @@ const trainerFunction = () => {
     trainerUpgradeAttribute = trainerUpgradeBtn.getAttribute("upgradeCount");
     trainerUpgradePrice = +trainerUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaulttrainerMoney = +trainerMoneyDisplay.innerHTML;
+    trainerMoney = +trainerMoneyDisplay.innerHTML;
     if (totalMoney > trainerUpgradePrice) {
-      trainerMoney += trainerMoney;
+      trainerMoney += defaulttrainerMoney;
       totalMoney -= trainerUpgradePrice;
       trainerUpgradeCount++;
       trainerUpgradePrice += trainerUpgradePrice / 7;
@@ -143,7 +155,7 @@ const trainerFunction = () => {
       trainerUpgradeBarWidth = 0;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      trainerMoney *= 2;
+      defaulttrainerMoney *= 2;
     }
 
     if (trainerUpgradeCount === secondTimeStampUpgrade) {
@@ -154,7 +166,7 @@ const trainerFunction = () => {
       trainerUpgradeBarWidth = 0;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      trainerMoney *= 2;
+      defaulttrainerMoney *= 2;
     }
 
     if (trainerUpgradeCount === thirdTimeStampUpgrade) {
@@ -165,14 +177,14 @@ const trainerFunction = () => {
       trainerUpgradeBarWidth = 0;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      trainerMoney *= 2;
+      defaulttrainerMoney *= 2;
     }
     if (trainerUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
       trainerMoney *= 10;
       trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
       trainerCountUpgradeBar.style.width = 100 + "%";
-      trainerMoney *= 2;
+      defaulttrainerMoney *= 2;
     }
   });
 };

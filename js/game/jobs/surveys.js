@@ -39,7 +39,7 @@ let defaultSurveyMoney = +surveyMoneyDisplay.innerHTML;
 let surveyMoney = +surveyMoneyDisplay.innerHTML;
 
 //time
-let surveyTime = 4;
+let surveyTime = +surveyTimeDisplay.getAttribute("time");
 let surveyTimeValue = surveyTime;
 
 //playable
@@ -47,6 +47,7 @@ let btnClicked = false;
 let surveyUpgradeAttribute = surveyUpgradeBtn.getAttribute("upgradeCount");
 
 const surveyFunction = () => {
+  surveyTime = +surveyTimeDisplay.getAttribute("time");
   totalMoney = +totalMoneyDisplay.innerHTML;
   surveyTimeDisplay.innerHTML = `00:${
     surveyTimeValue > 10 ? surveyTime : "0" + surveyTime
@@ -58,6 +59,7 @@ const surveyFunction = () => {
     }`;
   };
   surveysBtn.addEventListener("click", () => {
+    surveyTime = +surveyTimeDisplay.getAttribute("time");
     totalMoney = +totalMoneyDisplay.innerHTML;
     surveyMoney = +surveyMoneyDisplay.innerHTML;
     defaultSurveyMoney = +surveyMoneyDisplay.innerHTML;
@@ -118,7 +120,6 @@ const surveyFunction = () => {
       totalMoney = +totalMoneyDisplay.innerHTML;
       surveyMoney *= 4;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
-
       surveyUpgradeBarWidth = 0;
       surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
       upgradeWitdh = 2;
@@ -129,7 +130,6 @@ const surveyFunction = () => {
       totalMoney = +totalMoneyDisplay.innerHTML;
       surveyMoney *= 5;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
-
       surveyUpgradeBarWidth = 0;
       surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
       upgradeWitdh = 1;

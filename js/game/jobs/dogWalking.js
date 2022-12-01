@@ -43,7 +43,7 @@ let defaultdogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
 let dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
 
 //time
-let dogWalkingTime = 36;
+let dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
 let dogWalkingTimeValue = dogWalkingTime;
 
 //playable
@@ -66,6 +66,7 @@ const dogWalkingFunction = () => {
     }`;
   };
   dogWalkingBtn.addEventListener("click", () => {
+    dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
     defaultdogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
     dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
@@ -94,6 +95,7 @@ const dogWalkingFunction = () => {
   });
 
   dogWalkingUpgradeBtn.addEventListener("click", () => {
+    dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
     dogWalkingUpgradeAttribute =
       dogWalkingUpgradeBtn.getAttribute("upgradeCount");
     dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;

@@ -39,11 +39,11 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultbabysittingMoney = 2000;
+let defaultbabysittingMoney = +babysittingMoneyDisplay.innerHTML;
 let babysittingMoney = +babysittingMoneyDisplay.innerHTML;
 
 //time
-let babysittingTime = 360;
+let babysittingTime = +babysittingTimeDisplay.getAttribute("time");
 let babysittingTimeValue = babysittingTime;
 
 //playable
@@ -63,6 +63,7 @@ const intervalTimeFunction = () => {
 };
 
 const timeFunction = () => {
+  babysittingTime = +babysittingTimeDisplay.getAttribute("time");
   minutes = Math.floor(babysittingTime / 60);
   seconds = babysittingTime % 60;
   minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -72,13 +73,17 @@ const timeFunction = () => {
 };
 
 const babysittingFunction = () => {
+  babysittingTime = +babysittingTimeDisplay.getAttribute("time");
   intervalTimeFunction();
 
   totalMoney = +totalMoneyDisplay.innerHTML;
   babysittingTimeDisplay.innerHTML = `${minutes}:${seconds}`;
 
   babysittingBtn.addEventListener("click", () => {
+    babysittingTime = +babysittingTimeDisplay.getAttribute("time");
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaultbabysittingMoney = +babysittingMoneyDisplay.innerHTML;
+    babysittingMoney = +babysittingMoneyDisplay.innerHTML;
     if (!btnClicked) {
       btnClicked = true;
       babysittingProgressBar.style.cssText = `width: 100%; transition: width ${babysittingTime}s ease-in-out;`;
@@ -106,6 +111,8 @@ const babysittingFunction = () => {
       babysittingUpgradeBtn.getAttribute("upgradeCount");
     babysittingUpgradePrice = +babysittingUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaultbabysittingMoney = +babysittingMoneyDisplay.innerHTML;
+    babysittingMoney = +babysittingMoneyDisplay.innerHTML;
     if (totalMoney > babysittingUpgradePrice) {
       babysittingMoney += babysittingMoney;
       totalMoney -= babysittingUpgradePrice;
@@ -127,11 +134,10 @@ const babysittingFunction = () => {
       totalMoney = +totalMoneyDisplay.innerHTML;
       babysittingMoney *= 3;
       babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
-
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      babysittingMoney *= 2;
+      defaultbabysittingMoney *= 2;
     }
 
     if (babysittingUpgradeCount === secondTimeStampUpgrade) {
@@ -142,7 +148,7 @@ const babysittingFunction = () => {
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      babysittingMoney *= 2;
+      defaultbabysittingMoney *= 2;
     }
 
     if (babysittingUpgradeCount === thirdTimeStampUpgrade) {
@@ -153,14 +159,14 @@ const babysittingFunction = () => {
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      babysittingMoney *= 2;
+      defaultbabysittingMoney *= 2;
     }
     if (babysittingUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
       babysittingMoney *= 10;
       babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
       babysittingCountUpgradeBar.style.width = 100 + "%";
-      babysittingMoney *= 2;
+      defaultbabysittingMoney *= 2;
     }
   });
 };

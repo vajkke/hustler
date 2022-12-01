@@ -35,11 +35,11 @@ let upgradeWitdh = 10;
 
 // money
 let totalMoney = +totalMoneyDisplay.innerHTML;
-let defaultlawnMowerMoney = 500;
+let defaultlawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
 let lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
 
 //time
-let lawnMowerTime = 120;
+let lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
 let lawnMowerTimeValue = lawnMowerTime;
 
 //playable
@@ -59,6 +59,7 @@ const intervalTimeFunction = () => {
 };
 
 const timeFunction = () => {
+  lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
   minutes = Math.floor(lawnMowerTime / 60);
   seconds = lawnMowerTime % 60;
   minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -68,6 +69,8 @@ const timeFunction = () => {
 };
 
 const lawnMowerFunction = () => {
+  lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
+
   intervalTimeFunction();
 
   totalMoney = +totalMoneyDisplay.innerHTML;
@@ -75,6 +78,9 @@ const lawnMowerFunction = () => {
 
   lawnMowerBtn.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaultlawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
+    lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
+    lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
     if (!btnClicked) {
       btnClicked = true;
       lawnMowerProgressBar.style.cssText = `width: 100%; transition: width ${lawnMowerTime}s ease-in-out;`;
@@ -102,8 +108,10 @@ const lawnMowerFunction = () => {
       lawnMowerUpgradeBtn.getAttribute("upgradeCount");
     lawnMowerUpgradePrice = +lawnMowerUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
+    defaultlawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
+    lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
     if (totalMoney > lawnMowerUpgradePrice) {
-      lawnMowerMoney += lawnMowerMoney;
+      lawnMowerMoney += defaultlawnMowerMoney;
       totalMoney -= lawnMowerUpgradePrice;
       lawnMowerUpgradeCount++;
       lawnMowerUpgradePrice += lawnMowerUpgradePrice / 7;
@@ -122,40 +130,37 @@ const lawnMowerFunction = () => {
       totalMoney = +totalMoneyDisplay.innerHTML;
       lawnMowerMoney *= 3;
       lawnMowerMoneyDisplay.innerHTML = lawnMowerMoney.toFixed(2);
-
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      lawnMowerMoney *= 2;
+      defaultlawnMowerMoney *= 2;
     }
 
     if (lawnMowerUpgradeCount === secondTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
       lawnMowerMoney *= 4;
       lawnMowerMoneyDisplay.innerHTML = lawnMowerMoney.toFixed(2);
-
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      lawnMowerMoney *= 2;
+      defaultlawnMowerMoney *= 2;
     }
 
     if (lawnMowerUpgradeCount === thirdTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
       lawnMowerMoney *= 5;
       lawnMowerMoneyDisplay.innerHTML = lawnMowerMoney.toFixed(2);
-
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      lawnMowerMoney *= 2;
+      defaultlawnMowerMoney *= 2;
     }
     if (lawnMowerUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
       lawnMowerMoney *= 10;
       lawnMowerMoneyDisplay.innerHTML = lawnMowerMoney.toFixed(2);
       lawnMowerCountUpgradeBar.style.width = 100 + "%";
-      lawnMowerMoney *= 2;
+      defaultlawnMowerMoney *= 2;
     }
   });
 };

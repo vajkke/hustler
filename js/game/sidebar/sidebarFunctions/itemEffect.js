@@ -1,4 +1,34 @@
 // display
+
+// gold display
+const goldValueTradeDisplay = document.querySelector(".result-gold-value");
+
+// price display
+const surveyUpgradePriceDisplay = document.querySelector(
+  ".survey-upgrade--price"
+);
+const tutoringUpgradePriceDisplay = document.querySelector(
+  ".tutoring-upgrade--price"
+);
+const dogWalkingUpgradePriceDisplay = document.querySelector(
+  ".dogWalking-upgrade--price"
+);
+const lawnMowerUpgradePriceDisplay = document.querySelector(
+  ".lawnMower-upgrade--price"
+);
+const babysittingUpgradePriceDisplay = document.querySelector(
+  ".babysitting-upgrade--price"
+);
+const photographyUpgradePriceDisplay = document.querySelector(
+  ".photography-upgrade--price"
+);
+const trainerUpgradePriceDisplay = document.querySelector(
+  ".trainer-upgrade--price"
+);
+const cryptoUpgradePriceDisplay = document.querySelector(
+  ".crypto-upgrade--price"
+);
+
 // profit display
 const surveyMoneyDisplay = document.querySelector(".survey-profit");
 const tutoringMoneyDisplay = document.querySelector(".tutoring-profit");
@@ -62,6 +92,32 @@ const allTimeValues = [
   cryptoTime,
 ];
 
+// gold values
+let goldTradeValue = +goldValueTradeDisplay.innerHTML;
+let defaultGoldValue = +goldValueTradeDisplay.getAttribute("goldDefaultValue");
+
+// price values
+
+let surveysUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
+let tutoringUpgradePrice = +tutoringUpgradePriceDisplay.innerHTML;
+let dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;
+let lawnMowerUpgradePrice = +lawnMowerUpgradePriceDisplay.innerHTML;
+let babysittingUpgradePrice = +babysittingUpgradePriceDisplay.innerHTML;
+let photographyUpgradePrice = +photographyUpgradePriceDisplay.innerHTML;
+let trainerUpgradePrice = +trainerUpgradePriceDisplay.innerHTML;
+let cryptoUpgradePrice = +cryptoUpgradePriceDisplay.innerHTML;
+
+const allPriceValues = [
+  surveysUpgradePrice,
+  tutoringUpgradePrice,
+  dogWalkingUpgradePrice,
+  lawnMowerUpgradePrice,
+  babysittingUpgradePrice,
+  photographyUpgradePrice,
+  trainerUpgradePrice,
+  cryptoUpgradePrice,
+];
+
 // TIME FUNCTION
 let hours;
 let minutes;
@@ -70,7 +126,7 @@ const timeDisplay = (time) => {
   if (time >= 3600) {
     hours = Math.floor(time / 3600);
     minutes = Math.floor(time / 60) - hours * 60;
-    seconds = time % 60;
+    seconds = (time % 60).toFixed(0);
 
     if (hours < 10) {
       hours = `0${hours}`;
@@ -132,7 +188,7 @@ const itemEffect = (item) => {
     const vitaminMoneyArray = allMoneyValues.map(
       (moneyValue) => moneyValue * 3.33
     );
-    surveyMoneyDisplay.innerHTML = vitaminMoneyArray[0].toFixed(1);
+    surveyMoneyDisplay.innerHTML = vitaminMoneyArray[0].toFixed(2);
     tutoringMoneyDisplay.innerHTML = vitaminMoneyArray[1].toFixed(1);
     dogWalkingMoneyDisplay.innerHTML = vitaminMoneyArray[2].toFixed(1);
     lawnMowerMoneyDisplay.innerHTML = vitaminMoneyArray[3].toFixed(1);
@@ -141,7 +197,9 @@ const itemEffect = (item) => {
     trainerMoneyDisplay.innerHTML = vitaminMoneyArray[6].toFixed(1);
     cryptoMoneyDisplay.innerHTML = vitaminMoneyArray[7].toFixed(1);
 
-    const vitaminTimeArray = allTimeValues.map((timeValue) => timeValue / 3.33);
+    const vitaminTimeArray = allTimeValues.map((timeValue) =>
+      (timeValue / 3.33).toFixed(0)
+    );
 
     surveyTimeDisplay.setAttribute("time", vitaminTimeArray[0]);
     tutoringTimeDisplay.setAttribute("time", vitaminTimeArray[1]);
@@ -160,6 +218,58 @@ const itemEffect = (item) => {
     photographyTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[5]);
     trainerTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[6]);
     cryptoTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[7]);
+  } else if (item.getAttribute("name") === "speed") {
+    const speedTimeArray = allTimeValues.map((timeValue) =>
+      (timeValue / 5).toFixed(0)
+    );
+
+    surveyTimeDisplay.setAttribute("time", speedTimeArray[0]);
+    tutoringTimeDisplay.setAttribute("time", speedTimeArray[1]);
+    dogWalkingTimeDisplay.setAttribute("time", speedTimeArray[2]);
+    lawnMowerTimeDisplay.setAttribute("time", speedTimeArray[3]);
+    babysittingTimeDisplay.setAttribute("time", speedTimeArray[4]);
+    photographyTimeDisplay.setAttribute("time", speedTimeArray[5]);
+    trainerTimeDisplay.setAttribute("time", speedTimeArray[6]);
+    cryptoTimeDisplay.setAttribute("time", speedTimeArray[7]);
+
+    surveyTimeDisplay.innerHTML = timeDisplay(speedTimeArray[0]);
+    tutoringTimeDisplay.innerHTML = timeDisplay(speedTimeArray[1]);
+    dogWalkingTimeDisplay.innerHTML = timeDisplay(speedTimeArray[2]);
+    lawnMowerTimeDisplay.innerHTML = timeDisplay(speedTimeArray[3]);
+    babysittingTimeDisplay.innerHTML = timeDisplay(speedTimeArray[4]);
+    photographyTimeDisplay.innerHTML = timeDisplay(speedTimeArray[5]);
+    trainerTimeDisplay.innerHTML = timeDisplay(speedTimeArray[6]);
+    cryptoTimeDisplay.innerHTML = timeDisplay(speedTimeArray[7]);
+  } else if (item.getAttribute("name") === "maneki") {
+    goldTradeValue = 2;
+    defaultGoldValue = 2;
+    goldValueTradeDisplay.innerHTML = goldTradeValue;
+    goldValueTradeDisplay.setAttribute("goldDefaultValue", defaultGoldValue);
+  } else if (item.getAttribute("name") === "crypto-financial-adviser") {
+    const financeAdviserMoneyArray = allMoneyValues.map(
+      (moneyValue) => moneyValue * 5
+    );
+    surveyMoneyDisplay.innerHTML = financeAdviserMoneyArray[0].toFixed(1);
+    tutoringMoneyDisplay.innerHTML = financeAdviserMoneyArray[1].toFixed(0);
+    dogWalkingMoneyDisplay.innerHTML = financeAdviserMoneyArray[2].toFixed(0);
+    lawnMowerMoneyDisplay.innerHTML = financeAdviserMoneyArray[3].toFixed(0);
+    babysittingMoneyDisplay.innerHTML = financeAdviserMoneyArray[4].toFixed(0);
+    photographyMoneyDisplay.innerHTML = financeAdviserMoneyArray[5].toFixed(0);
+    trainerMoneyDisplay.innerHTML = financeAdviserMoneyArray[6].toFixed(0);
+    cryptoMoneyDisplay.innerHTML = financeAdviserMoneyArray[7].toFixed(0);
+  } else if (item.getAttribute("name") === "piggy-bank") {
+    const piggyBankPriceArray = allPriceValues.map((price) =>
+      (price / 7.77).toFixed(1)
+    );
+
+    surveyUpgradePriceDisplay.innerHTML = piggyBankPriceArray[0];
+    tutoringUpgradePriceDisplay.innerHTML = piggyBankPriceArray[1];
+    dogWalkingUpgradePriceDisplay.innerHTML = piggyBankPriceArray[2];
+    lawnMowerUpgradePriceDisplay.innerHTML = piggyBankPriceArray[3];
+    babysittingUpgradePriceDisplay.innerHTML = piggyBankPriceArray[4];
+    photographyUpgradePriceDisplay.innerHTML = piggyBankPriceArray[5];
+    trainerUpgradePriceDisplay.innerHTML = piggyBankPriceArray[6];
+    cryptoUpgradePriceDisplay.innerHTML = piggyBankPriceArray[7];
   }
 };
 

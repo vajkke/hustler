@@ -99,19 +99,21 @@ const shopFunction = () => {
   // values
   let tradeMoneyValue = +tradeMoneyValueDisplay.innerHTML;
   let goldValueTrade = +goldValueTradeDisplay.innerHTML;
+  let defaultGoldValue =
+    +goldValueTradeDisplay.getAttribute("goldDefaultValue");
   let totalMoney = +totalMoneyDisplay.innerHTML;
 
   // arrows
   tradeArrowUp.addEventListener("click", () => {
     tradeMoneyValue += 1000000;
-    goldValueTrade++;
+    goldValueTrade += defaultGoldValue;
     tradeMoneyValueDisplay.innerHTML = tradeMoneyValue;
     goldValueTradeDisplay.innerHTML = goldValueTrade;
   });
   tradeArrowDown.addEventListener("click", () => {
-    if (goldValueTrade > 1) {
+    if (goldValueTrade > defaultGoldValue) {
       tradeMoneyValue -= 1000000;
-      goldValueTrade--;
+      goldValueTrade -= defaultGoldValue;
       tradeMoneyValueDisplay.innerHTML = tradeMoneyValue;
       goldValueTradeDisplay.innerHTML = goldValueTrade;
     } else {

@@ -129,6 +129,13 @@ const avatarFunction = () => {
           inventoryItemImgDisplay.src = item.image;
           inventoryItemHeadingDisplay.innerHTML = item.heading;
           inventoryItemInfoDisplay.innerHTML = item.info;
+          if (itemToEquip.getAttribute("equiped") === "no") {
+            equipBtn.classList.remove("hidden");
+            equipedHeading.classList.add("hidden");
+          } else if (itemToEquip.getAttribute("equiped") === "yes") {
+            equipBtn.classList.add("hidden");
+            equipedHeading.classList.remove("hidden");
+          }
         }
       });
     });
@@ -156,7 +163,6 @@ const avatarFunction = () => {
   const equipedItem4 = document.querySelector(".item-used--4");
 
   const equipedItemClass = (equipedItem) => {
-    equipedHeading.classList.remove("hidden");
     if (itemToEquip.classList.contains("item-container--average")) {
       equipedItem.classList.add("item-container--average");
     } else if (itemToEquip.classList.contains("item-container--rare")) {
@@ -166,14 +172,18 @@ const avatarFunction = () => {
     }
   };
 
+  const equiped = () => {
+    itemToEquip.setAttribute("equiped", "yes");
+    equipBtn.classList.add("hidden");
+    equipedHeading.classList.remove("hidden");
+  };
+
   equipBtn.addEventListener("click", () => {
     if (equipedItem1.getAttribute("filled") === "no") {
+      equiped();
       equipedItem1.innerHTML = itemToEquip.innerHTML;
       equipedItem1.setAttribute("filled", "yes");
       equipedItemClass(equipedItem1);
-
-      itemToEquip.setAttribute("equiped", "yes");
-      equipBtn.classList.add("hidden");
       equipItemName = itemToEquip.getAttribute("name");
       equipedItem1.setAttribute("name", equipItemName);
       itemEffect(equipedItem1);
@@ -181,11 +191,10 @@ const avatarFunction = () => {
       equipedItem1.getAttribute("filled") === "yes" &&
       equipedItem2.getAttribute("filled") === "no"
     ) {
+      equiped();
       equipedItem2.innerHTML = itemToEquip.innerHTML;
       equipedItem2.setAttribute("filled", "yes");
       equipedItemClass(equipedItem2);
-      itemToEquip.setAttribute("equiped", "yes");
-      equipBtn.classList.add("hidden");
       equipItemName = itemToEquip.getAttribute("name");
       equipedItem2.setAttribute("name", equipItemName);
       itemEffect(equipedItem2);
@@ -194,11 +203,10 @@ const avatarFunction = () => {
       equipedItem2.getAttribute("filled") === "yes" &&
       equipedItem3.getAttribute("filled") === "no"
     ) {
+      equiped();
       equipedItem3.innerHTML = itemToEquip.innerHTML;
       equipedItem3.setAttribute("filled", "yes");
       equipedItemClass(equipedItem3);
-      itemToEquip.setAttribute("equiped", "yes");
-      equipBtn.classList.add("hidden");
       equipItemName = itemToEquip.getAttribute("name");
       equipedItem3.setAttribute("name", equipItemName);
       itemEffect(equipedItem3);
@@ -208,12 +216,10 @@ const avatarFunction = () => {
       equipedItem3.getAttribute("filled") === "yes" &&
       equipedItem4.getAttribute("filled") === "no"
     ) {
+      equiped();
       equipedItem4.innerHTML = itemToEquip.innerHTML;
       equipedItem4.setAttribute("filled", "yes");
       equipedItemClass(equipedItem4);
-
-      itemToEquip.setAttribute("equiped", "yes");
-      equipBtn.classList.add("hidden");
       equipItemName = itemToEquip.getAttribute("name");
       equipedItem4.setAttribute("name", equipItemName);
       itemEffect(equipedItem4);

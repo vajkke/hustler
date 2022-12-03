@@ -13,6 +13,9 @@ const avatarInventoryContainer = document.querySelector(
   ".avatar-selection-container--inventory"
 );
 
+const equipedItemPopUp = document.querySelector(".equiped-pop-up--item");
+const equipedOverlayPopUp = document.querySelector(".pop-up-equiped--overlay");
+
 // other options
 const upgradesContainer = document.querySelector(".upgrades-option--container");
 const managerContainer = document.querySelector(".managers-option--container");
@@ -74,6 +77,8 @@ const avatarOpenFunction = () => {
     totalMoneySliderDisplay,
     sliderText,
     borderEffect,
+    equipedItemPopUp,
+    equipedOverlayPopUp,
   ];
   otherOptions.forEach((option) => option.classList.add("hidden"));
 

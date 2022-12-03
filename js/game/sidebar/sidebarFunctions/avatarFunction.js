@@ -1,8 +1,17 @@
 import shopOpenFunction from "../sidebarDisplay/shop.js";
 import itemEffect from "./itemEffect.js";
 import data from "../../../items.json" assert { type: "json" };
+import disableItemsEffect from "./disableItemsEffects.js";
 
 const avatarFunction = () => {
+  const items = data.items; //items array from json
+
+  // swag equiped items
+  const equipedItemPopUp = document.querySelector(".equiped-pop-up--item");
+  const equipedOverlayPopUp = document.querySelector(
+    ".pop-up-equiped--overlay"
+  );
+
   // buttons
   const swagOption = document.querySelector(".swag");
   const inventoryOption = document.querySelector(".inventory");
@@ -40,6 +49,8 @@ const avatarFunction = () => {
 
     avatarInventoryContainer.classList.add("hidden");
     avatarSwagContainer.classList.remove("hidden");
+    equipedItemPopUp.classList.add("hidden");
+    equipedOverlayPopUp.classList.add("hidden");
   });
 
   inventoryOption.addEventListener("click", () => {
@@ -50,6 +61,8 @@ const avatarFunction = () => {
 
     avatarSwagContainer.classList.add("hidden");
     avatarInventoryContainer.classList.remove("hidden");
+    equipedItemPopUp.classList.add("hidden");
+    equipedOverlayPopUp.classList.add("hidden");
   });
 
   // GENDER
@@ -83,6 +96,7 @@ const avatarFunction = () => {
 
       avatarSwagContainer.classList.add("hidden");
       avatarInventoryContainer.classList.remove("hidden");
+      equipedItemPopUp.classList.add("hidden");
     });
   });
 
@@ -114,8 +128,6 @@ const avatarFunction = () => {
   } else if (avatarInventoryContainer.getAttribute("itemCount") !== "0") {
     noItemsContainer.classList.add("hidden");
   }
-
-  const items = data.items; //items array from json
 
   let itemToEquip;
 
@@ -155,8 +167,6 @@ const avatarFunction = () => {
   let equipItemName;
 
   const equipedHeading = document.querySelector(".equipedHeading");
-  const equipedItemsTopDisplay = document.querySelector(".item-used-top");
-  const equipedItemsBottomDisplay = document.querySelector(".item-used-bottom");
   const equipedItem1 = document.querySelector(".item-used--1");
   const equipedItem2 = document.querySelector(".item-used--2");
   const equipedItem3 = document.querySelector(".item-used--3");
@@ -172,6 +182,16 @@ const avatarFunction = () => {
     }
   };
 
+  const unequipedItemClass = (unequipedItem) => {
+    if (unequipedItem.classList.contains("item-container--average")) {
+      unequipedItem.classList.remove("item-container--average");
+    } else if (unequipedItem.classList.contains("item-container--rare")) {
+      unequipedItem.classList.remove("item-container--rare");
+    } else if (unequipedItem.classList.contains("item-container--gold")) {
+      unequipedItem.classList.remove("item-container--gold");
+    }
+  };
+
   const equiped = () => {
     itemToEquip.setAttribute("equiped", "yes");
     equipBtn.classList.add("hidden");
@@ -179,7 +199,10 @@ const avatarFunction = () => {
   };
 
   equipBtn.addEventListener("click", () => {
-    if (equipedItem1.getAttribute("filled") === "no") {
+    if (
+      equipedItem1.getAttribute("filled") === "no" &&
+      itemToEquip.getAttribute("equiped") === "no"
+    ) {
       equiped();
       equipedItem1.innerHTML = itemToEquip.innerHTML;
       equipedItem1.setAttribute("filled", "yes");
@@ -189,7 +212,8 @@ const avatarFunction = () => {
       itemEffect(equipedItem1);
     } else if (
       equipedItem1.getAttribute("filled") === "yes" &&
-      equipedItem2.getAttribute("filled") === "no"
+      equipedItem2.getAttribute("filled") === "no" &&
+      itemToEquip.getAttribute("equiped") === "no"
     ) {
       equiped();
       equipedItem2.innerHTML = itemToEquip.innerHTML;
@@ -201,7 +225,8 @@ const avatarFunction = () => {
     } else if (
       equipedItem1.getAttribute("filled") === "yes" &&
       equipedItem2.getAttribute("filled") === "yes" &&
-      equipedItem3.getAttribute("filled") === "no"
+      equipedItem3.getAttribute("filled") === "no" &&
+      itemToEquip.getAttribute("equiped") === "no"
     ) {
       equiped();
       equipedItem3.innerHTML = itemToEquip.innerHTML;
@@ -214,7 +239,8 @@ const avatarFunction = () => {
       equipedItem1.getAttribute("filled") === "yes" &&
       equipedItem2.getAttribute("filled") === "yes" &&
       equipedItem3.getAttribute("filled") === "yes" &&
-      equipedItem4.getAttribute("filled") === "no"
+      equipedItem4.getAttribute("filled") === "no" &&
+      itemToEquip.getAttribute("equiped") === "no"
     ) {
       equiped();
       equipedItem4.innerHTML = itemToEquip.innerHTML;
@@ -224,6 +250,49 @@ const avatarFunction = () => {
       equipedItem4.setAttribute("name", equipItemName);
       itemEffect(equipedItem4);
     }
+  });
+
+  // SWAG ITEMS
+  const equipedItemImg = document.querySelector(".equiped-item-img");
+  const equipedItemHeading = document.querySelector(".equiped-item-heading");
+  const equipedItemInfo = document.querySelector(".equiped-item-info");
+  const unequipBtn = document.querySelector(".unequip-itemBtn");
+  const closeEquipedPopUp = document.querySelector(".equiped-close-pop-up");
+
+  const removePopUp = [equipedOverlayPopUp, closeEquipedPopUp];
+
+  removePopUp.forEach((item) => {
+    item.addEventListener("click", () => {
+      equipedItemPopUp.classList.add("hidden");
+      equipedOverlayPopUp.classList.add("hidden");
+    });
+  });
+
+  const equipedItems = document.querySelectorAll(".item-used--container");
+
+  equipedItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      itemToEquip = item;
+      equipedItemPopUp.classList.remove("hidden");
+      equipedOverlayPopUp.classList.remove("hidden");
+      items.forEach((item) => {
+        if (item.image === e.target.getAttribute("src")) {
+          equipedItemImg.src = item.image;
+          equipedItemHeading.innerHTML = item.heading;
+          equipedItemInfo.innerHTML = item.info;
+        }
+      });
+    });
+  });
+
+  unequipBtn.addEventListener("click", () => {
+    disableItemsEffect(itemToEquip);
+    itemToEquip.setAttribute("filled", "no");
+    itemToEquip.setAttribute("name", "/");
+    itemToEquip.innerHTML = `<span class="material-symbols-outlined item-add">add</span>`;
+    unequipedItemClass(itemToEquip);
+    equipedItemPopUp.classList.add("hidden");
+    equipedOverlayPopUp.classList.add("hidden");
   });
 };
 

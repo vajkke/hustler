@@ -1374,20 +1374,9 @@ a {
   margin-left: 0.7rem;
 }
 
+.pop-up-item--overlay,
+.pop-up-equiped--overlay,
 .pop-up--overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 100;
-  cursor: default;
-}
-
-.pop-up-item--overlay {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -1403,7 +1392,8 @@ a {
 /* ITEMS POPUP */
 
 .shop-pop-up--item,
-.inventory-pop-up--item {
+.inventory-pop-up--item,
+.equiped-pop-up--item {
   position: absolute;
   z-index: 100;
   background-color: #f4faff;
@@ -1426,13 +1416,15 @@ a {
 }
 
 .item-heading,
-.inventory-item-heading {
+.inventory-item-heading,
+.equiped-item-heading {
   font-size: 2.5rem;
   text-align: center;
 }
 
 .item-info,
-.inventory-item-info {
+.inventory-item-info,
+.equiped-item-info {
   font-size: 1.5rem;
   text-align: center;
   width: 90%;
@@ -1456,7 +1448,8 @@ a {
 }
 
 .buy-itemBtn,
-.use-itemBtn {
+.use-itemBtn,
+.unequip-itemBtn {
   width: 150px;
   background-color: rgba(255, 215, 0, 0.65);
   border: 3px solid #ffd700;
@@ -1484,12 +1477,14 @@ a {
 }
 
 .buy-itemBtn:active,
-.use-itemBtn:active {
+.use-itemBtn:active,
+.unequip-itemBtn:active {
   background-color: rgba(255, 215, 0, 1);
 }
 
 .close-pop-up,
-.inventory-close-pop-up {
+.inventory-close-pop-up,
+.equiped-close-pop-up {
   position: absolute;
   top: 0;
   right: 0;
@@ -1507,7 +1502,8 @@ a {
 }
 
 .close-pop-up:active,
-.inventory-close-pop-up:active {
+.inventory-close-pop-up:active,
+.equiped-close-pop-up:active {
   background-color: rgba(247, 23, 53, 1);
 }
 

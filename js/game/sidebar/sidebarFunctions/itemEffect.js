@@ -151,40 +151,63 @@ const timeDisplay = (time) => {
 
 const itemEffect = (item) => {
   if (item.getAttribute("name") === "surveys") {
+    surveysUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
     surveyMoney *= 3;
     surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(1);
   } else if (item.getAttribute("name") === "new-ipad") {
+    tutoringUpgradePrice = +tutoringUpgradePriceDisplay.innerHTML;
     tutoringMoney *= 3;
     tutoringMoneyDisplay.innerHTML = tutoringMoney.toFixed(0);
   } else if (item.getAttribute("name") === "premium-food") {
+    dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;
     dogWalkingMoney *= 3;
     dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(0);
   } else if (item.getAttribute("name") === "electric-mower") {
+    lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
     lawnMowerTime /= 3;
     lawnMowerTimeDisplay.setAttribute("time", lawnMowerTime);
-
     lawnMowerTimeDisplay.innerHTML = timeDisplay(lawnMowerTime);
   } else if (item.getAttribute("name") === "top-tier-stroller") {
+    babysittingTime = +babysittingTimeDisplay.getAttribute("time");
     babysittingTime /= 3;
     babysittingTimeDisplay.setAttribute("time", babysittingTime);
-
     babysittingTimeDisplay.innerHTML = timeDisplay(babysittingTime);
   } else if (item.getAttribute("name") === "camera") {
+    photographyTime = +photographyTimeDisplay.getAttribute("time");
     photographyTime /= 3;
     photographyTimeDisplay.setAttribute("time", photographyTime);
-
     photographyTimeDisplay.innerHTML = timeDisplay(photographyTime);
   } else if (item.getAttribute("name") === "fitness-trainer-certification") {
+    trainerTime = +trainerTimeDisplay.getAttribute("time");
     trainerTime /= 3;
     trainerTimeDisplay.setAttribute("time", trainerTime);
-
     trainerTimeDisplay.innerHTML = timeDisplay(trainerTime);
   } else if (item.getAttribute("name") === "monitor") {
+    cryptoTime = +cryptoTimeDisplay.getAttribute("time");
     cryptoTime /= 3;
     cryptoTimeDisplay.setAttribute("time", cryptoTime);
-
     cryptoTimeDisplay.innerHTML = timeDisplay(cryptoTime);
   } else if (item.getAttribute("name") === "vitamin-bomb") {
+    surveyMoney = +surveyMoneyDisplay.innerHTML;
+    tutoringMoney = +tutoringMoneyDisplay.innerHTML;
+    dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
+    lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
+    babysittingMoney = +babysittingMoneyDisplay.innerHTML;
+    photographyMoney = +photographyMoneyDisplay.innerHTML;
+    trainerMoney = +trainerMoneyDisplay.innerHTML;
+    cryptoMoney = +cryptoMoneyDisplay.innerHTML;
+
+    const allMoneyValues = [
+      surveyMoney,
+      tutoringMoney,
+      dogWalkingMoney,
+      lawnMowerMoney,
+      babysittingMoney,
+      photographyMoney,
+      trainerMoney,
+      cryptoMoney,
+    ];
+
     const vitaminMoneyArray = allMoneyValues.map(
       (moneyValue) => moneyValue * 3.33
     );
@@ -196,6 +219,26 @@ const itemEffect = (item) => {
     photographyMoneyDisplay.innerHTML = vitaminMoneyArray[5].toFixed(1);
     trainerMoneyDisplay.innerHTML = vitaminMoneyArray[6].toFixed(1);
     cryptoMoneyDisplay.innerHTML = vitaminMoneyArray[7].toFixed(1);
+
+    surveysTime = +surveyTimeDisplay.getAttribute("time");
+    tutoringTime = +tutoringTimeDisplay.getAttribute("time");
+    dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
+    lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
+    babysittingTime = +babysittingTimeDisplay.getAttribute("time");
+    photographyTime = +photographyTimeDisplay.getAttribute("time");
+    trainerTime = +trainerTimeDisplay.getAttribute("time");
+    cryptoTime = +cryptoTimeDisplay.getAttribute("time");
+
+    const allTimeValues = [
+      surveysTime,
+      tutoringTime,
+      dogWalkingTime,
+      lawnMowerTime,
+      babysittingTime,
+      photographyTime,
+      trainerTime,
+      cryptoTime,
+    ];
 
     const vitaminTimeArray = allTimeValues.map((timeValue) =>
       (timeValue / 3.33).toFixed(0)
@@ -219,6 +262,26 @@ const itemEffect = (item) => {
     trainerTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[6]);
     cryptoTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[7]);
   } else if (item.getAttribute("name") === "speed") {
+    surveysTime = +surveyTimeDisplay.getAttribute("time");
+    tutoringTime = +tutoringTimeDisplay.getAttribute("time");
+    dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
+    lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
+    babysittingTime = +babysittingTimeDisplay.getAttribute("time");
+    photographyTime = +photographyTimeDisplay.getAttribute("time");
+    trainerTime = +trainerTimeDisplay.getAttribute("time");
+    cryptoTime = +cryptoTimeDisplay.getAttribute("time");
+
+    const allTimeValues = [
+      surveysTime,
+      tutoringTime,
+      dogWalkingTime,
+      lawnMowerTime,
+      babysittingTime,
+      photographyTime,
+      trainerTime,
+      cryptoTime,
+    ];
+
     const speedTimeArray = allTimeValues.map((timeValue) =>
       (timeValue / 5).toFixed(0)
     );
@@ -246,6 +309,26 @@ const itemEffect = (item) => {
     goldValueTradeDisplay.innerHTML = goldTradeValue;
     goldValueTradeDisplay.setAttribute("goldDefaultValue", defaultGoldValue);
   } else if (item.getAttribute("name") === "crypto-financial-adviser") {
+    surveyMoney = +surveyMoneyDisplay.innerHTML;
+    tutoringMoney = +tutoringMoneyDisplay.innerHTML;
+    dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
+    lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
+    babysittingMoney = +babysittingMoneyDisplay.innerHTML;
+    photographyMoney = +photographyMoneyDisplay.innerHTML;
+    trainerMoney = +trainerMoneyDisplay.innerHTML;
+    cryptoMoney = +cryptoMoneyDisplay.innerHTML;
+
+    const allMoneyValues = [
+      surveyMoney,
+      tutoringMoney,
+      dogWalkingMoney,
+      lawnMowerMoney,
+      babysittingMoney,
+      photographyMoney,
+      trainerMoney,
+      cryptoMoney,
+    ];
+
     const financeAdviserMoneyArray = allMoneyValues.map(
       (moneyValue) => moneyValue * 5
     );

@@ -128,7 +128,6 @@ const trainerFunction = () => {
   });
 
   trainerUpgradeBtn.addEventListener("click", () => {
-    trainerUpgradeAttribute = trainerUpgradeBtn.getAttribute("upgradeCount");
     trainerUpgradePrice = +trainerUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaulttrainerMoney = +trainerMoneyDisplay.innerHTML;

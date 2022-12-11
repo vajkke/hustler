@@ -107,8 +107,6 @@ const babysittingFunction = () => {
   });
 
   babysittingUpgradeBtn.addEventListener("click", () => {
-    babysittingUpgradeAttribute =
-      babysittingUpgradeBtn.getAttribute("upgradeCount");
     babysittingUpgradePrice = +babysittingUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultbabysittingMoney = +babysittingMoneyDisplay.innerHTML;

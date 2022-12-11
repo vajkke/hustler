@@ -9,20 +9,24 @@ const upgradesFunction = () => {
   const buyUpgradeBtns = document.querySelectorAll(".upgrader-buy");
   const upgraderContainers = document.querySelectorAll(".upgrader-container");
 
+  const upgradesContainer = document.querySelector(
+    ".upgrades-option--container"
+  );
+
   let upgraderPrice;
   let totalMoney = +totalMoneyDisplay.innerHTML;
+  let targetContainer;
 
   buyUpgradeBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      let targetContainer = e.target.parentElement;
+      targetContainer = e.target.parentElement;
       upgraderPrice = +targetContainer.getAttribute("price");
-      console.log(targetContainer.classList.contains("survey-upgrader1"));
       if (totalMoney >= upgraderPrice) {
         totalMoney -= upgraderPrice;
         totalMoneyDisplay.innerHTML = totalMoney;
         totalMoneySliderDisplay.innerHTML = totalMoney;
-        upgradesEffects(targetContainer);
         targetContainer.remove();
+        upgradesEffects(targetContainer);
       }
     });
   });

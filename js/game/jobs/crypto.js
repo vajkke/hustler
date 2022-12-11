@@ -122,7 +122,6 @@ const cryptoFunction = () => {
   });
 
   cryptoUpgradeBtn.addEventListener("click", () => {
-    cryptoUpgradeAttribute = cryptoUpgradeBtn.getAttribute("upgradeCount");
     cryptoUpgradePrice = +cryptoUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;

@@ -104,8 +104,6 @@ const lawnMowerFunction = () => {
   });
 
   lawnMowerUpgradeBtn.addEventListener("click", () => {
-    lawnMowerUpgradeAttribute =
-      lawnMowerUpgradeBtn.getAttribute("upgradeCount");
     lawnMowerUpgradePrice = +lawnMowerUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultlawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;

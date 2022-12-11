@@ -1,4 +1,4 @@
-import upgradesFunction from "../sidebarFunctions/upgradesFunction.js";
+import upgradesEffects from "../sidebarFunctions/upgradesEffect.js";
 
 // main option
 const upgradesContainer = document.querySelector(".upgrades-option--container");
@@ -53,7 +53,32 @@ const upgradesOpenFunction = () => {
   sliderInfoText.innerHTML =
     "Purchase these fine quality upgrades to give your businesses a boost.";
 
-  upgradesFunction();
+  const totalMoneyDisplay = document.querySelector(".total-money--amount");
+  const totalMoneySliderDisplay = document.querySelector(
+    ".total-money--slider"
+  );
+
+  const buyUpgradeBtns = document.querySelectorAll(".upgrader-buy");
+  const upgraderContainers = document.querySelectorAll(".upgrader-container");
+
+  let upgraderPrice;
+  let totalMoney = +totalMoneyDisplay.innerHTML;
+  let targetContainer;
+
+  buyUpgradeBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      targetContainer = e.target.parentElement;
+      upgraderPrice = +targetContainer.getAttribute("price");
+      if (totalMoney >= upgraderPrice) {
+        totalMoney -= upgraderPrice;
+        totalMoneyDisplay.innerHTML = totalMoney;
+        totalMoneySliderDisplay.innerHTML = totalMoney;
+        upgradesEffects(targetContainer);
+        targetContainer.remove();
+        targetContainer = "";
+      }
+    });
+  });
 };
 
 export default upgradesOpenFunction;

@@ -18,6 +18,8 @@ const itemPopUpOverlay = document.querySelector(".pop-up-item--overlay");
 const borderEffect = document.querySelector(".border-effect");
 const sliderText = document.querySelector(".slider-text");
 
+const upgradesContainer = document.querySelector(".upgrades-option--container");
+
 const sliderAnimation = () => {
   sliderContainer.classList.remove("hidden");
   slider.style.animationName = "slideup";

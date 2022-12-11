@@ -1,3 +1,5 @@
+import managerEffects from "../sidebar/sidebarFunctions/managerEffects.js";
+
 const surveyProgressBar = document.querySelector(".survey-progress--bar");
 
 //btns

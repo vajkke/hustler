@@ -107,8 +107,6 @@ const photographyFunction = () => {
   });
 
   photographyUpgradeBtn.addEventListener("click", () => {
-    photographyUpgradeAttribute =
-      photographyUpgradeBtn.getAttribute("upgradeCount");
     photographyUpgradePrice = +photographyUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;

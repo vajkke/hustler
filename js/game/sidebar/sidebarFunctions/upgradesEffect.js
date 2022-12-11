@@ -130,8 +130,9 @@ const upgradesEffects = (target) => {
     (val, i) => targetArray.indexOf(val) !== i
   );
   console.log(hasDuplicate);
+  console.log(targetArray);
   if (
-    target.classList.contains("survey-upgrader1") ||
+    (target.classList.contains("survey-upgrader1") && hasDuplicate === false) ||
     (target.classList.contains("survey-upgrader2") && hasDuplicate === false)
   ) {
     surveysTime = +surveyTimeDisplay.getAttribute("time");
@@ -142,7 +143,8 @@ const upgradesEffects = (target) => {
   }
 
   if (
-    target.classList.contains("tutoring-upgrader1") ||
+    (target.classList.contains("tutoring-upgrader1") &&
+      hasDuplicate === false) ||
     (target.classList.contains("tutoring-upgrader2") && hasDuplicate === false)
   ) {
     tutoringTime = +tutoringTimeDisplay.getAttribute("time");
@@ -151,7 +153,8 @@ const upgradesEffects = (target) => {
     tutoringTimeDisplay.innerHTML = timeDisplay(tutoringTime);
   }
   if (
-    target.classList.contains("dogWalking-upgrader1") ||
+    (target.classList.contains("dogWalking-upgrader1") &&
+      hasDuplicate === false) ||
     (target.classList.contains("dogWalking-upgrader2") &&
       hasDuplicate === false)
   ) {
@@ -161,7 +164,8 @@ const upgradesEffects = (target) => {
     dogWalkingTimeDisplay.innerHTML = timeDisplay(dogWalkingTime);
   }
   if (
-    target.classList.contains("lawnMower-upgrader1") ||
+    (target.classList.contains("lawnMower-upgrader1") &&
+      hasDuplicate === false) ||
     (target.classList.contains("lawnMower-upgrader2") && hasDuplicate === false)
   ) {
     lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
@@ -170,7 +174,8 @@ const upgradesEffects = (target) => {
     lawnMowerTimeDisplay.innerHTML = timeDisplay(lawnMowerTime);
   }
   if (
-    target.classList.contains("babysitting-upgrader1") ||
+    (target.classList.contains("babysitting-upgrader1") &&
+      hasDuplicate === false) ||
     (target.classList.contains("babysitting-upgrader2") &&
       hasDuplicate === false)
   ) {
@@ -180,7 +185,8 @@ const upgradesEffects = (target) => {
     babysittingTimeDisplay.innerHTML = timeDisplay(babysittingTime);
   }
   if (
-    target.classList.contains("photography-upgrader1") ||
+    (target.classList.contains("photography-upgrader1") &&
+      hasDuplicate === false) ||
     (target.classList.contains("photography-upgrader2") &&
       hasDuplicate === false)
   ) {
@@ -190,7 +196,8 @@ const upgradesEffects = (target) => {
     photographyTimeDisplay.innerHTML = timeDisplay(photographyTime);
   }
   if (
-    target.classList.contains("trainer-upgrader1") ||
+    (target.classList.contains("trainer-upgrader1") &&
+      hasDuplicate === false) ||
     (target.classList.contains("trainer-upgrader2") && hasDuplicate === false)
   ) {
     trainerTime = +trainerTimeDisplay.getAttribute("time");
@@ -199,7 +206,7 @@ const upgradesEffects = (target) => {
     trainerTimeDisplay.innerHTML = timeDisplay(trainerTime);
   }
   if (
-    target.classList.contains("crypto-upgrader1") ||
+    (target.classList.contains("crypto-upgrader1") && hasDuplicate === false) ||
     (target.classList.contains("crypto-upgrader2") && hasDuplicate === false)
   ) {
     cryptoTime = +cryptoTimeDisplay.getAttribute("time");

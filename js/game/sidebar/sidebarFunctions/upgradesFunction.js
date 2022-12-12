@@ -25,8 +25,9 @@ const upgradesFunction = () => {
         totalMoney -= upgraderPrice;
         totalMoneyDisplay.innerHTML = totalMoney;
         totalMoneySliderDisplay.innerHTML = totalMoney;
-        targetContainer.remove();
         upgradesEffects(targetContainer);
+        targetContainer.remove();
+        targetContainer = "";
       }
     });
   });

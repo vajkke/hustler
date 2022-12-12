@@ -90,16 +90,14 @@ const timeFunction = () => {
 const cryptoFunction = () => {
   cryptoTime = +cryptoTimeDisplay.getAttribute("time");
   intervalTimeFunction();
-
   totalMoney = +totalMoneyDisplay.innerHTML;
-  cryptoTimeDisplay.innerHTML = `${hours}:${minutes}:${seconds}`;
 
   cryptoBtn.addEventListener("click", () => {
-    cryptoTime = +cryptoTimeDisplay.getAttribute("time");
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;
     cryptoMoney = +cryptoMoneyDisplay.innerHTML;
     if (!btnClicked) {
+      cryptoTime = +cryptoTimeDisplay.getAttribute("time");
       btnClicked = true;
       cryptoProgressBar.style.cssText = `width: 100%; transition: width ${cryptoTime}s ease-in-out;`;
       let timeInterval = setInterval(intervalTimeFunction, 1000);

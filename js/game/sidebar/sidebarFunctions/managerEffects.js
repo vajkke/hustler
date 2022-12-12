@@ -33,29 +33,71 @@ let cryptoTime = +cryptoTimeDisplay.getAttribute("time");
 const managerEffects = (target) => {
   if (target.classList.contains("survey-manager-container")) {
     surveysTime = +surveyTimeDisplay.getAttribute("time");
-    setInterval(() => {
+
+    const buttonFunction = () => {
       surveysBtn.click();
-    }, surveysTime * 10);
+    };
+
+    setInterval(buttonFunction, 100);
   }
+
   if (target.classList.contains("tutoring-manager-container")) {
     tutoringTime = +tutoringTimeDisplay.getAttribute("time");
-    setInterval(() => {
+    const buttonFunction = () => {
       tutoringBtn.click();
-    }, tutoringTime * 10);
+    };
+
+    setInterval(buttonFunction, 100);
   }
   if (target.classList.contains("dogWalking-manager-container")) {
     dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
-    setInterval(() => {
+    const buttonFunction = () => {
       dogWalkingBtn.click();
-    }, dogWalkingTime * 10);
+    };
+
+    setInterval(buttonFunction, 100);
   }
+
   if (target.classList.contains("lawnMower-manager-container")) {
     lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
 
-    lawnMowerBtn.click();
-    setInterval(() => {
+    const buttonFunction = () => {
       lawnMowerBtn.click();
-    }, lawnMowerTime * 100);
+    };
+
+    setInterval(buttonFunction, 100);
+  }
+  if (target.classList.contains("babysitting-manager-container")) {
+    babysittingTime = +babysittingTimeDisplay.getAttribute("time");
+    const buttonFunction = () => {
+      babysittingBtn.click();
+    };
+
+    setInterval(buttonFunction, 100);
+  }
+  if (target.classList.contains("photography-manager-container")) {
+    photographyTime = +photographyTimeDisplay.getAttribute("time");
+    const buttonFunction = () => {
+      photographyBtn.click();
+    };
+
+    setInterval(buttonFunction, 100);
+  }
+  if (target.classList.contains("trainer-manager-container")) {
+    trainerTime = +trainerTimeDisplay.getAttribute("time");
+    const buttonFunction = () => {
+      trainerBtn.click();
+    };
+
+    setInterval(buttonFunction, 100);
+  }
+  if (target.classList.contains("crypto-manager-container")) {
+    cryptoTime = +cryptoTimeDisplay.getAttribute("time");
+    const buttonFunction = () => {
+      cryptoBtn.click();
+    };
+
+    setInterval(buttonFunction, 100);
   }
 };
 

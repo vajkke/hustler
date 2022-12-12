@@ -75,16 +75,13 @@ const timeFunction = () => {
 const photographyFunction = () => {
   photographyTime = +photographyTimeDisplay.getAttribute("time");
   intervalTimeFunction();
-
   totalMoney = +totalMoneyDisplay.innerHTML;
-  defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;
-  photographyMoney = +photographyMoneyDisplay.innerHTML;
-  photographyTimeDisplay.innerHTML = `${minutes}:${seconds}`;
 
   photographyBtn.addEventListener("click", () => {
-    photographyTime = +photographyTimeDisplay.getAttribute("time");
-    totalMoney = +totalMoneyDisplay.innerHTML;
+    photographyMoney = +photographyMoneyDisplay.innerHTML;
+    defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;
     if (!btnClicked) {
+      photographyTime = +photographyTimeDisplay.getAttribute("time");
       btnClicked = true;
       photographyProgressBar.style.cssText = `width: 100%; transition: width ${photographyTime}s ease-in-out;`;
       let timeInterval = setInterval(intervalTimeFunction, 1000);

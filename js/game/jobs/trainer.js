@@ -96,16 +96,14 @@ const timeFunction = () => {
 const trainerFunction = () => {
   trainerTime = +trainerTimeDisplay.getAttribute("time");
   intervalTimeFunction();
-
   totalMoney = +totalMoneyDisplay.innerHTML;
-  trainerTimeDisplay.innerHTML = `${hours}:${minutes}:${seconds}`;
 
   trainerBtn.addEventListener("click", () => {
-    trainerTime = +trainerTimeDisplay.getAttribute("time");
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaulttrainerMoney = +trainerMoneyDisplay.innerHTML;
     trainerMoney = +trainerMoneyDisplay.innerHTML;
     if (!btnClicked) {
+      trainerTime = +trainerTimeDisplay.getAttribute("time");
       btnClicked = true;
       trainerProgressBar.style.cssText = `width: 100%; transition: width ${trainerTime}s ease-in-out;`;
       let timeInterval = setInterval(intervalTimeFunction, 1000);

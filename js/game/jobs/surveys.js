@@ -65,11 +65,11 @@ const surveyFunction = () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     surveyMoney = +surveyMoneyDisplay.innerHTML;
     defaultSurveyMoney = +surveyMoneyDisplay.innerHTML;
+
     if (!btnClicked) {
       btnClicked = true;
       surveyProgressBar.style.cssText = `width: 100%; transition: width ${surveyTime}s ease-in-out;`;
       let timeInterval = setInterval(intervalTimer, 1000);
-
       setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += surveyMoney;

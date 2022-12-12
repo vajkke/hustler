@@ -9,7 +9,7 @@ const managerFunction = () => {
   const managerBuyBtns = document.querySelectorAll(".manager-buy");
 
   let managerPrice;
-  //   let totalMoney = +totalMoneyDisplay.innerHTML;
+  // let totalMoney = +totalMoneyDisplay.innerHTML;
   let totalMoney = 3000000000;
 
   managerBuyBtns.forEach((managerBtn) => {

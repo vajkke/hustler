@@ -75,16 +75,14 @@ const timeFunction = () => {
 const babysittingFunction = () => {
   babysittingTime = +babysittingTimeDisplay.getAttribute("time");
   intervalTimeFunction();
-
   totalMoney = +totalMoneyDisplay.innerHTML;
-  babysittingTimeDisplay.innerHTML = `${minutes}:${seconds}`;
 
   babysittingBtn.addEventListener("click", () => {
-    babysittingTime = +babysittingTimeDisplay.getAttribute("time");
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultbabysittingMoney = +babysittingMoneyDisplay.innerHTML;
     babysittingMoney = +babysittingMoneyDisplay.innerHTML;
     if (!btnClicked) {
+      babysittingTime = +babysittingTimeDisplay.getAttribute("time");
       btnClicked = true;
       babysittingProgressBar.style.cssText = `width: 100%; transition: width ${babysittingTime}s ease-in-out;`;
       let timeInterval = setInterval(intervalTimeFunction, 1000);

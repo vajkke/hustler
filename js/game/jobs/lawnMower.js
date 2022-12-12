@@ -70,18 +70,15 @@ const timeFunction = () => {
 
 const lawnMowerFunction = () => {
   lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
-
   intervalTimeFunction();
-
   totalMoney = +totalMoneyDisplay.innerHTML;
-  lawnMowerTimeDisplay.innerHTML = `${minutes}:${seconds}`;
 
   lawnMowerBtn.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultlawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
     lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
-    lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
     if (!btnClicked) {
+      lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
       btnClicked = true;
       lawnMowerProgressBar.style.cssText = `width: 100%; transition: width ${lawnMowerTime}s ease-in-out;`;
       let timeInterval = setInterval(intervalTimeFunction, 1000);

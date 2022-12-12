@@ -21,6 +21,10 @@ const managerFunction = () => {
         totalMoneyDisplay.innerHTML = totalMoney;
         totalMoneySliderDisplay.innerHTML = totalMoney;
         managerEffects(managerContainer);
+        totalMoney -= managerPrice;
+        totalMoneyDisplay.innerHTML = totalMoney;
+        totalMoneySliderDisplay.innerHTML = totalMoney;
+        managerContainer.remove();
       }
     });
   });

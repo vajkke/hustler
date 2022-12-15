@@ -28,7 +28,7 @@ const dogWalkingCountUpgradeBar = document.querySelector(
 //upgrades
 let dogWalkingUpgradeBarWidth = 0;
 let dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;
-let dogWalkingUpgradeCount = 0;
+let dogWalkingUpgradeCount = +dogWalkingUpgradeCountDisplay.innerHTML;
 
 let firstTimeStampUpgrade = 10;
 let secondTimeStampUpgrade = 50;
@@ -47,11 +47,13 @@ let dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
 let dogWalkingTimeValue = dogWalkingTime;
 
 //playable
-let btnClicked = false;
 let dogWalkingUpgradeAttribute =
   dogWalkingUpgradeBtn.getAttribute("upgradeCount");
 
-const dogWalkingFunction = () => {
+export let timeIntervalDogWalking;
+export let timeOutDogWalking;
+
+export const dogWalkingFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
 
   dogWalkingTimeDisplay.innerHTML = `00:${
@@ -70,20 +72,24 @@ const dogWalkingFunction = () => {
     defaultdogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
     dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
-    if (!btnClicked) {
-      btnClicked = true;
+    if (dogWalkingBtn.getAttribute("dogWalkingBtnClicked") === "no") {
+      dogWalkingTimeValue = +dogWalkingTimeDisplay.getAttribute("time");
+      dogWalkingBtn.setAttribute("dogWalkingBtnClicked", "yes");
       dogWalkingProgressBar.style.cssText = `width: 100%; transition: width ${dogWalkingTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimer, 1000);
+      timeIntervalDogWalking = setInterval(intervalTimer, 1000);
 
-      setTimeout(() => {
+      timeOutDogWalking = setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += dogWalkingMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         dogWalkingProgressBar.style.cssText = `width: 0%;`;
-        setTimeout((btnClicked = false), dogWalkingTime * 1000);
-        clearInterval(timeInterval);
+        setTimeout(
+          dogWalkingBtn.setAttribute("dogWalkingBtnClickedss", "yes"),
+          dogWalkingTime * 1000
+        );
+        clearInterval(timeIntervalDogWalking);
         dogWalkingTimeValue = dogWalkingTime;
         dogWalkingTimeDisplay.innerHTML = `00:${
           dogWalkingTimeValue >= 10
@@ -95,6 +101,7 @@ const dogWalkingFunction = () => {
   });
 
   dogWalkingUpgradeBtn.addEventListener("click", () => {
+    dogWalkingUpgradeCount = +dogWalkingUpgradeCountDisplay.innerHTML;
     dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
     dogWalkingUpgradeAttribute =
       dogWalkingUpgradeBtn.getAttribute("upgradeCount");
@@ -161,4 +168,4 @@ const dogWalkingFunction = () => {
   });
 };
 
-export default dogWalkingFunction;
+// export default dogWalkingFunction;

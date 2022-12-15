@@ -26,7 +26,7 @@ const upgradesFunction = () => {
         totalMoneyDisplay.innerHTML = totalMoney;
         totalMoneySliderDisplay.innerHTML = totalMoney;
         upgradesEffects(targetContainer);
-        targetContainer.remove();
+        targetContainer.classList.add("hidden");
         targetContainer = "";
       }
     });

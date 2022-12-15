@@ -24,7 +24,7 @@ const lawnMowerCountUpgradeBar = document.querySelector(
 //upgrades
 let lawnMowerUpgradeBarWidth = 0;
 let lawnMowerUpgradePrice = +lawnMowerUpgradePriceDisplay.innerHTML;
-let lawnMowerUpgradeCount = 0;
+let lawnMowerUpgradeCount = +lawnMowerUpgradeCountDisplay.innerHTML;
 
 let firstTimeStampUpgrade = 10;
 let secondTimeStampUpgrade = 50;
@@ -68,7 +68,10 @@ const timeFunction = () => {
   return [minutes, seconds];
 };
 
-const lawnMowerFunction = () => {
+export let timeIntervalLawnMower;
+export let timeOutLawnMower;
+
+export const lawnMowerFunction = () => {
   lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
   intervalTimeFunction();
   totalMoney = +totalMoneyDisplay.innerHTML;
@@ -77,21 +80,24 @@ const lawnMowerFunction = () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultlawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
     lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
-    if (!btnClicked) {
+    if (lawnMowerBtn.getAttribute("lawnMowerBtnClicked") === "no") {
       lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
-      btnClicked = true;
+      lawnMowerBtn.setAttribute("lawnMowerBtnClicked", "yes");
       lawnMowerProgressBar.style.cssText = `width: 100%; transition: width ${lawnMowerTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimeFunction, 1000);
+      timeIntervalLawnMower = setInterval(intervalTimeFunction, 1000);
 
-      setTimeout(() => {
+      timeOutLawnMower = setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += lawnMowerMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         lawnMowerProgressBar.style.cssText = `width: 0%;`;
-        setTimeout((btnClicked = false), lawnMowerTime * 1000);
-        clearInterval(timeInterval);
+        setTimeout(
+          lawnMowerBtn.setAttribute("lawnMowerBtnClicked", "no"),
+          lawnMowerTime * 1000
+        );
+        clearInterval(timeIntervalLawnMower);
         lawnMowerTime = 120;
         lawnMowerTimeDisplay.innerHTML = `${timeFunction()[0]}:${
           timeFunction()[1]
@@ -101,6 +107,7 @@ const lawnMowerFunction = () => {
   });
 
   lawnMowerUpgradeBtn.addEventListener("click", () => {
+    lawnMowerUpgradeCount = +lawnMowerUpgradeCountDisplay.innerHTML;
     lawnMowerUpgradePrice = +lawnMowerUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultlawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
@@ -159,5 +166,3 @@ const lawnMowerFunction = () => {
     }
   });
 };
-
-export default lawnMowerFunction;

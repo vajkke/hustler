@@ -129,8 +129,7 @@ const upgradesEffects = (target) => {
   let hasDuplicate = targetArray.some(
     (val, i) => targetArray.indexOf(val) !== i
   );
-  console.log(hasDuplicate);
-  console.log(targetArray);
+
   if (
     (target.classList.contains("survey-upgrader1") && hasDuplicate === false) ||
     (target.classList.contains("survey-upgrader2") && hasDuplicate === false)

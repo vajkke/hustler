@@ -1,6 +1,6 @@
-import managerEffects from "../sidebar/sidebarFunctions/managerEffects.js";
-
 const surveyProgressBar = document.querySelector(".survey-progress--bar");
+
+const jobsSection = document.querySelector(".jobs");
 
 //btns
 const surveysBtn = document.querySelector(".surveysBtn");
@@ -26,7 +26,7 @@ const surveyCountUpgradeBar = document.querySelector(
 //upgrades
 let surveyUpgradeBarWidth = 0;
 let surveyUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
-let surveyUpgradeCount = 0;
+let surveyUpgradeCount = +surveyUpgradeCountDisplay.innerHTML;
 
 let firstTimeStampUpgrade = 10;
 let secondTimeStampUpgrade = 50;
@@ -45,12 +45,15 @@ let surveyTime = +surveyTimeDisplay.getAttribute("time");
 let surveyTimeValue = surveyTime;
 
 //playable
-let btnClicked = false;
 let surveyUpgradeAttribute = surveyUpgradeBtn.getAttribute("upgradeCount");
 
-const surveyFunction = () => {
+export let timeIntervalSurveys;
+export let timeOutSurvey;
+
+export const surveyFunction = () => {
   surveyTime = +surveyTimeDisplay.getAttribute("time");
   totalMoney = +totalMoneyDisplay.innerHTML;
+
   surveyTimeDisplay.innerHTML = `00:${
     surveyTimeValue > 10 ? surveyTime : "0" + surveyTime
   }`;
@@ -66,19 +69,24 @@ const surveyFunction = () => {
     surveyMoney = +surveyMoneyDisplay.innerHTML;
     defaultSurveyMoney = +surveyMoneyDisplay.innerHTML;
 
-    if (!btnClicked) {
-      btnClicked = true;
+    if (surveysBtn.getAttribute("surveyBtnClicked") === "no") {
+      surveyTimeValue = +surveyTimeDisplay.getAttribute("time");
+      surveysBtn.setAttribute("surveyBtnClicked", "yes");
       surveyProgressBar.style.cssText = `width: 100%; transition: width ${surveyTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimer, 1000);
-      setTimeout(() => {
+
+      timeIntervalSurveys = setInterval(intervalTimer, 1000);
+      timeOutSurvey = setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += surveyMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         surveyProgressBar.style.cssText = `width: 0%;`;
-        setTimeout((btnClicked = false), surveyTime * 1000);
-        clearInterval(timeInterval);
+        setTimeout(
+          surveysBtn.setAttribute("surveyBtnClicked", "no"),
+          surveyTime * 1000
+        );
+        clearInterval(timeIntervalSurveys);
         surveyTimeValue = surveyTime;
         surveyTimeDisplay.innerHTML = `00:${
           surveyTimeValue > 10 ? surveyTime : "0" + surveyTime
@@ -89,6 +97,7 @@ const surveyFunction = () => {
 
   surveyUpgradeBtn.addEventListener("click", () => {
     surveyUpgradeAttribute = surveyUpgradeBtn.getAttribute("upgradeCount");
+    surveyUpgradeCount = +surveyUpgradeCountDisplay.innerHTML;
     surveyUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     surveyMoney = +surveyMoneyDisplay.innerHTML;
@@ -146,5 +155,3 @@ const surveyFunction = () => {
     }
   });
 };
-
-export default surveyFunction;

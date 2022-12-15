@@ -9,8 +9,7 @@ const managerFunction = () => {
   const managerBuyBtns = document.querySelectorAll(".manager-buy");
 
   let managerPrice;
-  // let totalMoney = +totalMoneyDisplay.innerHTML;
-  let totalMoney = 3000000000;
+  let totalMoney = +totalMoneyDisplay.innerHTML;
 
   managerBuyBtns.forEach((managerBtn) => {
     managerBtn.addEventListener("click", (e) => {
@@ -24,7 +23,7 @@ const managerFunction = () => {
         totalMoney -= managerPrice;
         totalMoneyDisplay.innerHTML = totalMoney;
         totalMoneySliderDisplay.innerHTML = totalMoney;
-        managerContainer.remove();
+        managerContainer.classList.add("hidden");
       }
     });
   });

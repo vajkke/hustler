@@ -28,7 +28,7 @@ const photographyCountUpgradeBar = document.querySelector(
 //upgrades
 let photographyUpgradeBarWidth = 0;
 let photographyUpgradePrice = +photographyUpgradePriceDisplay.innerHTML;
-let photographyUpgradeCount = 0;
+let photographyUpgradeCount = +photographyUpgradeCountDisplay.innerHTML;
 
 let firstTimeStampUpgrade = 10;
 let secondTimeStampUpgrade = 50;
@@ -44,10 +44,8 @@ let photographyMoney = +photographyMoneyDisplay.innerHTML;
 
 //time
 let photographyTime = +photographyTimeDisplay.getAttribute("time");
-let photographyTimeValue = photographyTime;
 
 //playable
-let btnClicked = false;
 
 let minutes = Math.floor(photographyTime / 60);
 let seconds = photographyTime % 60;
@@ -72,7 +70,11 @@ const timeFunction = () => {
   return [minutes, seconds];
 };
 
-const photographyFunction = () => {
+// exports
+export let timeIntervalPhotography;
+export let timeOutPhotography;
+
+export const photographyFunction = () => {
   photographyTime = +photographyTimeDisplay.getAttribute("time");
   intervalTimeFunction();
   totalMoney = +totalMoneyDisplay.innerHTML;
@@ -80,21 +82,24 @@ const photographyFunction = () => {
   photographyBtn.addEventListener("click", () => {
     photographyMoney = +photographyMoneyDisplay.innerHTML;
     defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;
-    if (!btnClicked) {
+    if (photographyBtn.getAttribute("photographyBtnClicked") === "no") {
       photographyTime = +photographyTimeDisplay.getAttribute("time");
-      btnClicked = true;
+      photographyBtn.setAttribute("photographyBtnClicked", "yes");
       photographyProgressBar.style.cssText = `width: 100%; transition: width ${photographyTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimeFunction, 1000);
+      timeIntervalPhotography = setInterval(intervalTimeFunction, 1000);
 
-      setTimeout(() => {
+      timeOutPhotography = setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += photographyMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         photographyProgressBar.style.cssText = `width: 0%;`;
-        setTimeout((btnClicked = false), photographyTime * 1000);
-        clearInterval(timeInterval);
+        setTimeout(
+          photographyBtn.setAttribute("photographyBtnClicked", "no"),
+          photographyTime * 1000
+        );
+        clearInterval(timeIntervalPhotography);
         photographyTime = 1200;
         photographyTimeDisplay.innerHTML = `${timeFunction()[0]}:${
           timeFunction()[1]
@@ -104,6 +109,7 @@ const photographyFunction = () => {
   });
 
   photographyUpgradeBtn.addEventListener("click", () => {
+    photographyUpgradeCount = +photographyUpgradeCountDisplay.innerHTML;
     photographyUpgradePrice = +photographyUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;
@@ -166,5 +172,3 @@ const photographyFunction = () => {
     }
   });
 };
-
-export default photographyFunction;

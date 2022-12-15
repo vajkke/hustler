@@ -28,7 +28,7 @@ const babysittingCountUpgradeBar = document.querySelector(
 //upgrades
 let babysittingUpgradeBarWidth = 0;
 let babysittingUpgradePrice = +babysittingUpgradePriceDisplay.innerHTML;
-let babysittingUpgradeCount = 0;
+let babysittingUpgradeCount = +babysittingUpgradeCountDisplay.innerHTML;
 
 let firstTimeStampUpgrade = 10;
 let secondTimeStampUpgrade = 50;
@@ -72,29 +72,36 @@ const timeFunction = () => {
   return [minutes, seconds];
 };
 
-const babysittingFunction = () => {
+export let timeIntervalBabysitting;
+export let timeOutBabysitting;
+
+export const babysittingFunction = () => {
   babysittingTime = +babysittingTimeDisplay.getAttribute("time");
   intervalTimeFunction();
   totalMoney = +totalMoneyDisplay.innerHTML;
 
   babysittingBtn.addEventListener("click", () => {
+    let timeInterval;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultbabysittingMoney = +babysittingMoneyDisplay.innerHTML;
     babysittingMoney = +babysittingMoneyDisplay.innerHTML;
-    if (!btnClicked) {
+    if (babysittingBtn.getAttribute("babysittingBtnClicked") === "no") {
       babysittingTime = +babysittingTimeDisplay.getAttribute("time");
-      btnClicked = true;
+      babysittingBtn.setAttribute("babysittingBtnClicked", "yes");
       babysittingProgressBar.style.cssText = `width: 100%; transition: width ${babysittingTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimeFunction, 1000);
+      timeIntervalBabysitting = setInterval(intervalTimeFunction, 1000);
 
-      setTimeout(() => {
+      timeOutBabysitting = setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += babysittingMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         babysittingProgressBar.style.cssText = `width: 0%;`;
-        setTimeout((btnClicked = false), babysittingTime * 1000);
+        setTimeout(
+          babysittingBtn.setAttribute("babysittingBtnClicked", "no"),
+          babysittingTime * 1000
+        );
         clearInterval(timeInterval);
         babysittingTime = 360;
         babysittingTimeDisplay.innerHTML = `${timeFunction()[0]}:${
@@ -105,6 +112,7 @@ const babysittingFunction = () => {
   });
 
   babysittingUpgradeBtn.addEventListener("click", () => {
+    babysittingUpgradeCount = +babysittingUpgradeCountDisplay.innerHTML;
     babysittingUpgradePrice = +babysittingUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultbabysittingMoney = +babysittingMoneyDisplay.innerHTML;
@@ -166,5 +174,3 @@ const babysittingFunction = () => {
     }
   });
 };
-
-export default babysittingFunction;

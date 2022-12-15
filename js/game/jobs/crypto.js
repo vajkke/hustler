@@ -23,8 +23,8 @@ const cryptoCountUpgradeBar = document.querySelector(
 
 //upgrades
 let cryptoUpgradeBarWidth = 0;
-let cryptoUpgradePrice = 1500;
-let cryptoUpgradeCount = 0;
+let cryptoUpgradePrice = +cryptoUpgradePriceDisplay.innerHTML;
+let cryptoUpgradeCount = +cryptoUpgradeCountDisplay.innerHTML;
 
 let firstTimeStampUpgrade = 10;
 let secondTimeStampUpgrade = 50;
@@ -40,9 +40,6 @@ let cryptoMoney = +cryptoMoneyDisplay.innerHTML;
 
 //time
 let cryptoTime = +cryptoTimeDisplay.getAttribute("time");
-
-//playable
-let btnClicked = false;
 
 let hours = Math.floor(cryptoTime / 3600);
 let minutes = Math.floor(cryptoTime / 60) - hours * 60;
@@ -87,7 +84,10 @@ const timeFunction = () => {
   return [hours, minutes, seconds];
 };
 
-const cryptoFunction = () => {
+export let timeIntervalCrypto;
+export let timeOutCrypto;
+
+export const cryptoFunction = () => {
   cryptoTime = +cryptoTimeDisplay.getAttribute("time");
   intervalTimeFunction();
   totalMoney = +totalMoneyDisplay.innerHTML;
@@ -96,21 +96,24 @@ const cryptoFunction = () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;
     cryptoMoney = +cryptoMoneyDisplay.innerHTML;
-    if (!btnClicked) {
+    if (cryptoBtn.getAttribute("cryptoBtnClicked") === "no") {
       cryptoTime = +cryptoTimeDisplay.getAttribute("time");
-      btnClicked = true;
+      cryptoBtn.setAttribute("cryptoBtnClicked", "yes");
       cryptoProgressBar.style.cssText = `width: 100%; transition: width ${cryptoTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimeFunction, 1000);
+      timeIntervalCrypto = setInterval(intervalTimeFunction, 1000);
 
-      setTimeout(() => {
+      timeOutCrypto = setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += cryptoMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         cryptoProgressBar.style.cssText = `width: 0%;`;
-        setTimeout((btnClicked = false), cryptoTime * 1000);
-        clearInterval(timeInterval);
+        setTimeout(
+          cryptoBtn.setAttribute("cryptoBtnClicked", "no"),
+          cryptoTime * 1000
+        );
+        clearInterval(timeIntervalCrypto);
         cryptoTime = 10800;
         cryptoTimeDisplay.innerHTML = `${timeFunction()[0]}:${
           timeFunction()[1]
@@ -120,6 +123,7 @@ const cryptoFunction = () => {
   });
 
   cryptoUpgradeBtn.addEventListener("click", () => {
+    cryptoUpgradeCount = +cryptoUpgradeCountDisplay.innerHTML;
     cryptoUpgradePrice = +cryptoUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;
@@ -179,5 +183,3 @@ const cryptoFunction = () => {
     }
   });
 };
-
-export default cryptoFunction;

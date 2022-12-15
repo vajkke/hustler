@@ -1,3 +1,5 @@
+const jobsSection = document.querySelector(".jobs");
+
 const tutoringProgressBar = document.querySelector(".tutoring-progress--bar");
 
 //btns
@@ -24,7 +26,7 @@ const tutoringCountUpgradeBar = document.querySelector(
 //upgrades
 let tutoringUpgradeBarWidth = 0;
 let tutoringUpgradePrice = +tutoringUpgradePriceDisplay.innerHTML;
-let tutoringUpgradeCount = 0;
+let tutoringUpgradeCount = +tutoringUpgradeCountDisplay.innerHTML;
 
 let firstTimeStampUpgrade = 10;
 let secondTimeStampUpgrade = 50;
@@ -43,10 +45,14 @@ let tutoringTime = +tutoringTimeDisplay.getAttribute("time");
 let tutoringTimeValue = tutoringTime;
 
 //playable
-let btnClicked = false;
+
+// export let btnClickedTutoring = false;
 let tutoringUpgradeAttribute = tutoringUpgradeBtn.getAttribute("upgradeCount");
 
-const tutoringFunction = () => {
+export let timeIntervalTutoring;
+export let timeOutTutoring;
+
+export const tutoringFunction = () => {
   totalMoney = +totalMoneyDisplay.innerHTML;
   tutoringTimeDisplay.innerHTML = `00:${
     tutoringTimeValue >= 10 ? tutoringTimeValue : "0" + tutoringTimeValue
@@ -62,20 +68,26 @@ const tutoringFunction = () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
     tutoringMoney = +tutoringMoneyDisplay.innerHTML;
-    if (!btnClicked) {
-      btnClicked = true;
+    if (tutoringBtn.getAttribute("tutoringBtnClicked") === "no") {
+      console.log("jeste");
+      tutoringTimeValue = +tutoringTimeDisplay.getAttribute("time");
+      tutoringBtn.setAttribute("tutoringBtnClicked", "yes");
       tutoringProgressBar.style.cssText = `width: 100%; transition: width ${tutoringTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimer, 1000);
 
-      setTimeout(() => {
+      timeIntervalTutoring = setInterval(intervalTimer, 1000);
+
+      timeOutTutoring = setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += tutoringMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         tutoringProgressBar.style.cssText = `width: 0%;`;
-        setTimeout((btnClicked = false), tutoringTime * 1000);
-        clearInterval(timeInterval);
+        setTimeout(
+          tutoringBtn.setAttribute("tutoringBtnClicked", "no"),
+          tutoringTime * 1000
+        );
+        clearInterval(timeIntervalTutoring);
         tutoringTimeValue = tutoringTime;
         tutoringTimeDisplay.innerHTML = `00:${
           tutoringTimeValue >= 10 ? tutoringTimeValue : "0" + tutoringTimeValue
@@ -85,6 +97,7 @@ const tutoringFunction = () => {
   });
 
   tutoringUpgradeBtn.addEventListener("click", () => {
+    tutoringUpgradeCount = +tutoringUpgradeCountDisplay.innerHTML;
     tutoringTime = +tutoringTimeDisplay.getAttribute("time");
     tutoringUpgradeAttribute = tutoringUpgradeBtn.getAttribute("upgradeCount");
     tutoringUpgradePrice = +tutoringUpgradePriceDisplay.innerHTML;
@@ -146,5 +159,3 @@ const tutoringFunction = () => {
     }
   });
 };
-
-export default tutoringFunction;

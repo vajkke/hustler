@@ -24,7 +24,7 @@ const trainerCountUpgradeBar = document.querySelector(
 //upgrades
 let trainerUpgradeBarWidth = 0;
 let trainerUpgradePrice = +trainerUpgradePriceDisplay.innerHTML;
-let trainerUpgradeCount = 0;
+let trainerUpgradeCount = +trainerUpgradeCountDisplay.innerHTML;
 
 let firstTimeStampUpgrade = 10;
 let secondTimeStampUpgrade = 50;
@@ -40,10 +40,6 @@ let trainerMoney = +trainerMoneyDisplay.innerHTML;
 
 //time
 let trainerTime = +trainerTimeDisplay.getAttribute("time");
-let trainerTimeValue = trainerTime;
-
-//playable
-let btnClicked = false;
 
 let hours = Math.floor(trainerTime / 3600);
 let minutes = Math.floor(trainerTime / 60) - hours * 60;
@@ -93,7 +89,10 @@ const timeFunction = () => {
   return [hours, minutes, seconds];
 };
 
-const trainerFunction = () => {
+export let timeIntervalTrainer;
+export let timeOutTrainer;
+
+export const trainerFunction = () => {
   trainerTime = +trainerTimeDisplay.getAttribute("time");
   intervalTimeFunction();
   totalMoney = +totalMoneyDisplay.innerHTML;
@@ -102,21 +101,24 @@ const trainerFunction = () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaulttrainerMoney = +trainerMoneyDisplay.innerHTML;
     trainerMoney = +trainerMoneyDisplay.innerHTML;
-    if (!btnClicked) {
+    if (trainerBtn.getAttribute("trainerBtnClicked") === "no") {
       trainerTime = +trainerTimeDisplay.getAttribute("time");
-      btnClicked = true;
+      trainerBtn.setAttribute("trainerBtnClicked", "yes");
       trainerProgressBar.style.cssText = `width: 100%; transition: width ${trainerTime}s ease-in-out;`;
-      let timeInterval = setInterval(intervalTimeFunction, 1000);
+      timeIntervalTrainer = setInterval(intervalTimeFunction, 1000);
 
-      setTimeout(() => {
+      timeOutTrainer = setTimeout(() => {
         totalMoney = +totalMoneyDisplay.innerHTML;
         totalMoney += trainerMoney;
         totalMoneyDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneySliderDisplay.innerHTML = totalMoney.toFixed(1);
         totalMoneyShopDisplay.innerHTML = totalMoney.toFixed(1);
         trainerProgressBar.style.cssText = `width: 0%;`;
-        setTimeout((btnClicked = false), trainerTime * 1000);
-        clearInterval(timeInterval);
+        setTimeout(
+          trainerBtn.setAttribute("trainerBtnClicked", "no"),
+          trainerTime * 1000
+        );
+        clearInterval(timeIntervalTrainer);
         trainerTime = 3600;
         trainerTimeDisplay.innerHTML = `${timeFunction()[0]}:${
           timeFunction()[1]
@@ -126,6 +128,7 @@ const trainerFunction = () => {
   });
 
   trainerUpgradeBtn.addEventListener("click", () => {
+    trainerUpgradeCount = +trainerUpgradeCountDisplay.innerHTML;
     trainerUpgradePrice = +trainerUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
     defaulttrainerMoney = +trainerMoneyDisplay.innerHTML;
@@ -185,5 +188,3 @@ const trainerFunction = () => {
     }
   });
 };
-
-export default trainerFunction;

@@ -1,7 +1,7 @@
 import shopOpenFunction from "../sidebarDisplay/shop.js";
 import itemEffect from "./itemEffect.js";
 import data from "../../../items.json" assert { type: "json" };
-import disableItemsEffect from "./disableItemsEffects.js";
+import disableItemsEffect from "../../gamereset/disableItemsEffects.js";
 
 const avatarFunction = () => {
   const items = data.items; //items array from json

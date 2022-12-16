@@ -379,7 +379,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 2;
+  z-index: 10ss;
 }
 
 .close-container {
@@ -1515,6 +1515,66 @@ a {
 .inventory-close-pop-up:active,
 .equiped-close-pop-up:active {
   background-color: rgba(247, 23, 53, 1);
+}
+
+/* jobs unlocking */
+
+.unlock-heading {
+  font-size: 2rem;
+}
+
+.unlock-price--button {
+  display: flex;
+  justify-content: center;
+}
+
+.unlock-price {
+  margin-top: 1rem;
+  font-size: 2rem;
+  border-bottom: 5px solid #dee7e7;
+}
+
+.unlock-job {
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  background-color: #dee7e7;
+  padding: 0.5rem 1rem;
+  border-radius: 11px;
+  cursor: pointer;
+  color: #5a5a66;
+}
+
+.unlock-job:active {
+  background-color: #5a5a66;
+  color: #dee7e7;
+}
+
+.tutoring-container,
+.dogWalking-container,
+.lawnMower-container,
+.babysitting-container,
+.photography-container,
+.trainer-container,
+.crypto-container {
+  position: relative;
+}
+
+.unlock-job--container {
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  background-color: #c1bbd5;
+  z-index: 3;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Nova Mono", monospace;
+  color: #5a5a66;
+  left: -5%;
 }
 
 .hidden {

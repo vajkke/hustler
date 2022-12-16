@@ -17,7 +17,8 @@ const shopFunction = () => {
   );
 
   const goldValueDisplay = document.querySelector(".gold-number--value");
-  let goldValue = +goldValueDisplay.innerHTML;
+  // let goldValue = +goldValueDisplay.innerHTML;
+  let goldValue = 100;
 
   const shopContainer = document.querySelector(".shop-option--container");
   const goldMoneyContainer = document.querySelector(".gold-money--container");

@@ -2,6 +2,7 @@
 import disableUpgradeEffect from "./disableUpgradesEffect.js";
 import disableManagerEffect from "./disableManagerEffect.js";
 import restartJobs from "./restartJobs.js";
+import itemEffect from "../sidebar/sidebarFunctions/itemEffect.js";
 
 import { timeIntervalSurveys, timeOutSurvey } from "../jobs/surveys.js";
 import { timeIntervalTutoring, timeOutTutoring } from "../jobs/tutoring.js";
@@ -40,9 +41,11 @@ const cryptoBtn = document.querySelector(".cryptoBtn");
 // display
 const upgraderContainers = document.querySelectorAll(".upgrader-container");
 const managerContainers = document.querySelectorAll(".manager-container");
-
 const totalMoneyDisplay = document.querySelector(".total-money--amount");
 const totalMoneySliderDisplay = document.querySelector(".total-money--slider");
+
+// items
+const usedItemsContainers = document.querySelectorAll(".item-used--container");
 
 const gameReset = () => {
   upgraderContainers.forEach((upgrader) => upgrader.classList.remove("hidden"));
@@ -89,7 +92,13 @@ const gameReset = () => {
   photographyBtn.setAttribute("photographyBtnClicked", "no");
   trainerBtn.setAttribute("trainerBtnClicked", "no");
   cryptoBtn.setAttribute("cryptoBtnClicked", "no");
+
   //
+  //items
+
+  usedItemsContainers.forEach((usedItem) => {
+    itemEffect(usedItem);
+  });
 };
 
 export default gameReset;

@@ -151,94 +151,244 @@ const timeDisplay = (time) => {
 
 const disableItemsEffect = (item) => {
   if (item.getAttribute("name") === "surveys") {
+    surveysUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
+    surveyMoney = +surveyMoneyDisplay.innerHTML;
+
+    surveyMoney /= 3;
     surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(1);
-  } else if (item.getAttribute("name") === "new-ipad") {
+  }
+  if (item.getAttribute("name") === "new-ipad") {
+    tutoringUpgradePrice = +tutoringUpgradePriceDisplay.innerHTML;
+    tutoringMoney = +tutoringMoneyDisplay.innerHTML;
+    tutoringMoney /= 3;
     tutoringMoneyDisplay.innerHTML = tutoringMoney.toFixed(0);
-  } else if (item.getAttribute("name") === "premium-food") {
+  }
+  if (item.getAttribute("name") === "premium-food") {
+    dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;
+    dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
+    dogWalkingMoney /= 3;
     dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(0);
-  } else if (item.getAttribute("name") === "electric-mower") {
+  }
+  if (item.getAttribute("name") === "electric-mower") {
+    lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
+    lawnMowerTime *= 3;
     lawnMowerTimeDisplay.setAttribute("time", lawnMowerTime);
     lawnMowerTimeDisplay.innerHTML = timeDisplay(lawnMowerTime);
-  } else if (item.getAttribute("name") === "top-tier-stroller") {
+  }
+  if (item.getAttribute("name") === "top-tier-stroller") {
+    babysittingTime = +babysittingTimeDisplay.getAttribute("time");
+    babysittingTime *= 3;
     babysittingTimeDisplay.setAttribute("time", babysittingTime);
     babysittingTimeDisplay.innerHTML = timeDisplay(babysittingTime);
-  } else if (item.getAttribute("name") === "camera") {
+  }
+  if (item.getAttribute("name") === "camera") {
+    photographyTime = +photographyTimeDisplay.getAttribute("time");
+    photographyTime *= 3;
     photographyTimeDisplay.setAttribute("time", photographyTime);
     photographyTimeDisplay.innerHTML = timeDisplay(photographyTime);
-  } else if (item.getAttribute("name") === "fitness-trainer-certification") {
+  }
+  if (item.getAttribute("name") === "fitness-trainer-certification") {
+    trainerTime = +trainerTimeDisplay.getAttribute("time");
+    trainerTime *= 3;
     trainerTimeDisplay.setAttribute("time", trainerTime);
     trainerTimeDisplay.innerHTML = timeDisplay(trainerTime);
-  } else if (item.getAttribute("name") === "monitor") {
+  }
+  if (item.getAttribute("name") === "monitor") {
+    cryptoTime = +cryptoTimeDisplay.getAttribute("time");
+    cryptoTime *= 3;
     cryptoTimeDisplay.setAttribute("time", cryptoTime);
     cryptoTimeDisplay.innerHTML = timeDisplay(cryptoTime);
-  } else if (item.getAttribute("name") === "vitamin-bomb") {
-    surveyMoneyDisplay.innerHTML = allMoneyValues[0].toFixed(2);
-    tutoringMoneyDisplay.innerHTML = allMoneyValues[1].toFixed(1);
-    dogWalkingMoneyDisplay.innerHTML = allMoneyValues[2].toFixed(1);
-    lawnMowerMoneyDisplay.innerHTML = allMoneyValues[3].toFixed(1);
-    babysittingMoneyDisplay.innerHTML = allMoneyValues[4].toFixed(1);
-    photographyMoneyDisplay.innerHTML = allMoneyValues[5].toFixed(1);
-    trainerMoneyDisplay.innerHTML = allMoneyValues[6].toFixed(1);
-    cryptoMoneyDisplay.innerHTML = allMoneyValues[7].toFixed(1);
+  }
+  if (item.getAttribute("name") === "vitamin-bomb") {
+    surveyMoney = +surveyMoneyDisplay.innerHTML;
+    tutoringMoney = +tutoringMoneyDisplay.innerHTML;
+    dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
+    lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
+    babysittingMoney = +babysittingMoneyDisplay.innerHTML;
+    photographyMoney = +photographyMoneyDisplay.innerHTML;
+    trainerMoney = +trainerMoneyDisplay.innerHTML;
+    cryptoMoney = +cryptoMoneyDisplay.innerHTML;
 
-    surveyTimeDisplay.setAttribute("time", allTimeValues[0]);
-    tutoringTimeDisplay.setAttribute("time", allTimeValues[1]);
-    dogWalkingTimeDisplay.setAttribute("time", allTimeValues[2]);
-    lawnMowerTimeDisplay.setAttribute("time", allTimeValues[3]);
-    babysittingTimeDisplay.setAttribute("time", allTimeValues[4]);
-    photographyTimeDisplay.setAttribute("time", allTimeValues[5]);
-    trainerTimeDisplay.setAttribute("time", allTimeValues[6]);
-    cryptoTimeDisplay.setAttribute("time", allTimeValues[7]);
+    const allMoneyValues = [
+      surveyMoney,
+      tutoringMoney,
+      dogWalkingMoney,
+      lawnMowerMoney,
+      babysittingMoney,
+      photographyMoney,
+      trainerMoney,
+      cryptoMoney,
+    ];
 
-    surveyTimeDisplay.innerHTML = timeDisplay(allTimeValues[0]);
-    tutoringTimeDisplay.innerHTML = timeDisplay(allTimeValues[1]);
-    dogWalkingTimeDisplay.innerHTML = timeDisplay(allTimeValues[2]);
-    lawnMowerTimeDisplay.innerHTML = timeDisplay(allTimeValues[3]);
-    babysittingTimeDisplay.innerHTML = timeDisplay(allTimeValues[4]);
-    photographyTimeDisplay.innerHTML = timeDisplay(allTimeValues[5]);
-    trainerTimeDisplay.innerHTML = timeDisplay(allTimeValues[6]);
-    cryptoTimeDisplay.innerHTML = timeDisplay(allTimeValues[7]);
-  } else if (item.getAttribute("name") === "speed") {
-    surveyTimeDisplay.setAttribute("time", allTimeValues[0]);
-    tutoringTimeDisplay.setAttribute("time", allTimeValues[1]);
-    dogWalkingTimeDisplay.setAttribute("time", allTimeValues[2]);
-    lawnMowerTimeDisplay.setAttribute("time", allTimeValues[3]);
-    babysittingTimeDisplay.setAttribute("time", allTimeValues[4]);
-    photographyTimeDisplay.setAttribute("time", allTimeValues[5]);
-    trainerTimeDisplay.setAttribute("time", allTimeValues[6]);
-    cryptoTimeDisplay.setAttribute("time", allTimeValues[7]);
+    const vitaminMoneyArray = allMoneyValues.map(
+      (moneyValue) => moneyValue / 3.33
+    );
+    surveyMoneyDisplay.innerHTML = vitaminMoneyArray[0].toFixed(2);
+    tutoringMoneyDisplay.innerHTML = vitaminMoneyArray[1].toFixed(1);
+    dogWalkingMoneyDisplay.innerHTML = vitaminMoneyArray[2].toFixed(1);
+    lawnMowerMoneyDisplay.innerHTML = vitaminMoneyArray[3].toFixed(1);
+    babysittingMoneyDisplay.innerHTML = vitaminMoneyArray[4].toFixed(1);
+    photographyMoneyDisplay.innerHTML = vitaminMoneyArray[5].toFixed(1);
+    trainerMoneyDisplay.innerHTML = vitaminMoneyArray[6].toFixed(1);
+    cryptoMoneyDisplay.innerHTML = vitaminMoneyArray[7].toFixed(1);
 
-    surveyTimeDisplay.innerHTML = timeDisplay(allTimeValues[0]);
-    tutoringTimeDisplay.innerHTML = timeDisplay(allTimeValues[1]);
-    dogWalkingTimeDisplay.innerHTML = timeDisplay(allTimeValues[2]);
-    lawnMowerTimeDisplay.innerHTML = timeDisplay(allTimeValues[3]);
-    babysittingTimeDisplay.innerHTML = timeDisplay(allTimeValues[4]);
-    photographyTimeDisplay.innerHTML = timeDisplay(allTimeValues[5]);
-    trainerTimeDisplay.innerHTML = timeDisplay(allTimeValues[6]);
-    cryptoTimeDisplay.innerHTML = timeDisplay(allTimeValues[7]);
-  } else if (item.getAttribute("name") === "maneki") {
+    surveysTime = +surveyTimeDisplay.getAttribute("time");
+    tutoringTime = +tutoringTimeDisplay.getAttribute("time");
+    dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
+    lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
+    babysittingTime = +babysittingTimeDisplay.getAttribute("time");
+    photographyTime = +photographyTimeDisplay.getAttribute("time");
+    trainerTime = +trainerTimeDisplay.getAttribute("time");
+    cryptoTime = +cryptoTimeDisplay.getAttribute("time");
+
+    const allTimeValues = [
+      surveysTime,
+      tutoringTime,
+      dogWalkingTime,
+      lawnMowerTime,
+      babysittingTime,
+      photographyTime,
+      trainerTime,
+      cryptoTime,
+    ];
+
+    const vitaminTimeArray = allTimeValues.map((timeValue) =>
+      (timeValue * 3.33).toFixed(0)
+    );
+
+    surveyTimeDisplay.setAttribute("time", vitaminTimeArray[0]);
+    tutoringTimeDisplay.setAttribute("time", vitaminTimeArray[1]);
+    dogWalkingTimeDisplay.setAttribute("time", vitaminTimeArray[2]);
+    lawnMowerTimeDisplay.setAttribute("time", vitaminTimeArray[3]);
+    babysittingTimeDisplay.setAttribute("time", vitaminTimeArray[4]);
+    photographyTimeDisplay.setAttribute("time", vitaminTimeArray[5]);
+    trainerTimeDisplay.setAttribute("time", vitaminTimeArray[6]);
+    cryptoTimeDisplay.setAttribute("time", vitaminTimeArray[7]);
+
+    surveyTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[0]);
+    tutoringTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[1]);
+    dogWalkingTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[2]);
+    lawnMowerTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[3]);
+    babysittingTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[4]);
+    photographyTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[5]);
+    trainerTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[6]);
+    cryptoTimeDisplay.innerHTML = timeDisplay(vitaminTimeArray[7]);
+  }
+  if (item.getAttribute("name") === "speed") {
+    surveysTime = +surveyTimeDisplay.getAttribute("time");
+    tutoringTime = +tutoringTimeDisplay.getAttribute("time");
+    dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
+    lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
+    babysittingTime = +babysittingTimeDisplay.getAttribute("time");
+    photographyTime = +photographyTimeDisplay.getAttribute("time");
+    trainerTime = +trainerTimeDisplay.getAttribute("time");
+    cryptoTime = +cryptoTimeDisplay.getAttribute("time");
+
+    const allTimeValues = [
+      surveysTime,
+      tutoringTime,
+      dogWalkingTime,
+      lawnMowerTime,
+      babysittingTime,
+      photographyTime,
+      trainerTime,
+      cryptoTime,
+    ];
+
+    const speedTimeArray = allTimeValues.map((timeValue) =>
+      (timeValue * 5).toFixed(0)
+    );
+
+    surveyTimeDisplay.setAttribute("time", speedTimeArray[0]);
+    tutoringTimeDisplay.setAttribute("time", speedTimeArray[1]);
+    dogWalkingTimeDisplay.setAttribute("time", speedTimeArray[2]);
+    lawnMowerTimeDisplay.setAttribute("time", speedTimeArray[3]);
+    babysittingTimeDisplay.setAttribute("time", speedTimeArray[4]);
+    photographyTimeDisplay.setAttribute("time", speedTimeArray[5]);
+    trainerTimeDisplay.setAttribute("time", speedTimeArray[6]);
+    cryptoTimeDisplay.setAttribute("time", speedTimeArray[7]);
+
+    surveyTimeDisplay.innerHTML = timeDisplay(speedTimeArray[0]);
+    tutoringTimeDisplay.innerHTML = timeDisplay(speedTimeArray[1]);
+    dogWalkingTimeDisplay.innerHTML = timeDisplay(speedTimeArray[2]);
+    lawnMowerTimeDisplay.innerHTML = timeDisplay(speedTimeArray[3]);
+    babysittingTimeDisplay.innerHTML = timeDisplay(speedTimeArray[4]);
+    photographyTimeDisplay.innerHTML = timeDisplay(speedTimeArray[5]);
+    trainerTimeDisplay.innerHTML = timeDisplay(speedTimeArray[6]);
+    cryptoTimeDisplay.innerHTML = timeDisplay(speedTimeArray[7]);
+  }
+  if (item.getAttribute("name") === "maneki") {
     goldTradeValue = 1;
     defaultGoldValue = 1;
     goldValueTradeDisplay.innerHTML = goldTradeValue;
     goldValueTradeDisplay.setAttribute("goldDefaultValue", defaultGoldValue);
-  } else if (item.getAttribute("name") === "crypto-financial-adviser") {
-    surveyMoneyDisplay.innerHTML = allMoneyValues[0].toFixed(1);
-    tutoringMoneyDisplay.innerHTML = allMoneyValues[1].toFixed(0);
-    dogWalkingMoneyDisplay.innerHTML = allMoneyValues[2].toFixed(0);
-    lawnMowerMoneyDisplay.innerHTML = allMoneyValues[3].toFixed(0);
-    babysittingMoneyDisplay.innerHTML = allMoneyValues[4].toFixed(0);
-    photographyMoneyDisplay.innerHTML = allMoneyValues[5].toFixed(0);
-    trainerMoneyDisplay.innerHTML = allMoneyValues[6].toFixed(0);
-    cryptoMoneyDisplay.innerHTML = allMoneyValues[7].toFixed(0);
-  } else if (item.getAttribute("name") === "piggy-bank") {
-    surveyUpgradePriceDisplay.innerHTML = allPriceValues[0];
-    tutoringUpgradePriceDisplay.innerHTML = allPriceValues[1];
-    dogWalkingUpgradePriceDisplay.innerHTML = allPriceValues[2];
-    lawnMowerUpgradePriceDisplay.innerHTML = allPriceValues[3];
-    babysittingUpgradePriceDisplay.innerHTML = allPriceValues[4];
-    photographyUpgradePriceDisplay.innerHTML = allPriceValues[5];
-    trainerUpgradePriceDisplay.innerHTML = allPriceValues[6];
-    cryptoUpgradePriceDisplay.innerHTML = allPriceValues[7];
+  }
+  if (item.getAttribute("name") === "crypto-financial-adviser") {
+    surveyMoney = +surveyMoneyDisplay.innerHTML;
+    tutoringMoney = +tutoringMoneyDisplay.innerHTML;
+    dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
+    lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
+    babysittingMoney = +babysittingMoneyDisplay.innerHTML;
+    photographyMoney = +photographyMoneyDisplay.innerHTML;
+    trainerMoney = +trainerMoneyDisplay.innerHTML;
+    cryptoMoney = +cryptoMoneyDisplay.innerHTML;
+
+    const allMoneyValues = [
+      surveyMoney,
+      tutoringMoney,
+      dogWalkingMoney,
+      lawnMowerMoney,
+      babysittingMoney,
+      photographyMoney,
+      trainerMoney,
+      cryptoMoney,
+    ];
+
+    const financeAdviserMoneyArray = allMoneyValues.map(
+      (moneyValue) => moneyValue / 5
+    );
+    surveyMoneyDisplay.innerHTML = financeAdviserMoneyArray[0].toFixed(1);
+    tutoringMoneyDisplay.innerHTML = financeAdviserMoneyArray[1].toFixed(0);
+    dogWalkingMoneyDisplay.innerHTML = financeAdviserMoneyArray[2].toFixed(0);
+    lawnMowerMoneyDisplay.innerHTML = financeAdviserMoneyArray[3].toFixed(0);
+    babysittingMoneyDisplay.innerHTML = financeAdviserMoneyArray[4].toFixed(0);
+    photographyMoneyDisplay.innerHTML = financeAdviserMoneyArray[5].toFixed(0);
+    trainerMoneyDisplay.innerHTML = financeAdviserMoneyArray[6].toFixed(0);
+    cryptoMoneyDisplay.innerHTML = financeAdviserMoneyArray[7].toFixed(0);
+  }
+  if (item.getAttribute("name") === "piggy-bank") {
+    surveysUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
+    tutoringUpgradePrice = +tutoringUpgradePriceDisplay.innerHTML;
+    dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;
+    lawnMowerUpgradePrice = +lawnMowerUpgradePriceDisplay.innerHTML;
+    babysittingUpgradePrice = +babysittingUpgradePriceDisplay.innerHTML;
+    photographyUpgradePrice = +photographyUpgradePriceDisplay.innerHTML;
+    trainerUpgradePrice = +trainerUpgradePriceDisplay.innerHTML;
+    cryptoUpgradePrice = +cryptoUpgradePriceDisplay.innerHTML;
+
+    const allPriceValues = [
+      surveysUpgradePrice,
+      tutoringUpgradePrice,
+      dogWalkingUpgradePrice,
+      lawnMowerUpgradePrice,
+      babysittingUpgradePrice,
+      photographyUpgradePrice,
+      trainerUpgradePrice,
+      cryptoUpgradePrice,
+    ];
+
+    const piggyBankPriceArray = allPriceValues.map((price) =>
+      (price * 7.77).toFixed(0)
+    );
+
+    surveyUpgradePriceDisplay.innerHTML = piggyBankPriceArray[0];
+    tutoringUpgradePriceDisplay.innerHTML = piggyBankPriceArray[1];
+    dogWalkingUpgradePriceDisplay.innerHTML = piggyBankPriceArray[2];
+    lawnMowerUpgradePriceDisplay.innerHTML = piggyBankPriceArray[3];
+    babysittingUpgradePriceDisplay.innerHTML = piggyBankPriceArray[4];
+    photographyUpgradePriceDisplay.innerHTML = piggyBankPriceArray[5];
+    trainerUpgradePriceDisplay.innerHTML = piggyBankPriceArray[6];
+    cryptoUpgradePriceDisplay.innerHTML = piggyBankPriceArray[7];
   }
 };
 

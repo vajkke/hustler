@@ -131,6 +131,12 @@ const avatarFunction = () => {
 
   let itemToEquip;
 
+  const equipedHeading = document.querySelector(".equipedHeading");
+  const equipedItem1 = document.querySelector(".item-used--1");
+  const equipedItem2 = document.querySelector(".item-used--2");
+  const equipedItem3 = document.querySelector(".item-used--3");
+  const equipedItem4 = document.querySelector(".item-used--4");
+
   allItems.forEach((item) => {
     item.addEventListener("click", (e) => {
       itemToEquip = item;
@@ -142,6 +148,20 @@ const avatarFunction = () => {
           inventoryItemHeadingDisplay.innerHTML = item.heading;
           inventoryItemInfoDisplay.innerHTML = item.info;
           if (itemToEquip.getAttribute("equiped") === "no") {
+            equipBtn.classList.remove("hidden");
+            equipedHeading.classList.add("hidden");
+          } else if (
+            itemToEquip.getAttribute("name") !==
+              equipedItem1.getAttribute("name") &&
+            itemToEquip.getAttribute("name") !==
+              equipedItem2.getAttribute("name") &&
+            itemToEquip.getAttribute("name") !==
+              equipedItem3.getAttribute("name") &&
+            itemToEquip.getAttribute("name") !==
+              equipedItem4.getAttribute("name") &&
+            itemToEquip.getAttribute("equiped") === "yes"
+          ) {
+            itemToEquip.setAttribute("equiped", "no");
             equipBtn.classList.remove("hidden");
             equipedHeading.classList.add("hidden");
           } else if (itemToEquip.getAttribute("equiped") === "yes") {
@@ -165,12 +185,6 @@ const avatarFunction = () => {
   // equiping items
   const equipBtn = document.querySelector(".use-itemBtn");
   let equipItemName;
-
-  const equipedHeading = document.querySelector(".equipedHeading");
-  const equipedItem1 = document.querySelector(".item-used--1");
-  const equipedItem2 = document.querySelector(".item-used--2");
-  const equipedItem3 = document.querySelector(".item-used--3");
-  const equipedItem4 = document.querySelector(".item-used--4");
 
   const equipedItemClass = (equipedItem) => {
     if (itemToEquip.classList.contains("item-container--average")) {
@@ -196,6 +210,12 @@ const avatarFunction = () => {
     itemToEquip.setAttribute("equiped", "yes");
     equipBtn.classList.add("hidden");
     equipedHeading.classList.remove("hidden");
+  };
+
+  const unequiped = () => {
+    itemToEquip.setAttribute("equiped", "no");
+    equipBtn.classList.remove("hidden");
+    equipedHeading.classList.add("hidden");
   };
 
   equipBtn.addEventListener("click", () => {

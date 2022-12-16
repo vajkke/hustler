@@ -1544,6 +1544,7 @@ a {
   border-radius: 11px;
   cursor: pointer;
   color: #5a5a66;
+  display: none;
 }
 
 .unlock-job:active {
@@ -1575,6 +1576,7 @@ a {
   font-family: "Nova Mono", monospace;
   color: #5a5a66;
   left: -5%;
+  cursor: pointer;
 }
 
 .hidden {

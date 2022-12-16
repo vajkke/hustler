@@ -62,7 +62,7 @@ const trainerPrice = +trainerUnlockPriceDisplay.innerHTML;
 const cryptoPrice = +cryptoUnlockPriceDisplay.innerHTML;
 
 const unlockingJobs = () => {
-  unlockTutoringBtn.addEventListener("click", () => {
+  tutoringUnlockContainer.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney >= tutoringPrice) {
       tutoringUnlockContainer.classList.add("hidden");
@@ -72,7 +72,7 @@ const unlockingJobs = () => {
     }
   });
 
-  unlockDogWalkingBtn.addEventListener("click", () => {
+  dogWalkingUnlockContainer.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney >= dogWalkingPrice) {
       dogWalkingUnlockContainer.classList.add("hidden");
@@ -82,7 +82,7 @@ const unlockingJobs = () => {
     }
   });
 
-  unlockLawnMowerBtn.addEventListener("click", () => {
+  lawnMowerUnlockContainer.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney >= lawnMowerPrice) {
       lawnMowerUnlockContainer.classList.add("hidden");
@@ -92,7 +92,7 @@ const unlockingJobs = () => {
     }
   });
 
-  unlockBabysittingBtn.addEventListener("click", () => {
+  babysittingUnlockContainer.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney >= babysittingPrice) {
       babysittingUnlockContainer.classList.add("hidden");
@@ -102,7 +102,7 @@ const unlockingJobs = () => {
     }
   });
 
-  unlockPhotographyBtn.addEventListener("click", () => {
+  photographyUnlockContainer.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney >= photographyPrice) {
       photographyUnlockContainer.classList.add("hidden");
@@ -112,7 +112,7 @@ const unlockingJobs = () => {
     }
   });
 
-  unlockTrainerBtn.addEventListener("click", () => {
+  trainerUnlockContainer.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney >= trainerPrice) {
       trainerUnlockContainer.classList.add("hidden");
@@ -122,7 +122,7 @@ const unlockingJobs = () => {
     }
   });
 
-  unlockCryptoBtn.addEventListener("click", () => {
+  cryptoUnlockContainer.addEventListener("click", () => {
     totalMoney = +totalMoneyDisplay.innerHTML;
     if (totalMoney >= cryptoPrice) {
       cryptoUnlockContainer.classList.add("hidden");

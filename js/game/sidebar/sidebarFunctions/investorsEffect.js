@@ -55,7 +55,7 @@ const investorsEffect = (profitValue) => {
   ];
 
   const investorsEffectArray = allMoneyValues.map(
-    (moneyValue) => moneyValue * investorsProfitValue
+    (moneyValue) => (moneyValue += moneyValue * investorsProfitValue)
   );
 
   surveyMoneyDisplay.innerHTML = investorsEffectArray[0].toFixed(2);

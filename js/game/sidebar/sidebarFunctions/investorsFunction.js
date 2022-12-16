@@ -34,20 +34,19 @@ const investorsFunction = () => {
     }
   };
 
-  setInterval(
-    currentProfitFunction,
-    (currentProfitIncreaseDisplay.innerHTML = currentProfit.toFixed(1)),
-    100
-  );
+  setInterval(currentProfitFunction, 10);
 
   claimProfit.addEventListener("click", () => {
     if (currentProfit > 1) {
-      totalProfitIncrease = currentProfit;
-      totalProfitIncreaseDisplay.innerHTML = totalProfitIncrease.toFixed(1);
+      totalProfitIncrease += currentProfit;
+      totalProfitIncreaseDisplay.innerHTML =
+        totalProfitIncrease < 100
+          ? totalProfitIncrease.toFixed(1)
+          : totalProfitIncrease.toFixed(0);
       currentProfit = 1;
       currentProfitIncreaseDisplay.innerHTML = currentProfit.toFixed(1);
       gameReset();
-      investorsEffect(totalProfitIncrease);
+      investorsEffect(totalProfitIncrease / 100);
     }
   });
 };

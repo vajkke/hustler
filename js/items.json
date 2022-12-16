@@ -2,7 +2,7 @@
   "items": [
     {
       "heading": "Leprechaun",
-      "info": "This item boost your investors profit 5x",
+      "info": "This item boost your investors profit 3x",
       "image": "./img/items/leprechaun.svg",
       "type": "gold",
       "price": 50

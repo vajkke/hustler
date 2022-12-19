@@ -112,10 +112,10 @@ export const photographyFunction = () => {
     photographyUpgradeCount = +photographyUpgradeCountDisplay.innerHTML;
     photographyUpgradePrice = +photographyUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
-    defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;
     photographyMoney = +photographyMoneyDisplay.innerHTML;
+    defaultphotographyMoney = +photographyMoneyDisplay.innerHTML;
     if (totalMoney > photographyUpgradePrice) {
-      photographyMoney += defaultphotographyMoney;
+      photographyMoney += defaultphotographyMoney / 2;
       totalMoney -= photographyUpgradePrice;
       photographyUpgradeCount++;
       photographyUpgradePrice += photographyUpgradePrice / 7;
@@ -133,42 +133,40 @@ export const photographyFunction = () => {
 
     if (photographyUpgradeCount === firstTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      photographyMoney *= 3;
+      photographyMoney *= 1.7;
       photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
 
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      defaultphotographyMoney *= 2;
+      defaultphotographyMoney *= 1.5;
     }
 
     if (photographyUpgradeCount === secondTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      photographyMoney *= 4;
+      photographyMoney *= 1.7;
       photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
-
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      defaultphotographyMoney *= 2;
+      defaultphotographyMoney *= 1.5;
     }
 
     if (photographyUpgradeCount === thirdTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      photographyMoney *= 5;
+      photographyMoney *= 1.7;
       photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
-
       photographyUpgradeBarWidth = 0;
       photographyCountUpgradeBar.style.width = photographyUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      defaultphotographyMoney *= 2;
+      defaultphotographyMoney *= 1.5;
     }
     if (photographyUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      photographyMoney *= 10;
+      photographyMoney *= 1.7;
       photographyMoneyDisplay.innerHTML = photographyMoney.toFixed(2);
       photographyCountUpgradeBar.style.width = 100 + "%";
-      defaultphotographyMoney *= 2;
+      defaultphotographyMoney *= 1.5;
     }
   });
 };

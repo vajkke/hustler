@@ -97,15 +97,14 @@ export const tutoringFunction = () => {
   });
 
   tutoringUpgradeBtn.addEventListener("click", () => {
-    tutoringUpgradeCount = +tutoringUpgradeCountDisplay.innerHTML;
-    tutoringTime = +tutoringTimeDisplay.getAttribute("time");
     tutoringUpgradeAttribute = tutoringUpgradeBtn.getAttribute("upgradeCount");
+    tutoringUpgradeCount = +tutoringUpgradeCountDisplay.innerHTML;
     tutoringUpgradePrice = +tutoringUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
-    defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
     tutoringMoney = +tutoringMoneyDisplay.innerHTML;
+    defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
     if (totalMoney > tutoringUpgradePrice) {
-      tutoringMoney += defaulttutoringMoney;
+      tutoringMoney += defaulttutoringMoney / 2;
       totalMoney -= tutoringUpgradePrice;
       tutoringUpgradeCount++;
       tutoringUpgradePrice += tutoringUpgradePrice / 7;
@@ -120,42 +119,40 @@ export const tutoringFunction = () => {
 
     if (tutoringUpgradeCount === firstTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      tutoringMoney *= 3;
+      tutoringMoney *= 1.7;
       tutoringMoneyDisplay.innerHTML = tutoringMoney.toFixed(2);
 
       tutoringUpgradeBarWidth = 0;
       tutoringCountUpgradeBar.style.width = tutoringUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      defaulttutoringMoney *= 2;
+      defaulttutoringMoney *= 1.5;
     }
 
     if (tutoringUpgradeCount === secondTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      tutoringMoney *= 4;
+      tutoringMoney *= 1.7;
       tutoringMoneyDisplay.innerHTML = tutoringMoney.toFixed(2);
-
       tutoringUpgradeBarWidth = 0;
       tutoringCountUpgradeBar.style.width = tutoringUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      defaulttutoringMoney *= 2;
+      defaulttutoringMoney *= 1.5;
     }
 
     if (tutoringUpgradeCount === thirdTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      tutoringMoney *= 5;
+      tutoringMoney *= 1.7;
       tutoringMoneyDisplay.innerHTML = tutoringMoney.toFixed(2);
-
       tutoringUpgradeBarWidth = 0;
       tutoringCountUpgradeBar.style.width = tutoringUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      defaulttutoringMoney *= 2;
+      defaulttutoringMoney *= 1.5;
     }
     if (tutoringUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      tutoringMoney *= 10;
+      tutoringMoney *= 1.7;
       tutoringMoneyDisplay.innerHTML = tutoringMoney.toFixed(2);
       tutoringCountUpgradeBar.style.width = 100 + "%";
-      defaulttutoringMoney *= 2;
+      defaulttutoringMoney *= 1.5;
     }
   });
 };

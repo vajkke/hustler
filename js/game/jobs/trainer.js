@@ -131,10 +131,10 @@ export const trainerFunction = () => {
     trainerUpgradeCount = +trainerUpgradeCountDisplay.innerHTML;
     trainerUpgradePrice = +trainerUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
-    defaulttrainerMoney = +trainerMoneyDisplay.innerHTML;
     trainerMoney = +trainerMoneyDisplay.innerHTML;
+    defaulttrainerMoney = +trainerMoneyDisplay.innerHTML;
     if (totalMoney > trainerUpgradePrice) {
-      trainerMoney += defaulttrainerMoney;
+      trainerMoney += defaulttrainerMoney / 2;
       totalMoney -= trainerUpgradePrice;
       trainerUpgradeCount++;
       trainerUpgradePrice += trainerUpgradePrice / 7;
@@ -149,42 +149,40 @@ export const trainerFunction = () => {
 
     if (trainerUpgradeCount === firstTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      trainerMoney *= 3;
+      trainerMoney *= 1.7;
       trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
 
       trainerUpgradeBarWidth = 0;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      defaulttrainerMoney *= 2;
+      defaulttrainerMoney *= 1.5;
     }
 
     if (trainerUpgradeCount === secondTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      trainerMoney *= 4;
+      trainerMoney *= 1.7;
       trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
-
       trainerUpgradeBarWidth = 0;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      defaulttrainerMoney *= 2;
+      defaulttrainerMoney *= 1.5;
     }
 
     if (trainerUpgradeCount === thirdTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      trainerMoney *= 5;
+      trainerMoney *= 1.7;
       trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
-
       trainerUpgradeBarWidth = 0;
       trainerCountUpgradeBar.style.width = trainerUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      defaulttrainerMoney *= 2;
+      defaulttrainerMoney *= 1.5;
     }
     if (trainerUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      trainerMoney *= 10;
+      trainerMoney *= 1.7;
       trainerMoneyDisplay.innerHTML = trainerMoney.toFixed(2);
       trainerCountUpgradeBar.style.width = 100 + "%";
-      defaulttrainerMoney *= 2;
+      defaulttrainerMoney *= 1.5;
     }
   });
 };

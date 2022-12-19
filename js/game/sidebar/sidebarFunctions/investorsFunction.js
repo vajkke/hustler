@@ -1,5 +1,6 @@
 import gameReset from "../../gamereset/gameReset.js";
 import investorsEffect from "./investorsEffect.js";
+import investorsAnimation from "../../animations/investorsAnimation.js";
 
 const investorsFunction = () => {
   //buttons
@@ -43,6 +44,7 @@ const investorsFunction = () => {
         totalProfitIncrease < 100
           ? totalProfitIncrease.toFixed(1)
           : totalProfitIncrease.toFixed(0);
+      investorsAnimation(currentProfit);
       currentProfit = 1;
       currentProfitIncreaseDisplay.innerHTML = currentProfit.toFixed(1);
       gameReset();

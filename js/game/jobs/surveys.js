@@ -103,7 +103,7 @@ export const surveyFunction = () => {
     surveyMoney = +surveyMoneyDisplay.innerHTML;
     defaultSurveyMoney = +surveyMoneyDisplay.innerHTML;
     if (totalMoney > surveyUpgradePrice) {
-      surveyMoney += defaultSurveyMoney;
+      surveyMoney += defaultSurveyMoney / 2;
       totalMoney -= surveyUpgradePrice;
       surveyUpgradeCount++;
       surveyUpgradePrice += surveyUpgradePrice / 7;
@@ -118,40 +118,40 @@ export const surveyFunction = () => {
 
     if (surveyUpgradeCount === firstTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      surveyMoney *= 3;
+      surveyMoney *= 1.7;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
 
       surveyUpgradeBarWidth = 0;
       surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      defaultSurveyMoney *= 2;
+      defaultSurveyMoney *= 1.5;
     }
 
     if (surveyUpgradeCount === secondTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      surveyMoney *= 4;
+      surveyMoney *= 1.7;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
       surveyUpgradeBarWidth = 0;
       surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      defaultSurveyMoney *= 2;
+      defaultSurveyMoney *= 1.5;
     }
 
     if (surveyUpgradeCount === thirdTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      surveyMoney *= 5;
+      surveyMoney *= 1.7;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
       surveyUpgradeBarWidth = 0;
       surveyCountUpgradeBar.style.width = surveyUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      defaultSurveyMoney *= 2;
+      defaultSurveyMoney *= 1.5;
     }
     if (surveyUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      surveyMoney *= 10;
+      surveyMoney *= 1.7;
       surveyMoneyDisplay.innerHTML = surveyMoney.toFixed(2);
       surveyCountUpgradeBar.style.width = 100 + "%";
-      defaultSurveyMoney *= 2;
+      defaultSurveyMoney *= 1.5;
     }
   });
 };

@@ -115,10 +115,10 @@ export const babysittingFunction = () => {
     babysittingUpgradeCount = +babysittingUpgradeCountDisplay.innerHTML;
     babysittingUpgradePrice = +babysittingUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
-    defaultbabysittingMoney = +babysittingMoneyDisplay.innerHTML;
     babysittingMoney = +babysittingMoneyDisplay.innerHTML;
+    defaultbabysittingMoney = +babysittingMoneyDisplay.innerHTML;
     if (totalMoney > babysittingUpgradePrice) {
-      babysittingMoney += babysittingMoney;
+      babysittingMoney += defaultbabysittingMoney / 2;
       totalMoney -= babysittingUpgradePrice;
       babysittingUpgradeCount++;
       babysittingUpgradePrice += babysittingUpgradePrice / 7;
@@ -136,41 +136,40 @@ export const babysittingFunction = () => {
 
     if (babysittingUpgradeCount === firstTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      babysittingMoney *= 3;
+      babysittingMoney *= 1.7;
       babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
+
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      defaultbabysittingMoney *= 2;
+      defaultbabysittingMoney *= 1.5;
     }
 
     if (babysittingUpgradeCount === secondTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      babysittingMoney *= 4;
+      babysittingMoney *= 1.7;
       babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
-
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      defaultbabysittingMoney *= 2;
+      defaultbabysittingMoney *= 1.5;
     }
 
     if (babysittingUpgradeCount === thirdTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      babysittingMoney *= 5;
+      babysittingMoney *= 1.7;
       babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
-
       babysittingUpgradeBarWidth = 0;
       babysittingCountUpgradeBar.style.width = babysittingUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      defaultbabysittingMoney *= 2;
+      defaultbabysittingMoney *= 1.5;
     }
     if (babysittingUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      babysittingMoney *= 10;
+      babysittingMoney *= 1.7;
       babysittingMoneyDisplay.innerHTML = babysittingMoney.toFixed(2);
       babysittingCountUpgradeBar.style.width = 100 + "%";
-      defaultbabysittingMoney *= 2;
+      defaultbabysittingMoney *= 1.5;
     }
   });
 };

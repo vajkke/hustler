@@ -110,10 +110,10 @@ export const lawnMowerFunction = () => {
     lawnMowerUpgradeCount = +lawnMowerUpgradeCountDisplay.innerHTML;
     lawnMowerUpgradePrice = +lawnMowerUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
-    defaultlawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
     lawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
+    defaultlawnMowerMoney = +lawnMowerMoneyDisplay.innerHTML;
     if (totalMoney > lawnMowerUpgradePrice) {
-      lawnMowerMoney += defaultlawnMowerMoney;
+      lawnMowerMoney += defaultlawnMowerMoney / 2;
       totalMoney -= lawnMowerUpgradePrice;
       lawnMowerUpgradeCount++;
       lawnMowerUpgradePrice += lawnMowerUpgradePrice / 7;
@@ -130,39 +130,40 @@ export const lawnMowerFunction = () => {
 
     if (lawnMowerUpgradeCount === firstTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      lawnMowerMoney *= 3;
+      lawnMowerMoney *= 1.7;
       lawnMowerMoneyDisplay.innerHTML = lawnMowerMoney.toFixed(2);
+
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      defaultlawnMowerMoney *= 2;
+      defaultlawnMowerMoney *= 1.5;
     }
 
     if (lawnMowerUpgradeCount === secondTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      lawnMowerMoney *= 4;
+      lawnMowerMoney *= 1.7;
       lawnMowerMoneyDisplay.innerHTML = lawnMowerMoney.toFixed(2);
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      defaultlawnMowerMoney *= 2;
+      defaultlawnMowerMoney *= 1.5;
     }
 
     if (lawnMowerUpgradeCount === thirdTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      lawnMowerMoney *= 5;
+      lawnMowerMoney *= 1.7;
       lawnMowerMoneyDisplay.innerHTML = lawnMowerMoney.toFixed(2);
       lawnMowerUpgradeBarWidth = 0;
       lawnMowerCountUpgradeBar.style.width = lawnMowerUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      defaultlawnMowerMoney *= 2;
+      defaultlawnMowerMoney *= 1.5;
     }
     if (lawnMowerUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      lawnMowerMoney *= 10;
+      lawnMowerMoney *= 1.7;
       lawnMowerMoneyDisplay.innerHTML = lawnMowerMoney.toFixed(2);
       lawnMowerCountUpgradeBar.style.width = 100 + "%";
-      defaultlawnMowerMoney *= 2;
+      defaultlawnMowerMoney *= 1.5;
     }
   });
 };

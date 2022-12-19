@@ -153,6 +153,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-right: 1rem;
+  position: relative;
 }
 
 .upgrade-progress-count {
@@ -379,7 +380,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 10ss;
+  z-index: 100;
 }
 
 .close-container {
@@ -834,6 +835,7 @@ body {
   justify-content: space-between;
   position: absolute;
   top: 20%;
+  position: relative;
 }
 
 .investors-left-side {
@@ -1523,9 +1525,11 @@ a {
   font-size: 2rem;
 }
 
-.unlock-price--button {
+.unlock-heading--price {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .unlock-price {
@@ -1543,7 +1547,8 @@ a {
   padding: 0.5rem 1rem;
   border-radius: 11px;
   cursor: pointer;
-  color: #5a5a66;
+
+  color: #c1bbd5;
   display: none;
 }
 
@@ -1566,17 +1571,86 @@ a {
   position: absolute;
   width: 110%;
   height: 100%;
-  background-color: #c1bbd5;
+  background-color: #5a5a66;
   z-index: 3;
+  border-radius: 30px;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Nova Mono", monospace;
+  color: #dee7e7;
+  left: -7%;
+  cursor: pointer;
+}
+
+/* animations */
+
+.investors-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 20;
+}
+
+.restart-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 30;
+  width: 500px;
+  height: 250px;
+  border: 10px solid #dee7e7;
   border-radius: 25px;
+  top: -15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00c94f;
+}
+
+.added-profit--container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: "Nova Mono", monospace;
-  color: #5a5a66;
-  left: -5%;
-  cursor: pointer;
+  background-color: #dee7e7;
+  width: 350px;
+  height: 150px;
+  border-radius: 25px;
+}
+
+.added-profit--heading {
+  font-size: 2rem;
+  margin: 1.2rem 0;
+  color: #00c94f;
+}
+
+.added-profit {
+  font-size: 3rem;
+  color: #00c94f;
+  font-weight: 900;
+}
+
+.raining-money {
+  position: absolute;
+  z-index: 25;
+  top: -40%;
+}
+
+.raining-money-left {
+  left: 1%;
+}
+
+.raining-money-right {
+  right: 1%;
 }
 
 .hidden {

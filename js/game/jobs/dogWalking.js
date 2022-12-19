@@ -46,10 +46,6 @@ let dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
 let dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
 let dogWalkingTimeValue = dogWalkingTime;
 
-//playable
-let dogWalkingUpgradeAttribute =
-  dogWalkingUpgradeBtn.getAttribute("upgradeCount");
-
 export let timeIntervalDogWalking;
 export let timeOutDogWalking;
 
@@ -101,16 +97,13 @@ export const dogWalkingFunction = () => {
   });
 
   dogWalkingUpgradeBtn.addEventListener("click", () => {
-    dogWalkingUpgradeCount = +dogWalkingUpgradeCountDisplay.innerHTML;
-    dogWalkingTime = +dogWalkingTimeDisplay.getAttribute("time");
-    dogWalkingUpgradeAttribute =
-      dogWalkingUpgradeBtn.getAttribute("upgradeCount");
-    dogWalkingUpgradePrice = +dogWalkingUpgradePriceDisplay.innerHTML;
+    dogWalkingUpgradeCount = +surveyUpgradeCountDisplay.innerHTML;
+    dogWalkingUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
-    defaultdogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
-    dogWalkingMoney = +dogWalkingMoneyDisplay.innerHTML;
+    dogWalkingMoney = +surveyMoneyDisplay.innerHTML;
+    defaultSurveyMoney = +surveyMoneyDisplay.innerHTML;
     if (totalMoney > dogWalkingUpgradePrice) {
-      dogWalkingMoney += defaultdogWalkingMoney;
+      dogWalkingMoney += defaultSurveyMoney / 2;
       totalMoney -= dogWalkingUpgradePrice;
       dogWalkingUpgradeCount++;
       dogWalkingUpgradePrice += dogWalkingUpgradePrice / 7;
@@ -119,53 +112,47 @@ export const dogWalkingFunction = () => {
       dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
       dogWalkingUpgradePriceDisplay.innerHTML =
         dogWalkingUpgradePrice.toFixed(2);
-      dogWalkingUpgradeCountDisplay.innerHTML = Math.round(
-        dogWalkingUpgradeCount
-      );
+      dogWalkingUpgradeCountDisplay.innerHTML = Math.round(surveyUpgradeCount);
       dogWalkingUpgradeBarWidth += upgradeWitdh;
       dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
     }
 
-    if (dogWalkingUpgradeCount === firstTimeStampUpgrade) {
+    if (surveyUpgradeCount === firstTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      dogWalkingMoney *= 3;
+      dogWalkingMoney *= 1.7;
       dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
 
       dogWalkingUpgradeBarWidth = 0;
       dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      defaultdogWalkingMoney *= 2;
+      defaultSurveyMoney *= 1.5;
     }
 
-    if (dogWalkingUpgradeCount === secondTimeStampUpgrade) {
+    if (surveyUpgradeCount === secondTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      dogWalkingMoney *= 4;
+      dogWalkingMoney *= 1.7;
       dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
-
       dogWalkingUpgradeBarWidth = 0;
       dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      defaultdogWalkingMoney *= 2;
+      defaultSurveyMoney *= 1.5;
     }
 
-    if (dogWalkingUpgradeCount === thirdTimeStampUpgrade) {
+    if (surveyUpgradeCount === thirdTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      dogWalkingMoney *= 5;
+      dogWalkingMoney *= 1.7;
       dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
-
       dogWalkingUpgradeBarWidth = 0;
       dogWalkingCountUpgradeBar.style.width = dogWalkingUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      defaultdogWalkingMoney *= 2;
+      defaultSurveyMoney *= 1.5;
     }
-    if (dogWalkingUpgradeCount === forthTimeStampUpgrade) {
+    if (surveyUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      dogWalkingMoney *= 10;
+      dogWalkingMoney *= 1.7;
       dogWalkingMoneyDisplay.innerHTML = dogWalkingMoney.toFixed(2);
       dogWalkingCountUpgradeBar.style.width = 100 + "%";
-      defaultdogWalkingMoney *= 2;
+      defaultSurveyMoney *= 1.5;
     }
   });
 };
-
-// export default dogWalkingFunction;

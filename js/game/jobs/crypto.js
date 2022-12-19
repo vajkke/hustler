@@ -126,10 +126,10 @@ export const cryptoFunction = () => {
     cryptoUpgradeCount = +cryptoUpgradeCountDisplay.innerHTML;
     cryptoUpgradePrice = +cryptoUpgradePriceDisplay.innerHTML;
     totalMoney = +totalMoneyDisplay.innerHTML;
-    defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;
     cryptoMoney = +cryptoMoneyDisplay.innerHTML;
+    defaultcryptoMoney = +cryptoMoneyDisplay.innerHTML;
     if (totalMoney > cryptoUpgradePrice) {
-      cryptoMoney += defaultcryptoMoney;
+      cryptoMoney += defaultcryptoMoney / 2;
       totalMoney -= cryptoUpgradePrice;
       cryptoUpgradeCount++;
       cryptoUpgradePrice += cryptoUpgradePrice / 7;
@@ -144,42 +144,40 @@ export const cryptoFunction = () => {
 
     if (cryptoUpgradeCount === firstTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      cryptoMoney *= 3;
+      cryptoMoney *= 1.7;
       cryptoMoneyDisplay.innerHTML = cryptoMoney.toFixed(2);
 
       cryptoUpgradeBarWidth = 0;
       cryptoCountUpgradeBar.style.width = cryptoUpgradeBarWidth + "%";
       upgradeWitdh = 2.5;
-      defaultcryptoMoney *= 2;
+      defaultcryptoMoney *= 1.5;
     }
 
     if (cryptoUpgradeCount === secondTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      cryptoMoney *= 4;
+      cryptoMoney *= 1.7;
       cryptoMoneyDisplay.innerHTML = cryptoMoney.toFixed(2);
-
       cryptoUpgradeBarWidth = 0;
       cryptoCountUpgradeBar.style.width = cryptoUpgradeBarWidth + "%";
       upgradeWitdh = 2;
-      defaultcryptoMoney *= 2;
+      defaultcryptoMoney *= 1.5;
     }
 
     if (cryptoUpgradeCount === thirdTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      cryptoMoney *= 5;
+      cryptoMoney *= 1.7;
       cryptoMoneyDisplay.innerHTML = cryptoMoney.toFixed(2);
-
       cryptoUpgradeBarWidth = 0;
       cryptoCountUpgradeBar.style.width = cryptoUpgradeBarWidth + "%";
       upgradeWitdh = 1;
-      defaultcryptoMoney *= 2;
+      defaultcryptoMoney *= 1.5;
     }
     if (cryptoUpgradeCount === forthTimeStampUpgrade) {
       totalMoney = +totalMoneyDisplay.innerHTML;
-      cryptoMoney *= 10;
+      cryptoMoney *= 1.7;
       cryptoMoneyDisplay.innerHTML = cryptoMoney.toFixed(2);
       cryptoCountUpgradeBar.style.width = 100 + "%";
-      defaultcryptoMoney *= 2;
+      defaultcryptoMoney *= 1.5;
     }
   });
 };

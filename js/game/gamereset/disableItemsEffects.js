@@ -149,6 +149,10 @@ const timeDisplay = (time) => {
   }
 };
 
+const currentProfitIncreaseDisplay = document.querySelector(
+  ".profit-increase-value"
+);
+
 const disableItemsEffect = (item) => {
   if (item.getAttribute("name") === "surveys") {
     surveysUpgradePrice = +surveyUpgradePriceDisplay.innerHTML;
@@ -389,6 +393,13 @@ const disableItemsEffect = (item) => {
     photographyUpgradePriceDisplay.innerHTML = piggyBankPriceArray[5];
     trainerUpgradePriceDisplay.innerHTML = piggyBankPriceArray[6];
     cryptoUpgradePriceDisplay.innerHTML = piggyBankPriceArray[7];
+  }
+
+  if (item.getAttribute("name") === "leprechaun") {
+    currentProfitIncreaseDisplay.setAttribute("profit", "1");
+
+    currentProfitIncreaseDisplay.innerHTML =
+      currentProfitIncreaseDisplay.getAttribute("profit");
   }
 };
 

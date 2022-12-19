@@ -12,6 +12,8 @@ const investorsFunction = () => {
     ".total-money--slider"
   );
 
+  const moneyStampDisplay = document.querySelector(".profit-claim-container");
+
   const currentProfitIncreaseDisplay = document.querySelector(
     ".profit-increase-value"
   );
@@ -21,16 +23,17 @@ const investorsFunction = () => {
 
   // values
   let totalMoney = +totalMoneyDisplay.innerHTML;
-  let currentProfit = +currentProfitIncreaseDisplay.innerHTML;
+  let currentProfit = +currentProfitIncreaseDisplay.getAttribute("profit");
   let totalProfitIncrease = +totalProfitIncreaseDisplay.innerHTML;
 
-  let moneyStamp = 1000000;
+  let moneyStamp = +moneyStampDisplay.getAttribute("moneystamp");
+  let defaultMoneyStamp = 1000000;
   let defaultCurrentProfit = 0.1;
 
   const currentProfitFunction = () => {
     if (totalMoney >= moneyStamp) {
       currentProfit += defaultCurrentProfit;
-      moneyStamp += 1000000;
+      moneyStamp += defaultMoneyStamp;
       currentProfitIncreaseDisplay.innerHTML = currentProfit.toFixed(1);
     }
   };
@@ -45,7 +48,7 @@ const investorsFunction = () => {
           ? totalProfitIncrease.toFixed(1)
           : totalProfitIncrease.toFixed(0);
       investorsAnimation(currentProfit);
-      currentProfit = 1;
+      currentProfit = +currentProfitIncreaseDisplay.getAttribute("profit");
       currentProfitIncreaseDisplay.innerHTML = currentProfit.toFixed(1);
       gameReset();
       investorsEffect(totalProfitIncrease / 100);

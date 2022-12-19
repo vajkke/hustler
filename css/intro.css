@@ -510,6 +510,7 @@ body {
 
 .manager-buy {
   background-color: #fcab10;
+  border: 3px solid #fcab10;
   width: 130px;
   height: 75px;
   font-size: 2rem;
@@ -518,6 +519,11 @@ body {
   justify-content: center;
   cursor: pointer;
   border-radius: 20px;
+}
+
+.manager-buy:active {
+  background: transparent;
+  color: #fcab10;
 }
 
 /* UPGRADER */
@@ -546,6 +552,7 @@ body {
   margin: 2rem;
   width: 300px;
   height: 400px;
+  position: relative;
 }
 
 .upgrader-img {
@@ -940,6 +947,7 @@ body {
   width: 200px;
   height: 80px;
   background-color: #f71735;
+  border: 5px solid #f71735;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -947,6 +955,11 @@ body {
   font-size: 2rem;
   font-family: "Nova Mono", monospace;
   cursor: pointer;
+}
+
+.claim-profit:active {
+  color: #f71735;
+  background-color: transparent;
 }
 
 .warning-text {

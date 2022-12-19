@@ -1,6 +1,5 @@
 const surveyProgressBar = document.querySelector(".survey-progress--bar");
-
-const jobsSection = document.querySelector(".jobs");
+const surveyBar = document.querySelector(".surveys-bar");
 
 //btns
 const surveysBtn = document.querySelector(".surveysBtn");
@@ -72,6 +71,14 @@ export const surveyFunction = () => {
     if (surveysBtn.getAttribute("surveyBtnClicked") === "no") {
       surveyTimeValue = +surveyTimeDisplay.getAttribute("time");
       surveysBtn.setAttribute("surveyBtnClicked", "yes");
+
+      if (surveyTimeValue < 1) {
+        surveyBar.style.cssText = `  background-image: url("../img/animations/progress-bar.gif");
+        background-repeat: no-repeat;
+        background-size: auto;`;
+        surveyProgressBar.classList.add("hidden");
+      }
+
       surveyProgressBar.style.cssText = `width: 100%; transition: width ${surveyTime}s ease-in-out;`;
 
       timeIntervalSurveys = setInterval(intervalTimer, 1000);

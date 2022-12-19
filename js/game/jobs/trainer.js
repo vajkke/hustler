@@ -1,4 +1,5 @@
 const trainerProgressBar = document.querySelector(".trainer-progress--bar");
+const trainerBar = document.querySelector(".trainer-bar");
 
 //btns
 const trainerBtn = document.querySelector(".trainerBtn");
@@ -104,6 +105,14 @@ export const trainerFunction = () => {
     if (trainerBtn.getAttribute("trainerBtnClicked") === "no") {
       trainerTime = +trainerTimeDisplay.getAttribute("time");
       trainerBtn.setAttribute("trainerBtnClicked", "yes");
+
+      if (trainerTime < 1) {
+        trainerBar.style.cssText = `  background-image: url("../img/animations/progress-bar.gif");
+        background-repeat: no-repeat;
+        background-size: auto;`;
+        trainerProgressBar.classList.add("hidden");
+      }
+
       trainerProgressBar.style.cssText = `width: 100%; transition: width ${trainerTime}s ease-in-out;`;
       timeIntervalTrainer = setInterval(intervalTimeFunction, 1000);
 

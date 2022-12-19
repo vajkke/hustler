@@ -1,6 +1,5 @@
-const jobsSection = document.querySelector(".jobs");
-
 const tutoringProgressBar = document.querySelector(".tutoring-progress--bar");
+const tutoringBar = document.querySelector(".tutoring-bar");
 
 //btns
 const tutoringBtn = document.querySelector(".tutoringBtn");
@@ -69,9 +68,16 @@ export const tutoringFunction = () => {
     defaulttutoringMoney = +tutoringMoneyDisplay.innerHTML;
     tutoringMoney = +tutoringMoneyDisplay.innerHTML;
     if (tutoringBtn.getAttribute("tutoringBtnClicked") === "no") {
-      console.log("jeste");
       tutoringTimeValue = +tutoringTimeDisplay.getAttribute("time");
       tutoringBtn.setAttribute("tutoringBtnClicked", "yes");
+
+      if (tutoringTime < 1) {
+        tutoringBar.style.cssText = `  background-image: url("../img/animations/progress-bar.gif");
+        background-repeat: no-repeat;
+        background-size: auto;`;
+        tutoringProgressBar.classList.add("hidden");
+      }
+
       tutoringProgressBar.style.cssText = `width: 100%; transition: width ${tutoringTime}s ease-in-out;`;
 
       timeIntervalTutoring = setInterval(intervalTimer, 1000);

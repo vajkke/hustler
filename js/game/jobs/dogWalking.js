@@ -1,6 +1,7 @@
 const dogWalkingProgressBar = document.querySelector(
   ".dogWalking-progress--bar"
 );
+const dogWalkingBar = document.querySelector(".dogWalking-bar");
 
 //btns
 const dogWalkingBtn = document.querySelector(".dogWalkingBtn");
@@ -71,6 +72,14 @@ export const dogWalkingFunction = () => {
     if (dogWalkingBtn.getAttribute("dogWalkingBtnClicked") === "no") {
       dogWalkingTimeValue = +dogWalkingTimeDisplay.getAttribute("time");
       dogWalkingBtn.setAttribute("dogWalkingBtnClicked", "yes");
+
+      if (dogWalkingTime < 1) {
+        dogWalkingBar.style.cssText = `  background-image: url("../img/animations/progress-bar.gif");
+        background-repeat: no-repeat;
+        background-size: auto;`;
+        dogWalkingProgressBar.classList.add("hidden");
+      }
+
       dogWalkingProgressBar.style.cssText = `width: 100%; transition: width ${dogWalkingTime}s ease-in-out;`;
       timeIntervalDogWalking = setInterval(intervalTimer, 1000);
 

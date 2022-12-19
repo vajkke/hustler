@@ -1,4 +1,5 @@
 const lawnMowerProgressBar = document.querySelector(".lawnMower-progress--bar");
+const lawnMowerBar = document.querySelector(".lawnMower-bar");
 
 //btns
 const lawnMowerBtn = document.querySelector(".lawnMowerBtn");
@@ -83,6 +84,14 @@ export const lawnMowerFunction = () => {
     if (lawnMowerBtn.getAttribute("lawnMowerBtnClicked") === "no") {
       lawnMowerTime = +lawnMowerTimeDisplay.getAttribute("time");
       lawnMowerBtn.setAttribute("lawnMowerBtnClicked", "yes");
+
+      if (lawnMowerTime < 1) {
+        lawnMowerBar.style.cssText = `  background-image: url("../img/animations/progress-bar.gif");
+        background-repeat: no-repeat;
+        background-size: auto;`;
+        lawnMowerProgressBar.classList.add("hidden");
+      }
+
       lawnMowerProgressBar.style.cssText = `width: 100%; transition: width ${lawnMowerTime}s ease-in-out;`;
       timeIntervalLawnMower = setInterval(intervalTimeFunction, 1000);
 

@@ -1,4 +1,5 @@
 const cryptoProgressBar = document.querySelector(".crypto-progress--bar");
+const cryptoBar = document.querySelector(".crypto-bar");
 
 //btns
 const cryptoBtn = document.querySelector(".cryptoBtn");
@@ -99,6 +100,14 @@ export const cryptoFunction = () => {
     if (cryptoBtn.getAttribute("cryptoBtnClicked") === "no") {
       cryptoTime = +cryptoTimeDisplay.getAttribute("time");
       cryptoBtn.setAttribute("cryptoBtnClicked", "yes");
+
+      if (cryptoTime < 1) {
+        cryptoBar.style.cssText = `  background-image: url("../img/animations/progress-bar.gif");
+        background-repeat: no-repeat;
+        background-size: auto;`;
+        cryptoProgressBar.classList.add("hidden");
+      }
+
       cryptoProgressBar.style.cssText = `width: 100%; transition: width ${cryptoTime}s ease-in-out;`;
       timeIntervalCrypto = setInterval(intervalTimeFunction, 1000);
 

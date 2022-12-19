@@ -1,6 +1,7 @@
 const photographyProgressBar = document.querySelector(
   ".photography-progress--bar"
 );
+const photographyBar = document.querySelector(".photography-bar");
 
 //btns
 const photographyBtn = document.querySelector(".photographyBtn");
@@ -85,6 +86,14 @@ export const photographyFunction = () => {
     if (photographyBtn.getAttribute("photographyBtnClicked") === "no") {
       photographyTime = +photographyTimeDisplay.getAttribute("time");
       photographyBtn.setAttribute("photographyBtnClicked", "yes");
+
+      if (photographyTime < 1) {
+        photographyBar.style.cssText = `  background-image: url("../img/animations/progress-bar.gif");
+        background-repeat: no-repeat;
+        background-size: auto;`;
+        photographyProgressBar.classList.add("hidden");
+      }
+
       photographyProgressBar.style.cssText = `width: 100%; transition: width ${photographyTime}s ease-in-out;`;
       timeIntervalPhotography = setInterval(intervalTimeFunction, 1000);
 

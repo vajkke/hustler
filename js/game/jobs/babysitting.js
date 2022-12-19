@@ -2,6 +2,8 @@ const babysittingProgressBar = document.querySelector(
   ".babysitting-progress--bar"
 );
 
+const babysittingBar = document.querySelector(".babysitting-bar");
+
 //btns
 const babysittingBtn = document.querySelector(".babysittingBtn");
 const babysittingUpgradeBtn = document.querySelector(
@@ -88,6 +90,14 @@ export const babysittingFunction = () => {
     if (babysittingBtn.getAttribute("babysittingBtnClicked") === "no") {
       babysittingTime = +babysittingTimeDisplay.getAttribute("time");
       babysittingBtn.setAttribute("babysittingBtnClicked", "yes");
+
+      if (babysittingTime < 1) {
+        babysittingBar.style.cssText = `  background-image: url("../img/animations/progress-bar.gif");
+        background-repeat: no-repeat;
+        background-size: auto;`;
+        babysittingProgressBar.classList.add("hidden");
+      }
+
       babysittingProgressBar.style.cssText = `width: 100%; transition: width ${babysittingTime}s ease-in-out;`;
       timeIntervalBabysitting = setInterval(intervalTimeFunction, 1000);
 

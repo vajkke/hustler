@@ -1,4 +1,4 @@
-#Hustler
+# Hustler
 
 Idle clicker game inspired by Adventure Capitalist.
 

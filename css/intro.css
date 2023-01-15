@@ -131,10 +131,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2rem;
 }
 
 .job-profit {
-  font-size: 2rem;
   z-index: 1;
 }
 
@@ -519,12 +519,16 @@ body {
   justify-content: center;
   cursor: pointer;
   border-radius: 20px;
+
+  background-color: #ff0000;
+  border: 3px solid #ff0000;
+  text-decoration: line-through;
 }
 
-.manager-buy:active {
+/* .manager-buy:active {
   background: transparent;
   color: #fcab10;
-}
+} */
 
 /* UPGRADER */
 
@@ -586,8 +590,8 @@ body {
 }
 
 .upgrader-buy {
-  background-color: #8c7aa9;
-  width: 100px;
+  width: 140px;
+  max-width: 100%;
   height: 45px;
   font-size: 1.5rem;
   display: flex;
@@ -597,7 +601,10 @@ body {
   border-radius: 16px;
   margin-top: 1rem;
   border: 2px solid #8c7aa9;
-  color: #dee7e7;
+
+  /* cant buy */
+  background-color: #dee7e7;
+  color: #8c7aa9;
 }
 
 .upgrader-buy:active {
@@ -1546,7 +1553,6 @@ a {
 }
 
 .unlock-price {
-  margin-top: 1rem;
   font-size: 2rem;
   border-bottom: 5px solid #dee7e7;
 }
@@ -1596,6 +1602,7 @@ a {
   color: #dee7e7;
   left: -7%;
   cursor: pointer;
+  /* display: none; */
 }
 
 /* animations */
@@ -1664,6 +1671,524 @@ a {
 
 .raining-money-right {
   right: 1%;
+}
+
+.upgrader-container--pop-up {
+  position: absolute;
+  background-color: #dee7e7;
+  width: 150px;
+  height: 70px;
+  left: 5%;
+  top: 0%;
+  z-index: 123;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.upgrader-pop-up--heading {
+  font-size: 1rem;
+  color: #8c7aa9;
+}
+
+/* responsive */
+
+@media (max-width: 600px) {
+  body {
+    overflow: auto;
+  }
+
+  .sidebar {
+    position: fixed;
+    height: 90%;
+    width: 70%;
+    background: rgba(222, 231, 231, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 50;
+    border-radius: 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    /* border: none; */
+    display: none;
+    padding-bottom: 3rem;
+  }
+
+  .mobile-nav--container {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 8px;
+    background-color: #ffff;
+    margin: 0.25rem 0;
+
+    border-radius: 15px;
+  }
+
+  .sidebar-option {
+    background: rgba(222, 231, 231, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.4px);
+    -webkit-backdrop-filter: blur(2.4px);
+    border: 1px solid rgba(222, 231, 231, 0.3);
+    color: #5a5a66;
+  }
+
+  .mobile-nav--overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+  }
+
+  .mobile-nav--close {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 60;
+  }
+
+  .close-line {
+    width: 50px;
+    height: 7px;
+    background: rgba(222, 231, 231, 1);
+    position: absolute;
+    bottom: 3%;
+  }
+
+  .close-line-left {
+    transform: rotate(45deg);
+  }
+  .close-line-right {
+    transform: rotate(-45deg);
+  }
+
+  .money-jobs {
+    width: 100%;
+    margin-left: 0;
+    padding-bottom: 5rem;
+  }
+
+  .jobs {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .total-money {
+    font-size: 3rem;
+    padding: 2rem 0;
+  }
+
+  .left-side--jobs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .right-side--jobs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .job-container {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+
+  .job-bar {
+    width: 250px;
+    height: 50px;
+    margin-bottom: 1.2rem;
+  }
+
+  .job-upgrade-price {
+    font-size: 1rem;
+  }
+
+  .buy-more {
+    font-size: 1rem;
+  }
+
+  .job-cost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .time-container {
+    font-size: 1rem;
+  }
+
+  .job-image--upgrade img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .unlock-heading {
+    font-size: 1.5rem;
+  }
+  .unlock-price {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+
+  .unlock-job--container {
+    left: -6%;
+    top: 1%;
+    width: 110%;
+    height: 110%;
+  }
+
+  .close-container {
+    top: -1%;
+    right: -1%;
+    width: 60px;
+    height: 60px;
+    font-size: 2.5rem;
+  }
+  .slider-option-info--heading {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .slider-option-info--text {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .managers-option--container {
+    flex-direction: column;
+  }
+
+  .manager-container {
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+  }
+  .manager-name-info-price {
+    text-align: center;
+    margin: 0;
+    margin: 1rem;
+  }
+
+  .manager-buy {
+    width: 75px;
+    height: 35px;
+    font-size: 1.5rem;
+  }
+
+  .investors-option--container {
+    flex-direction: column;
+    top: 0%;
+  }
+  .investors-text-info {
+    width: 100%;
+  }
+  .investors-text--heading {
+    font-size: 1.8rem;
+  }
+
+  .investors-left-side {
+    width: 90%;
+    text-align: center;
+  }
+
+  .investors-number {
+    width: 100%;
+  }
+  .investor-number-heading {
+    font-size: 1.5rem;
+  }
+
+  .investors-number img {
+    width: 50px;
+    height: 50px;
+  }
+  .profit-increase--container {
+    padding: 0;
+  }
+
+  .investors-right-side {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .profit-claim-container {
+    height: auto;
+    padding: 2rem 0;
+  }
+
+  .profit-increase-text {
+    margin-top: 0;
+  }
+  .claim-profit {
+    margin: 2rem 0;
+  }
+
+  .item-container {
+    margin: 1rem;
+  }
+
+  .shop-top-option {
+    width: 50px;
+  }
+
+  .shop-option-img {
+    width: 75px;
+    height: 75px;
+  }
+  .shop-option-img img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .shop-option--heading {
+    width: 90px;
+  }
+
+  .avatar {
+    margin: 0;
+    margin-top: 2rem;
+  }
+
+  .item-container {
+    margin: 1rem;
+    width: 120px;
+    height: 120px;
+  }
+
+  .gold-img {
+    width: 75px;
+  }
+  .gold-number--value {
+    margin-right: 2rem;
+    font-size: 2.5rem;
+    margin-left: 0.8rem;
+  }
+  .total-money-display--shop {
+    margin-left: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .converter--buttons {
+    width: 90%;
+  }
+
+  .dollars-to-gold--container {
+    width: 80%;
+    height: auto;
+  }
+
+  .cost-container {
+    flex-direction: column;
+  }
+  .result-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  .cost-display--container {
+    width: 100%;
+    text-align: center;
+  }
+  .cost-money-value {
+    margin: 0;
+  }
+
+  .result-display--container {
+    width: 100%;
+  }
+  .result-gold-value {
+    margin: 0;
+  }
+
+  .exchange-cost--heading {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .exchange-result--heading {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .arrow {
+    width: 55px;
+    height: 55px;
+  }
+  .arrow-up,
+  .arrow-down {
+    font-size: 4rem !important;
+  }
+  .exchange-button {
+    font-size: 2.2rem;
+    border-width: 3px;
+    padding: 0.3rem;
+    margin-top: 1.2rem;
+  }
+
+  .shop-selection-container--freeGold {
+    flex-direction: column;
+  }
+
+  .free-left-side {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .social-media--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-media {
+    width: 100%;
+    padding: 0;
+    justify-content: space-between;
+  }
+
+  .social-media--img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-media-text {
+    font-size: 1rem;
+  }
+
+  .social-media--btn {
+    font-size: 1.5rem;
+  }
+
+  .free-right-side {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .promo-code--container {
+    width: 90%;
+    height: auto;
+  }
+
+  .promo-code--heading {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .promo-code--form {
+    margin-bottom: 2rem;
+  }
+
+  .gold-money--container {
+    margin: 0;
+    margin: 2rem 0;
+  }
+  .shop-selection-container--shop {
+    margin-top: 1rem;
+  }
+
+  .bottom-part {
+    flex-direction: column;
+  }
+
+  .left-side {
+    margin: 0;
+  }
+
+  .avatar-selection--container {
+    padding: 0 2.5rem;
+  }
+  .gender-select {
+    width: 70px;
+    height: 70px;
+  }
+  .gender {
+    width: 45px;
+    height: 45px;
+  }
+
+  .right-side {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+
+  .item-used--container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .top-options {
+    margin: 0;
+    width: 90%;
+  }
+  .top-options--container {
+    margin: 1rem;
+  }
+
+  .no-items--heading {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .welcome-container {
+    width: 90%;
+    height: auto;
+    padding: 1rem 0;
+  }
 }
 
 .hidden {

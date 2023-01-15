@@ -1,7 +1,5 @@
 const playBtn = document.querySelector(".play-option--container");
-const optionsBtn = document.querySelector(".options-option--container");
 const soundBtn = document.querySelector(".sound");
-
 const soundIMG = document.querySelector(".sound-img");
 const welcomeContainer = document.querySelector(".welcome-container");
 const loader = document.querySelector(".loader");

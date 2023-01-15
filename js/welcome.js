@@ -1,6 +1,7 @@
 const playBtn = document.querySelector(".play-option--container");
+const optionsBtn = document.querySelector(".options-option--container");
 const soundBtn = document.querySelector(".sound");
-const mobileNavContainer = document.querySelector(".mobile-nav--container");
+
 const soundIMG = document.querySelector(".sound-img");
 const welcomeContainer = document.querySelector(".welcome-container");
 const loader = document.querySelector(".loader");
@@ -27,7 +28,6 @@ const playBtnFunction = () => {
     setInterval(() => {
       loader.classList.add("hidden");
       gameSection.classList.remove("hidden");
-      mobileNavContainer.classList.remove("hidden");
     }, 4000);
   });
 };

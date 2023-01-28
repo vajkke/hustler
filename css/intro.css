@@ -1602,7 +1602,7 @@ a {
   color: #dee7e7;
   left: -7%;
   cursor: pointer;
-  display: none;
+  /* display: none; */
 }
 
 /* animations */

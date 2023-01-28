@@ -68,16 +68,16 @@ const avatarFunction = () => {
   // GENDER
   genderSelect.addEventListener("click", () => {
     if (gender === 0) {
-      genderImg.src = "../../../../img/avatars/female-sign.svg";
-      avatarImg.src = "../../../../img/avatars/avatarWoman-select.svg";
-      sidebarAvatarImg.src = "../../../../img/avatars/avatarWoman.svg";
+      genderImg.src = "./img/avatars/female-sign.svg";
+      avatarImg.src = "./img/avatars/avatarWoman-select.svg";
+      sidebarAvatarImg.src = "./img/avatars/avatarWoman.svg";
       genderContainer.style.borderColor = "#FFCD33";
       genderSelect.style.borderColor = "#FFCD33";
       gender = 1;
     } else if (gender === 1) {
-      genderImg.src = "../../../../img/avatars/male-sign.svg";
-      avatarImg.src = "../../../../img/avatars/avatarMan-select.svg";
-      sidebarAvatarImg.src = "../../../../img/avatars/avatarMan.svg";
+      genderImg.src = "./img/avatars/male-sign.svg";
+      avatarImg.src = "./img/avatars/avatarMan-select.svg";
+      sidebarAvatarImg.src = "./img/avatars/avatarMan.svg";
       genderContainer.style.borderColor = "";
       genderSelect.style.borderColor = "";
       gender = 0;

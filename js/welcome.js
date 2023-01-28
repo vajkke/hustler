@@ -10,11 +10,11 @@ const soundBtnFunction = () => {
     if (soundIMG.classList.contains("sound-on")) {
       soundIMG.classList.remove("sound-on");
       soundIMG.classList.add("sound-off");
-      soundIMG.src = "../img/welcome/soundOff.svg";
+      soundIMG.src = "./img/welcome/soundOff.svg";
     } else {
       soundIMG.classList.remove("sound-off");
       soundIMG.classList.add("sound-on");
-      soundIMG.src = "../img/welcome/soundOn.svg";
+      soundIMG.src = "./img/welcome/soundOn.svg";
     }
   });
 };

@@ -1694,6 +1694,51 @@ a {
   color: #8c7aa9;
 }
 
+.mobile-alert--container {
+  margin: 3rem 0;
+  width: 70%;
+  height: auto;
+  border: 5px solid #415a77;
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+  display: none;
+}
+
+.mobile-alert--heading {
+  color: #415a77;
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 850px) {
+  .mobile-alert--container {
+    display: flex;
+  }
+  body {
+    overflow: auto;
+  }
+  .welcome-container {
+    display: none;
+  }
+}
+
+@media (max-height: 830px) {
+  .mobile-alert--container {
+    display: flex;
+  }
+  body {
+    overflow: auto;
+  }
+  .welcome-container {
+    display: none;
+  }
+}
+
 .hidden {
   display: none;
 }
